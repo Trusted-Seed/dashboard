@@ -19,7 +19,7 @@ type HomeContentAttributes = {
   seeds: Seed[];
 };
 
-const { title, seeds } = attributes as HomeContentAttributes;
+const { seeds } = attributes as HomeContentAttributes;
 
 export const HomePage: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
       <Head>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
-      <Heading>{title}</Heading>
+      <Heading>FAQ</Heading>
       <HomeContent />
       <UnorderedList ml={4}>
         {seeds.map((seed, k) => (

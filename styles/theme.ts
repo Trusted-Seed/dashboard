@@ -2,7 +2,13 @@ import { extendTheme } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 
 export const theme = extendTheme({
-  // customize default chakra theme here
+  fonts: {
+    body: `'Urbanist', sans-serif`,
+  },
+  colors: {
+    darkBG: '#09090A',
+    ceruleanBlue: '#12BAD6',
+  },
 });
 
 export const globalStyles = css`
