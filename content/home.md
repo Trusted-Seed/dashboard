@@ -1,7 +1,6 @@
 ---
 title: Lorem ipsum lorem ipsum
 subTitle: Create a sustainable funding for public goods,
-date: 2022-02-22T18:31:40.290Z
 sections:
   - description: The Trusted Seed is a key cultural initialization tool for blockchain networks. A reputable network of trusted actors with skin in the game who can lend their wisdom and expertise to make good decisions in the early stages of a Commons’ governance.
     title: Vision

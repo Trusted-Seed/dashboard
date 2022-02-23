@@ -1,10 +1,13 @@
 import { Flex, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 
+import { JoinUsButton } from './JoinUsButton';
+
 type LandingSectionProps = {
   title: string;
   description: string;
   imageSrc: string;
   reversed?: boolean;
+  withButton?: boolean;
 };
 
 export const LandingSection: React.FC<LandingSectionProps> = ({
@@ -12,6 +15,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
   description,
   imageSrc,
   reversed = false,
+  withButton = false,
 }) => (
   <SimpleGrid columns={2} gap={8}>
     <VStack
@@ -27,6 +31,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
       <Text fontWeight="light" fontSize="2xl">
         {description}
       </Text>
+      {withButton && <JoinUsButton pt={8} />}
     </VStack>
     <Flex
       pos="relative"

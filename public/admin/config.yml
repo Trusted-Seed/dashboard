@@ -12,7 +12,6 @@ collections:
         file: 'content/home.md'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - label: 'Sections'
             name: 'sections'
             widget: list
@@ -20,11 +19,16 @@ collections:
               - { label: 'Title', name: 'title', widget: 'string' }
               - { label: 'Description', name: 'description', widget: 'text' }
               - { label: 'Image', name: 'imageSrc', widget: 'image' }
+      - label: 'About Us'
+        name: 'about'
+        file: 'content/about.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
       - label: 'FAQ'
         name: 'faq'
         file: 'content/faq.md'
         fields:
-          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - label: 'Trusted Seed Membership FAQ'
             name: 'membershipFAQ'
             widget: list

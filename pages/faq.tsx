@@ -7,8 +7,8 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
+import FAQBGImage from 'assets/faq-bg.svg';
 import { Button } from 'components/Button';
-import { Head } from 'components/Head';
 import { AccordionDownIcon } from 'components/icons/AccordionDownIcon';
 import { AccordionUpIcon } from 'components/icons/AccordionUpIcon';
 import { Link } from 'components/Link';
@@ -83,12 +83,24 @@ const FAQSection: React.FC<{ faqs: FAQ[] }> = ({ faqs }) => (
   </Accordion>
 );
 
-export const FAQPage: React.FC = () => {
-  return (
-    <VStack w="100%" p={8} spacing={8}>
-      <Head>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-      </Head>
+export const FAQPage: React.FC = () => (
+  <>
+    <Flex
+      _before={{
+        content: '""',
+        h: '200rem',
+        maxH: 'calc(100% + 10rem)',
+        w: '200rem',
+        top: '-10rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        pos: 'absolute',
+        bg: `url(${FAQBGImage.src})`,
+        bgPos: 'center top',
+        bgRepeat: 'no-repeat',
+      }}
+    />
+    <VStack w="100%" p={8} spacing={8} zIndex={1}>
       <Text fontSize="xl" maxW="2xl" textAlign="center">
         If you have a question that is not covered here, you can reach out to us
         by email or join us for the next Trusted Seed Office Hour that happen
@@ -111,7 +123,7 @@ export const FAQPage: React.FC = () => {
       </Text>
       <FAQSection faqs={scoreFAQ} />
     </VStack>
-  );
-};
+  </>
+);
 
 export default FAQPage;

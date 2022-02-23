@@ -1,5 +1,4 @@
 ---
-date: 2022-02-22T18:31:40.290Z
 membershipFAQ:
   - answer: >-
       * Be a core part of an altruistic & tech-forward community aiming to

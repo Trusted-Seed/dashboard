@@ -1,15 +1,7 @@
-import {
-  Flex,
-  FlexProps,
-  HStack,
-  IconButton,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import { Flex, HStack, IconButton, Text, VStack } from '@chakra-ui/react';
 import LandingBGImage from 'assets/landing-bg.svg';
 import LandingBGFooterImage from 'assets/landing-bg-footer.svg';
-import { Button } from 'components/Button';
-import { Head } from 'components/Head';
+import { JoinUsButton } from 'components/JoinUsButton';
 import { LandingSection } from 'components/LandingSection';
 import { Link } from 'components/Link';
 import { attributes } from 'content/home.md';
@@ -30,21 +22,6 @@ type HomeContentAttributes = {
 
 const { title, subTitle, sections } = attributes as HomeContentAttributes;
 
-const JoinUsButton: React.FC<FlexProps> = props => (
-  <Flex {...props}>
-    <Link href="/join" _hover={{}}>
-      <Button
-        variant="outline"
-        px={12}
-        textTransform="uppercase"
-        letterSpacing="0.4rem"
-      >
-        Join Us
-      </Button>
-    </Link>
-  </Flex>
-);
-
 export const HomePage: React.FC = () => (
   <>
     <Flex
@@ -53,6 +30,7 @@ export const HomePage: React.FC = () => (
       _before={{
         content: '""',
         h: '200rem',
+        maxH: 'calc(100% - 20rem)',
         width: '200rem',
         top: '20rem',
         left: '50%',
@@ -64,9 +42,6 @@ export const HomePage: React.FC = () => (
       }}
     />
     <VStack w="100%" pt={8} px={24} pb={72} zIndex={1}>
-      <Head>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-      </Head>
       <Text fontWeight="bold" fontSize="7xl">
         {title}
       </Text>
