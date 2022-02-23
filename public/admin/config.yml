@@ -13,7 +13,6 @@ collections:
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
           - label: 'Sections'
             name: 'sections'
             widget: list
@@ -26,11 +25,9 @@ collections:
         file: 'content/faq.md'
         fields:
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
           - label: 'Trusted Seed Membership FAQ'
             name: 'membershipFAQ'
             widget: list
             fields:
               - { label: 'Question', name: 'question', widget: 'string' }
-              - { label: 'Answer', name: 'answer', widget: 'text' }
-              - { label: 'Details', name: 'details', widget: 'markdown' }
+              - { label: 'Answer', name: 'answer', widget: 'markdown' }

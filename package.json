@@ -46,6 +46,7 @@
     "next": "^12.0.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-markdown": "^8.0.0",
     "typescript": "^4.5.5",
     "web3modal": "^1.9.5"
   },

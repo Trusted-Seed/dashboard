@@ -13,6 +13,7 @@ import { AccordionDownIcon } from 'components/icons/AccordionDownIcon';
 import { AccordionUpIcon } from 'components/icons/AccordionUpIcon';
 import { Link } from 'components/Link';
 import { attributes } from 'content/faq.md';
+import ReactMarkdown from 'react-markdown';
 import { contactInfo } from 'utils/contactInfo';
 
 type FAQ = {
@@ -54,7 +55,27 @@ const FAQSection: React.FC<{ faqs: FAQ[] }> = ({ faqs }) => (
                 {isExpanded ? <AccordionUpIcon /> : <AccordionDownIcon />}
               </Flex>
             </AccordionButton>
-            <AccordionPanel p={4}>{faq.answer}</AccordionPanel>
+            <AccordionPanel
+              py={4}
+              px={8}
+              sx={{ a: { color: 'ceruleanBlue' }, li: { ml: 4 } }}
+            >
+              <ReactMarkdown
+                components={{
+                  a: ({ href, children }) => (
+                    <Link
+                      color="ceruleanBlue"
+                      isExternal
+                      href={href?.toString() ?? '#'}
+                    >
+                      {children}
+                    </Link>
+                  ),
+                }}
+              >
+                {faq.answer}
+              </ReactMarkdown>
+            </AccordionPanel>
           </>
         )}
       </AccordionItem>
