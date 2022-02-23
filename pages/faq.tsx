@@ -6,20 +6,21 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Head } from 'components/Head';
-import { attributes, react as HomeContent } from 'content/home.md';
+import { attributes } from 'content/faq.md';
 
-type Seed = {
-  name: string;
-  description: string;
+type FAQ = {
+  question: string;
+  answer: string;
 };
 
-type HomeContentAttributes = {
+type FAQContentAttributes = {
   title: string;
   date: Date;
-  seeds: Seed[];
+  membershipFAQ: FAQ[];
+  scoreFAQ: FAQ[];
 };
 
-const { seeds } = attributes as HomeContentAttributes;
+const { membershipFAQ, scoreFAQ } = attributes as FAQContentAttributes;
 
 export const HomePage: React.FC = () => {
   return (
@@ -28,12 +29,19 @@ export const HomePage: React.FC = () => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Heading>FAQ</Heading>
-      <HomeContent />
       <UnorderedList ml={4}>
-        {seeds.map((seed, k) => (
+        {membershipFAQ.map((faq, k) => (
           <ListItem key={k}>
-            <Text fontWeight="bold">{seed.name}</Text>
-            <Text>{seed.description}</Text>
+            <Text fontWeight="bold">{faq.question}</Text>
+            <Text>{faq.answer}</Text>
+          </ListItem>
+        ))}
+      </UnorderedList>
+      <UnorderedList ml={4}>
+        {scoreFAQ.map((faq, k) => (
+          <ListItem key={k}>
+            <Text fontWeight="bold">{faq.question}</Text>
+            <Text>{faq.answer}</Text>
           </ListItem>
         ))}
       </UnorderedList>

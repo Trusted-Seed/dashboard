@@ -34,6 +34,7 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.3",
     "@davatar/react": "^1.8.1",
     "@emotion/react": "^11.7.1",

@@ -21,7 +21,7 @@ class TSDocument extends Document {
         <Head>
           <link
             rel="shortcut icon"
-            href="/logo.svg"
+            href="/images/logo.svg"
             sizes="any"
             type="image/svg+xml"
           />

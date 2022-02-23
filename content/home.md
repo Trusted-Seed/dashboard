@@ -1,17 +1,15 @@
 ---
-title: Trusted Seed Dashboard
+title: Lorem ipsum lorem ipsum
+subTitle: Create a sustainable funding for public goods,
 date: 2022-02-22T18:31:40.290Z
-seeds:
-  - description: Flax seeds are super rich in fiber, omega-3 fats, and protein that
-      make them the best choice for nutritional goodness.
-    name: Flax Seeds
-  - description: Considered to be one of the most healthy seeds on the planet, chia
-      seeds are rich in antioxidants, fiber, and Omega-3.
-    name: Chia Seeds
-  - description: Also known as amaranth seeds, this is rich in fiber, protein, and
-      many other micronutrients.
-    name: Rajgira Seeds
+sections:
+  - description: The Trusted Seed is a key cultural initialization tool for blockchain networks. A reputable network of trusted actors with skin in the game who can lend their wisdom and expertise to make good decisions in the early stages of a Commons’ governance.
+    title: Vision
+    imageSrc: /images/vision.svg
+  - description: The Trusted Seed is a group of trusted community members that hold the non-transferable CSTK tokens, representing their reputation within the Commons Stack.
+    title: About Us
+    imageSrc: /images/about-us.svg
+  - description: Create sustainable funding for public goods, initiallyspecifically for token engineering research, open-source software, and, eventually, all kinds of nonprofit causes through a curated list of reputable & experienced community members who are aligned with this mission.
+    title: Mission
+    imageSrc: /images/mission.svg
 ---
-Welcome to this awesome page about seeds that you can trust.
-
-This page is built with NextJS, and content is managed in Netlify CMS

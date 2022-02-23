@@ -54,7 +54,13 @@ export const UserDisplay: React.FC = () => {
           </Text>
         </Button>
       </PopoverTrigger>
-      <PopoverContent border="none" bg="darkBG" right={0} p="0" _focus={{}}>
+      <PopoverContent
+        border="none"
+        bg="transparent"
+        right={0}
+        p="0"
+        _focus={{}}
+      >
         <PopoverBody p={0}>
           <Flex w="100%" justify="flex-end">
             <ConnectButton />

@@ -1,5 +1,5 @@
 import { Flex, HStack } from '@chakra-ui/react';
-import LogoImage from 'assets/logoWithText.svg';
+import LogoImage from 'assets/logo-text.svg';
 import { ConnectButton } from 'components/ConnectButton';
 import { ActiveLink, Link } from 'components/Link';
 import { UserDisplay } from 'components/UserDisplay';
@@ -9,7 +9,7 @@ import { useWallet } from 'web3';
 export const Header: React.FC = () => {
   const { isConnected } = useWallet();
   return (
-    <HStack w="100%" justify="space-between" py={6} px={[4, 8]}>
+    <HStack w="100%" justify="space-between" py={6} px={[4, 8]} zIndex={1}>
       <Link href="/">
         <Flex h="4rem">
           <Image src={LogoImage} />

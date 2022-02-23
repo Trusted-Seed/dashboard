@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 export const theme = extendTheme({
   fonts: {
     body: `'Urbanist', sans-serif`,
+    heading: `'Urbanist', sans-serif`,
   },
   colors: {
     darkBG: '#09090A',
@@ -14,6 +15,7 @@ export const theme = extendTheme({
 export const globalStyles = css`
   html,
   body {
-    scroll-behaviour: smooth;
+    background: #09090a;
+    overflow-x: hidden;
   }
 `;
