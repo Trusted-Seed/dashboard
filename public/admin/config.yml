@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
   branch: dev
-media_folder: public/img
-public_folder: img
+media_folder: public/images
+public_folder: /images
 collections:
   - name: 'pages'
     label: 'Pages'
@@ -14,9 +14,23 @@ collections:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-          - label: 'Seeds'
-            name: 'seeds'
+          - label: 'Sections'
+            name: 'sections'
             widget: list
             fields:
-              - { label: 'Name', name: 'name', widget: 'string' }
+              - { label: 'Title', name: 'title', widget: 'string' }
               - { label: 'Description', name: 'description', widget: 'text' }
+              - { label: 'Image', name: 'imageSrc', widget: 'image' }
+      - label: 'FAQ'
+        name: 'faq'
+        file: 'content/faq.md'
+        fields:
+          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - label: 'Trusted Seed Membership FAQ'
+            name: 'membershipFAQ'
+            widget: list
+            fields:
+              - { label: 'Question', name: 'question', widget: 'string' }
+              - { label: 'Answer', name: 'answer', widget: 'text' }
+              - { label: 'Details', name: 'details', widget: 'markdown' }
