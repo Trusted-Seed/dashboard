@@ -29,7 +29,7 @@ export const UserDisplay: React.FC = () => {
           borderRadius="full"
           variant="ghost"
           bg="blackAlpha.500"
-          _hover={{ bg: 'whiteAlpha.50' }}
+          _hover={{ bg: 'whiteAlpha.100' }}
           _focus={{}}
         >
           <Box

@@ -8,7 +8,9 @@ export const theme = extendTheme({
   },
   colors: {
     darkBG: '#09090A',
+    greyBG: '#171616',
     ceruleanBlue: '#12BAD6',
+    darkCeruleanBlue: '#0b7385',
   },
 });
 

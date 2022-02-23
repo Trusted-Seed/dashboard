@@ -1,5 +1,4 @@
 import {
-  Button,
   Flex,
   FlexProps,
   HStack,
@@ -9,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import LandingBGImage from 'assets/landing-bg.svg';
 import LandingBGFooterImage from 'assets/landing-bg-footer.svg';
+import { Button } from 'components/Button';
 import { Head } from 'components/Head';
 import { LandingSection } from 'components/LandingSection';
 import { Link } from 'components/Link';
@@ -34,19 +34,10 @@ const JoinUsButton: React.FC<FlexProps> = props => (
   <Flex {...props}>
     <Link href="/join" _hover={{}}>
       <Button
-        size="lg"
         variant="outline"
-        bg="blackAlpha.500"
-        borderColor="ceruleanBlue"
-        borderWidth="2px"
-        borderRadius="full"
         px={12}
-        color="ceruleanBlue"
         textTransform="uppercase"
-        _hover={{ bg: 'blackAlpha.800' }}
         letterSpacing="0.4rem"
-        _focus={{}}
-        fontWeight="500"
       >
         Join Us
       </Button>
@@ -122,8 +113,9 @@ export const HomePage: React.FC = () => (
               aria-label={label}
               color="black"
               bg="white"
+              _hover={{ bg: 'ceruleanBlue' }}
               icon={icon}
-            />{' '}
+            />
           </Link>
         ))}
       </HStack>
