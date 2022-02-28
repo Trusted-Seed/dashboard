@@ -6,7 +6,6 @@ import { attributes } from 'content/about.md';
 type AboutContentAttributes = {
   title: string;
   description: string;
-  imageSrc: string;
 };
 
 const { title, description } = attributes as AboutContentAttributes;

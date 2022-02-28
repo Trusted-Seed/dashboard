@@ -7,7 +7,7 @@ collections:
   - name: 'pages'
     label: 'Pages'
     files:
-      - label: 'Home'
+      - label: 'Landing'
         name: 'home'
         file: 'content/home.md'
         fields:
@@ -29,9 +29,26 @@ collections:
         name: 'faq'
         file: 'content/faq.md'
         fields:
-          - label: 'Trusted Seed Membership FAQ'
+          - label: 'TS Membership FAQ'
             name: 'membershipFAQ'
             widget: list
             fields:
               - { label: 'Question', name: 'question', widget: 'string' }
               - { label: 'Answer', name: 'answer', widget: 'markdown' }
+          - label: 'CSTK Score FAQ'
+            name: 'scoreFAQ'
+            widget: list
+            fields:
+              - { label: 'Question', name: 'question', widget: 'string' }
+              - { label: 'Answer', name: 'answer', widget: 'markdown' }
+      - label: 'Members'
+        name: 'members'
+        file: 'content/members.md'
+        fields:
+          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Tier One Members', name: 'firstMembers', widget: 'list' }
+          - { label: 'Tier Two Members', name: 'secondMembers', widget: 'list' }
+          - label: 'Tier Three Members'
+            name: 'thirdMembers'
+            widget: 'list'
