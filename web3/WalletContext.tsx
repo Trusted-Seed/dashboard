@@ -8,8 +8,8 @@ import {
   useState,
 } from 'react';
 import {
-  DEFAULT_NETWORK,
-  NETWORK_CONFIG,
+  config,
+  NETWORK_INFO,
   switchChainOnMetaMask,
   WEB3_MODAL_OPTIONS,
 } from 'web3';
@@ -76,16 +76,19 @@ export const WalletProvider: React.FC = ({ children }) => {
       const ethersProvider = new providers.Web3Provider(prov);
 
       let network = prov.chainId;
-      if (!NETWORK_CONFIG[network]) {
+
+      if (!NETWORK_INFO[network]) {
         const success = isMetamaskProvider(ethersProvider)
-          ? await switchChainOnMetaMask(DEFAULT_NETWORK)
+          ? await switchChainOnMetaMask(config.defaultNetwork)
           : false;
         if (!success) {
-          const errorMsg = `Network not supported, please switch to ${NETWORK_CONFIG[DEFAULT_NETWORK].name}`;
+          const errorMsg = `Network not supported, please switch to ${
+            NETWORK_INFO[config.defaultNetwork].name
+          }`;
           toast({ status: 'error', description: errorMsg });
           throw new Error(errorMsg);
         }
-        network = DEFAULT_NETWORK;
+        network = config.defaultNetwork;
         window.location.reload();
       }
 

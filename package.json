@@ -42,6 +42,7 @@
     "@emotion/styled": "^11.6.0",
     "@gnosis.pm/safe-apps-web3modal": "^9.0.0",
     "ethers": "^5.5.4",
+    "fast-memoize": "^2.5.2",
     "framer-motion": "^6.2.6",
     "next": "^12.0.10",
     "react": "^17.0.2",
