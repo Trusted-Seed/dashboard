@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
   const { isConnected } = useWallet();
   return (
     <HStack w="100%" justify="space-between" py={6} px={[4, 8]} zIndex={1}>
-      <Link href="/">
+      <Link href={isConnected ? '/dashboard' : '/'}>
         <Flex h="4rem">
           <Image src={LogoImage} />
         </Flex>
