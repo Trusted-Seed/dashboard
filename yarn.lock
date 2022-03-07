@@ -1584,6 +1584,19 @@
     prop-types "^15.7.2"
     tslib "^2.1.0"
 
+"@typeform/embed-react@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@typeform/embed-react/-/embed-react-1.9.0.tgz#79702192203df75a6d23145419d9d281a7889f1d"
+  integrity sha512-U6tjQ+pftZU1pYcDunHPT+Kc5ZdzrZOpCxL3NAZMhltsXzkJyxCeNiF7mboGzdvw52TPNrQ+aJv336bjDbV+Xw==
+  dependencies:
+    "@typeform/embed" "1.32.1"
+    fast-deep-equal "^3.1.3"
+
+"@typeform/embed@1.32.1":
+  version "1.32.1"
+  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-1.32.1.tgz#012a0a9516870ebf461a3acde0a29ea7cead8c3a"
+  integrity sha512-lFBCAdq3pMhCG0WFedlRLuZ/ME8amv1PltxgGsgxlKBtgVIoQiTggMH6ZEPRk6PKaUs4IS7hJHxsXwOCe+WBXQ==
+
 "@types/debug@^4.0.0":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
