@@ -4,6 +4,7 @@ import community_governance from 'assets/community-governance.svg';
 import ticket from 'assets/ticket.svg';
 import BackgroundContainer from 'components/BackgroundContainer';
 import { Button } from 'components/Button';
+import { Link } from 'components/Link';
 import React from 'react';
 // 4 sections
 //
@@ -68,7 +69,9 @@ const MembershipPage: React.FC = () => {
             </Text>
           </Flex>
         </Flex>
-        <Button variant="contained">Apply for membership</Button>
+        <Link href="/apply-stage-one" _hover={{}}>
+          <Button variant="contained">Apply for membership</Button>
+        </Link>
       </Flex>
     </BackgroundContainer>
   );
