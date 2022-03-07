@@ -10,7 +10,7 @@ export const MemberCountCard: React.FC<{ totalMembers?: number }> = ({
       color="ceruleanBlue"
       fontWeight="bold"
       fontSize={{ base: '7xl', lg: '8xl', xl: '9xl' }}
-      lineHeight={{ base: '4rem', lg: '5rem' }}
+      lineHeight={{ base: '4rem', lg: '5rem', xl: '6rem' }}
     >
       {totalMembers}
     </Text>

@@ -124,7 +124,7 @@ export const UserDisplay: React.FC = () => {
                       p={2}
                       justify="space-between"
                       align="center"
-                      borderRadius="sm"
+                      borderRadius="md"
                       _hover={{ bg: 'whiteAlpha.50' }}
                     >
                       {NETWORK_INFO[chainId].explorerLabel}
@@ -157,7 +157,7 @@ export const UserDisplay: React.FC = () => {
                         isMetamask ? () => switchChainOnMetaMask(c) : undefined
                       }
                       _hover={{ bg: 'whiteAlpha.50' }}
-                      borderRadius="sm"
+                      borderRadius="md"
                       key={c}
                     >
                       <NetworkLabel chainId={c} />
