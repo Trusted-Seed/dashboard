@@ -18,7 +18,7 @@ collections:
             fields:
               - { label: 'Title', name: 'title', widget: 'string' }
               - { label: 'Description', name: 'description', widget: 'text' }
-              - { label: 'Image', name: 'imageSrc', widget: 'image' }
+              - { label: 'Image', name: 'image', widget: 'image' }
       - label: 'About Us'
         name: 'about'
         file: 'content/about.md'
@@ -52,3 +52,16 @@ collections:
           - label: 'Tier Three Members'
             name: 'thirdMembers'
             widget: 'list'
+      - label: 'Dashboard'
+        name: 'dashboard'
+        file: 'content/dashboard.md'
+        fields:
+          - label: 'Important Messages'
+            name: 'messages'
+            widget: list
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Description', name: 'description', widget: 'text' }
+              - { label: 'URL', name: 'url', widget: 'string' }
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'Action Text', name: 'action', widget: 'string' }

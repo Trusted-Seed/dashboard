@@ -1,10 +1,15 @@
 import { Text } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 
-export const MemberCountCard: React.FC<{ totalMembers?: number }> = ({
-  totalMembers = 0,
-}) => (
-  <Card>
+export const MemberCountCard: React.FC<{
+  totalMembers?: number;
+  isMembersPage?: boolean;
+}> = ({ totalMembers = 0, isMembersPage = false }) => (
+  <Card
+    bg={isMembersPage ? 'membersCardBG' : 'cardBG'}
+    textAlign="center"
+    spacing={{ base: 4, lg: 8 }}
+  >
     <Text fontSize={{ base: 'xl', lg: '2xl' }}>Total member count</Text>
     <Text
       color="ceruleanBlue"

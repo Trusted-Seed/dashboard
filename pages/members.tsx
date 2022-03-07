@@ -74,7 +74,7 @@ export const MembersPage: React.FC<{
               Updated {formatDate(date)}
             </Text>
           </VStack>
-          <MemberCountCard totalMembers={totalMembers} />
+          <MemberCountCard totalMembers={totalMembers} isMembersPage />
         </Flex>
         <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
         <Text fontSize={descFontSize} px={24} textAlign="center">

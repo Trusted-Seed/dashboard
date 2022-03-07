@@ -6,8 +6,8 @@ export const Card: React.FC<StackProps> = ({ children, ...props }) => (
     borderRadius={{ base: 'xl', lg: '2xl', xl: '3xl' }}
     bg="cardBG"
     boxShadow="md"
-    textAlign="center"
-    spacing={{ base: 4, lg: 8 }}
+    spacing={4}
+    textAlign="left"
     {...props}
   >
     {children}

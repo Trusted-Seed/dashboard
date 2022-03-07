@@ -5,7 +5,7 @@ import { JoinUsButton } from './JoinUsButton';
 type LandingSectionProps = {
   title: string;
   description: string;
-  imageSrc: string;
+  image: string;
   reversed?: boolean;
   withButton?: boolean;
 };
@@ -13,7 +13,7 @@ type LandingSectionProps = {
 export const LandingSection: React.FC<LandingSectionProps> = ({
   title,
   description,
-  imageSrc,
+  image,
   reversed = false,
   withButton = false,
 }) => {
@@ -52,7 +52,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
           right: !reversed ? undefined : '3rem',
           transform: 'translateY(-45%)',
           pos: 'absolute',
-          bg: `url(${imageSrc})`,
+          bg: `url(${image})`,
           bgPos: reversed ? 'right center' : 'left center',
           bgRepeat: 'no-repeat',
         }}

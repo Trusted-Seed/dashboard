@@ -1,9 +1,16 @@
-import { Flex, Text, VStack } from '@chakra-ui/react';
+import { Flex, HStack, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
+import { Message, MessageCard } from 'components/Cards/Message';
+import { attributes } from 'content/dashboard.md';
+
+type HomeContentAttributes = {
+  title: string;
+  messages: Message[];
+};
+
+const { messages } = attributes as HomeContentAttributes;
 
 export const DashboardPage: React.FC = () => {
-  const titleFontSize = { base: '3xl', lg: '4xl', xl: '5xl' };
-
   return (
     <>
       <Flex
@@ -23,9 +30,11 @@ export const DashboardPage: React.FC = () => {
         }}
       />
       <VStack w="100%" py={8} px={24} zIndex={1} textAlign="center">
-        <Text fontWeight="bold" fontSize={titleFontSize}>
-          Dashboard
-        </Text>
+        <HStack spacing={8} w="100%">
+          {messages.map((message, id) => (
+            <MessageCard {...message} key={id} />
+          ))}
+        </HStack>
         <Flex h="100rem" />
       </VStack>
     </>

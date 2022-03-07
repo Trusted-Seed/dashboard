@@ -10,7 +10,7 @@ import { contactInfo } from 'utils/contactInfo';
 type Section = {
   title: string;
   description: string;
-  imageSrc: string;
+  image: string;
 };
 
 type HomeContentAttributes = {
