@@ -1,0 +1,18 @@
+import { Text } from '@chakra-ui/react';
+import { Card } from 'components/Card';
+
+export const MemberCountCard: React.FC<{ totalMembers?: number }> = ({
+  totalMembers = 0,
+}) => (
+  <Card>
+    <Text fontSize={{ base: 'xl', lg: '2xl' }}>Total member count</Text>
+    <Text
+      color="ceruleanBlue"
+      fontWeight="bold"
+      fontSize={{ base: '7xl', lg: '8xl', xl: '9xl' }}
+      lineHeight={{ base: '4rem', lg: '5rem' }}
+    >
+      {totalMembers}
+    </Text>
+  </Card>
+);
