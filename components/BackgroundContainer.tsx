@@ -10,12 +10,12 @@ const BackgroundContainer: React.FC = ({ children }: Props) => {
   return (
     <Flex
       w="100%"
-      h="30rem"
+      h="100%"
       _before={{
         content: '""',
-        h: '200rem',
+        h: '100rem',
         width: '100vw',
-        top: '20rem',
+        top: '10rem',
         left: '50%',
         transform: 'translate(-50%,-50%)',
         pos: 'absolute',
