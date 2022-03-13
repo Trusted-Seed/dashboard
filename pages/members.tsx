@@ -3,16 +3,16 @@ import {
   Flex,
   SimpleGrid,
   SimpleGridProps,
+  Spinner,
   Text,
   VStack,
 } from '@chakra-ui/react';
 import MembersBGImage from 'assets/members-bg.svg';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { attributes } from 'content/members.md';
-import { Contract } from 'ethers';
-import { GetStaticProps } from 'next';
+import { useTokenInfoQuery } from 'graphql/autogen/types';
 import { formatDate } from 'utils/dateHelpers';
-import { config, getEthersProvider } from 'web3';
+import { config } from 'web3';
 
 type MembersContentAttributes = {
   description: string;
@@ -25,13 +25,16 @@ type MembersContentAttributes = {
 const { description, date, firstMembers, secondMembers, thirdMembers } =
   attributes as MembersContentAttributes;
 
-export const MembersPage: React.FC<{
-  totalMembers: number;
-  totalCSTK: number;
-}> = ({ totalMembers, totalCSTK }) => {
+export const MembersPage: React.FC = () => {
   const titleFontSize = { base: '5xl', lg: '6xl', xl: '7xl' };
   const titleLineHeight = { base: '4rem', lg: '5rem' };
   const descFontSize = { base: 'lg', lg: 'xl' };
+  const [{ fetching, data }] = useTokenInfoQuery({
+    variables: { address: config.CSTK.address },
+  });
+
+  // const totalMembers = data?.token?.numMembers ?? 0;
+  const totalCSTK = data?.token?.totalSupply ?? 0;
   return (
     <>
       <Flex
@@ -74,7 +77,7 @@ export const MembersPage: React.FC<{
               Updated {formatDate(date)}
             </Text>
           </VStack>
-          <MemberCountCard totalMembers={totalMembers} isMembersPage />
+          <MemberCountCard isMembersPage />
         </Flex>
         <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
         <Text fontSize={descFontSize} px={24} textAlign="center">
@@ -95,7 +98,7 @@ export const MembersPage: React.FC<{
             fontSize={titleFontSize}
             lineHeight={titleLineHeight}
           >
-            {totalCSTK.toLocaleString('en-US')}
+            {fetching ? <Spinner /> : totalCSTK.toLocaleString('en-US')}
           </Text>
           <VStack w="100%" spacing={16} py={16}>
             <MembersDisplay members={firstMembers} fontWeight="bold" />
@@ -106,26 +109,6 @@ export const MembersPage: React.FC<{
       </VStack>
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const totalMembers =
-    firstMembers.length + secondMembers.length + thirdMembers.length; // TODO: fetch from subgraph when available
-
-  const { chainId, address, abi } = config.CSTK;
-
-  const provider = await getEthersProvider(chainId);
-  if (!provider) throw new Error(`Invalid network info for ${chainId}`);
-
-  const cstk = new Contract(address, abi, provider);
-  const totalCSTK = await cstk.totalSupply();
-
-  return {
-    props: {
-      totalMembers,
-      totalCSTK: totalCSTK.toNumber(),
-    },
-  };
 };
 
 const MembersDisplay: React.FC<{ members: string[] } & SimpleGridProps> = ({

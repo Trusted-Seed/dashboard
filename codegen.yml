@@ -1,0 +1,12 @@
+overwrite: true
+schema: 'https://api.thegraph.com/subgraphs/name/mendesfabio/commons-stack-membership'
+generates:
+  ./graphql/autogen/types.ts:
+    documents:
+      - ./graphql/**/(!(*.d)).ts
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+      - add:
+          content: '/* eslint-disable */'
