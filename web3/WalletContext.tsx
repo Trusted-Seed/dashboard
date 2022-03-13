@@ -1,4 +1,3 @@
-import { useToast } from '@chakra-ui/react';
 import { providers } from 'ethers';
 import {
   createContext,
@@ -7,12 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import {
-  config,
-  NETWORK_INFO,
-  switchChainOnMetaMask,
-  WEB3_MODAL_OPTIONS,
-} from 'web3';
+import { WEB3_MODAL_OPTIONS } from 'web3';
 import Web3Modal from 'web3modal';
 
 export type WalletContextType = {
@@ -69,38 +63,16 @@ export const WalletProvider: React.FC = ({ children }) => {
     setWalletState({});
   }, []);
 
-  const toast = useToast();
+  const setWalletProvider = useCallback(async prov => {
+    const ethersProvider = new providers.Web3Provider(prov);
+    const signerAddress = await ethersProvider.getSigner().getAddress();
 
-  const setWalletProvider = useCallback(
-    async prov => {
-      const ethersProvider = new providers.Web3Provider(prov);
-
-      let network = prov.chainId;
-
-      if (!NETWORK_INFO[network]) {
-        const success = isMetamaskProvider(ethersProvider)
-          ? await switchChainOnMetaMask(config.defaultNetwork)
-          : false;
-        if (!success) {
-          const errorMsg = `Network not supported, please switch to ${
-            NETWORK_INFO[config.defaultNetwork].name
-          }`;
-          toast({ status: 'error', description: errorMsg });
-          throw new Error(errorMsg);
-        }
-        network = config.defaultNetwork;
-        window.location.reload();
-      }
-
-      const signerAddress = await ethersProvider.getSigner().getAddress();
-      setWalletState({
-        provider: ethersProvider,
-        chainId: network,
-        address: signerAddress.toLowerCase(),
-      });
-    },
-    [toast],
-  );
+    setWalletState({
+      provider: ethersProvider,
+      chainId: prov.chainId,
+      address: signerAddress.toLowerCase(),
+    });
+  }, []);
 
   const connectWallet = useCallback(async () => {
     if (!web3Modal) return;
@@ -116,8 +88,7 @@ export const WalletProvider: React.FC = ({ children }) => {
         window.location.reload();
       });
       modalProvider.on('chainChanged', () => {
-        disconnect();
-        window.location.reload();
+        setWalletProvider(modalProvider);
       });
     } catch (web3Error) {
       // eslint-disable-next-line no-console

@@ -14,7 +14,7 @@ export type TrustedSeedConfig = {
 };
 
 export const config: TrustedSeedConfig = {
-  defaultNetwork: '0x1', // Used to switch to if the user is on an unsupported network. Corresponding network info must be provided in ./networks.ts
+  defaultNetwork: '0x1',
   infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
   CSTK: {
     chainId: '0x64',

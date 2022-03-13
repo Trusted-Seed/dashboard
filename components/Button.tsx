@@ -11,7 +11,6 @@ export const Button: React.FC<ChakraButtonProps> = ({
   const isOutline = variant === 'outline';
   return (
     <ChakraButton
-      size="lg"
       variant={variant}
       bg={isOutline ? 'blackAlpha.500' : 'ceruleanBlue'}
       borderColor={isOutline ? 'ceruleanBlue' : 'none'}

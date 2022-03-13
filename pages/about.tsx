@@ -18,7 +18,7 @@ export const AboutPage: React.FC = () => (
     bgPos="top center"
     bgRepeat="no-repeat"
   >
-    <LandingSection {...{ title, description, imageSrc: '' }} withButton />
+    <LandingSection {...{ title, description, image: '' }} withButton />
   </VStack>
 );
 
