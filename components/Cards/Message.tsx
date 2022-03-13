@@ -15,7 +15,7 @@ export const MessageCard: React.FC<Message> = ({
   url,
   action,
 }) => (
-  <Card p={8} align="flex-start" minW="32rem" maxW="32rem">
+  <Card p={8} align="flex-start">
     <Text
       fontSize={{ base: 'lg', lg: 'xl' }}
       color="yellow.400"

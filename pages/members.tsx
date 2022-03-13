@@ -56,7 +56,7 @@ export const MembersPage: React.FC = () => {
       <VStack
         w="100%"
         maxW="7xl"
-        p={24}
+        p={20}
         zIndex={1}
         align="stretch"
         spacing={16}
