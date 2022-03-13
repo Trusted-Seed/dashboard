@@ -1,6 +1,7 @@
-import { Flex, HStack, VStack } from '@chakra-ui/react';
+import { Flex, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
 import { Message, MessageCard } from 'components/Cards/Message';
+import { Carousel } from 'components/Carousel';
 import { attributes } from 'content/dashboard.md';
 
 type HomeContentAttributes = {
@@ -29,12 +30,12 @@ export const DashboardPage: React.FC = () => {
           bgRepeat: 'no-repeat',
         }}
       />
-      <VStack w="100%" py={8} px={24} zIndex={1} textAlign="center">
-        <HStack spacing={8} w="100%">
+      <VStack w="100%" py={8} px={20} zIndex={1} textAlign="center">
+        <Carousel gap={32}>
           {messages.map((message, id) => (
             <MessageCard {...message} key={id} />
           ))}
-        </HStack>
+        </Carousel>
         <Flex h="100rem" />
       </VStack>
     </>

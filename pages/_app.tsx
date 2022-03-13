@@ -3,8 +3,9 @@ import { Global } from '@emotion/react';
 import { Head } from 'components/Head';
 import { LayoutWrapper } from 'components/LayoutWrapper';
 import type { AppProps } from 'next/app';
-import React from 'react';
+import { withUrqlClient } from 'next-urql';
 import { globalStyles, theme } from 'styles/theme';
+import { GRAPH_URL } from 'utils/constants';
 import { WalletProvider } from 'web3';
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
@@ -19,4 +20,4 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   </ChakraProvider>
 );
 
-export default App;
+export default withUrqlClient(() => ({ url: GRAPH_URL }))(App);
