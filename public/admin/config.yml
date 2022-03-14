@@ -7,7 +7,7 @@ collections:
   - name: 'pages'
     label: 'Pages'
     files:
-      - label: 'Home'
+      - label: 'Landing'
         name: 'home'
         file: 'content/home.md'
         fields:
@@ -18,7 +18,7 @@ collections:
             fields:
               - { label: 'Title', name: 'title', widget: 'string' }
               - { label: 'Description', name: 'description', widget: 'text' }
-              - { label: 'Image', name: 'imageSrc', widget: 'image' }
+              - { label: 'Image', name: 'image', widget: 'image' }
       - label: 'About Us'
         name: 'about'
         file: 'content/about.md'
@@ -29,9 +29,39 @@ collections:
         name: 'faq'
         file: 'content/faq.md'
         fields:
-          - label: 'Trusted Seed Membership FAQ'
+          - label: 'TS Membership FAQ'
             name: 'membershipFAQ'
             widget: list
             fields:
               - { label: 'Question', name: 'question', widget: 'string' }
               - { label: 'Answer', name: 'answer', widget: 'markdown' }
+          - label: 'CSTK Score FAQ'
+            name: 'scoreFAQ'
+            widget: list
+            fields:
+              - { label: 'Question', name: 'question', widget: 'string' }
+              - { label: 'Answer', name: 'answer', widget: 'markdown' }
+      - label: 'Members'
+        name: 'members'
+        file: 'content/members.md'
+        fields:
+          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Tier One Members', name: 'firstMembers', widget: 'list' }
+          - { label: 'Tier Two Members', name: 'secondMembers', widget: 'list' }
+          - label: 'Tier Three Members'
+            name: 'thirdMembers'
+            widget: 'list'
+      - label: 'Dashboard'
+        name: 'dashboard'
+        file: 'content/dashboard.md'
+        fields:
+          - label: 'Important Messages'
+            name: 'messages'
+            widget: list
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Description', name: 'description', widget: 'text' }
+              - { label: 'URL', name: 'url', widget: 'string' }
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'Action Text', name: 'action', widget: 'string' }

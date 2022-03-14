@@ -6,7 +6,6 @@ import { attributes } from 'content/about.md';
 type AboutContentAttributes = {
   title: string;
   description: string;
-  imageSrc: string;
 };
 
 const { title, description } = attributes as AboutContentAttributes;
@@ -19,7 +18,7 @@ export const AboutPage: React.FC = () => (
     bgPos="top center"
     bgRepeat="no-repeat"
   >
-    <LandingSection {...{ title, description, imageSrc: '' }} withButton />
+    <LandingSection {...{ title, description, image: '' }} withButton />
   </VStack>
 );
 
