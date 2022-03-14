@@ -19,6 +19,7 @@ export const Header: React.FC = () => {
         <ActiveLink href="/about">About</ActiveLink>
         <ActiveLink href="/members">Members</ActiveLink>
         <ActiveLink href="/join">Join</ActiveLink>
+        <ActiveLink href="/apply">Apply</ActiveLink>
         <ActiveLink href="/faq">FAQ</ActiveLink>
         {isConnected ? <UserDisplay /> : <ConnectButton />}
       </HStack>
