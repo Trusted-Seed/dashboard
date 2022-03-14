@@ -1,11 +1,13 @@
-import { Spinner, Text } from '@chakra-ui/react';
+import { Spinner, StackProps, Text } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
 import { config } from 'web3';
 
-export const MemberCountCard: React.FC<{
-  isMembersPage?: boolean;
-}> = ({ isMembersPage = false }) => {
+export const MemberCountCard: React.FC<
+  {
+    isMembersPage?: boolean;
+  } & StackProps
+> = ({ isMembersPage = false, ...props }) => {
   const [{ fetching, data }] = useTokenInfoQuery({
     variables: { address: config.CSTK.address },
   });
@@ -16,8 +18,16 @@ export const MemberCountCard: React.FC<{
       bg={isMembersPage ? 'membersCardBG' : 'cardBG'}
       textAlign="center"
       spacing={{ base: 4, lg: 8 }}
+      justify="center"
+      {...props}
     >
-      <Text fontSize={{ base: 'xl', lg: '2xl' }}>Total member count</Text>
+      <Text
+        fontSize={{ base: 'xl', lg: '2xl' }}
+        display="inline-block"
+        whiteSpace="nowrap"
+      >
+        Total member count
+      </Text>
       <Text
         color="ceruleanBlue"
         fontWeight="bold"
