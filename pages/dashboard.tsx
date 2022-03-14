@@ -1,7 +1,13 @@
-import { Flex, VStack } from '@chakra-ui/react';
+import 'react-vis/dist/style.css';
+
+import { Flex, HStack, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
+import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
+import { MemberCountCard } from 'components/Cards/MemberCount';
+import { MembershipCard } from 'components/Cards/Membership';
 import { Message, MessageCard } from 'components/Cards/Message';
 import { Carousel } from 'components/Carousel';
+import { Link } from 'components/Link';
 import { attributes } from 'content/dashboard.md';
 
 type HomeContentAttributes = {
@@ -30,12 +36,19 @@ export const DashboardPage: React.FC = () => {
           bgRepeat: 'no-repeat',
         }}
       />
-      <VStack w="100%" py={8} px={20} zIndex={1} textAlign="center">
+      <VStack w="100%" py={8} px={20} zIndex={1} textAlign="center" spacing={8}>
         <Carousel gap={32}>
           {messages.map((message, id) => (
             <MessageCard {...message} key={id} />
           ))}
         </Carousel>
+        <HStack w="100%" spacing={8}>
+          <MembershipCard flexGrow={1} h="100%" />
+          <Link href="/members" _hover={{}} flex={1} h="100%">
+            <MemberCountCard w="100%" h="100%" />
+          </Link>
+        </HStack>
+        <CSTKSupplyGraphCard w="100%" />
         <Flex h="100rem" />
       </VStack>
     </>

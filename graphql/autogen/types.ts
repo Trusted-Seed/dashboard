@@ -483,6 +483,21 @@ export type TokenInfoQuery = {
   } | null;
 };
 
+export type TokenSnapshotsQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+export type TokenSnapshotsQuery = {
+  __typename?: 'Query';
+  tokenSnapshots: Array<{
+    __typename?: 'TokenSnapshot';
+    timestamp: number;
+    numMembers: any;
+    totalSupply: any;
+    token: { __typename?: 'Token'; id: string; name: string; symbol: string };
+  }>;
+};
+
 export const TokenInfoDocument = gql`
   query TokenInfo($address: ID!) {
     token(id: $address) {
@@ -500,6 +515,34 @@ export function useTokenInfoQuery(
 ) {
   return Urql.useQuery<TokenInfoQuery>({
     query: TokenInfoDocument,
+    ...options,
+  });
+}
+export const TokenSnapshotsDocument = gql`
+  query TokenSnapshots($address: String!) {
+    tokenSnapshots(
+      where: { token: $address }
+      orderBy: timestamp
+      orderDirection: desc
+      first: 1000
+    ) {
+      token {
+        id
+        name
+        symbol
+      }
+      timestamp
+      numMembers
+      totalSupply
+    }
+  }
+`;
+
+export function useTokenSnapshotsQuery(
+  options: Omit<Urql.UseQueryArgs<TokenSnapshotsQueryVariables>, 'query'>,
+) {
+  return Urql.useQuery<TokenSnapshotsQuery>({
+    query: TokenSnapshotsDocument,
     ...options,
   });
 }

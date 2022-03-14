@@ -41,12 +41,12 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
-    "@typeform/embed-react": "^1.9.0",
     "@chakra-ui/react": "^1.8.6",
     "@davatar/react": "^1.9.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@gnosis.pm/safe-apps-web3modal": "^10.0.0",
+    "@typeform/embed-react": "^1.9.0",
     "ethers": "^5.5.4",
     "fast-memoize": "^2.5.2",
     "framer-motion": "^6.2.8",
@@ -58,6 +58,7 @@
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "react-markdown": "^8.0.0",
+    "react-vis": "^1.11.7",
     "typescript": "^4.6.2",
     "urql": "^2.2.0",
     "web3modal": "^1.9.5"
