@@ -1,5 +1,8 @@
+import 'react-vis/dist/style.css';
+
 import { Flex, HStack, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
+import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { MembershipCard } from 'components/Cards/Membership';
 import { Message, MessageCard } from 'components/Cards/Message';
@@ -45,6 +48,7 @@ export const DashboardPage: React.FC = () => {
             <MemberCountCard w="100%" h="100%" />
           </Link>
         </HStack>
+        <CSTKSupplyGraphCard w="100%" />
         <Flex h="100rem" />
       </VStack>
     </>

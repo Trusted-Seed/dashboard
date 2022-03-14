@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import gql from 'graphql-tag';
 
 gql`
@@ -7,6 +7,26 @@ gql`
       id
       name
       symbol
+      numMembers
+      totalSupply
+    }
+  }
+`;
+
+gql`
+  query TokenSnapshots($address: String!) {
+    tokenSnapshots(
+      where: { token: $address }
+      orderBy: timestamp
+      orderDirection: desc
+      first: 1000
+    ) {
+      token {
+        id
+        name
+        symbol
+      }
+      timestamp
       numMembers
       totalSupply
     }
