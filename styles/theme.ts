@@ -9,6 +9,7 @@ export const theme = extendTheme({
   colors: {
     darkBG: '#09090A',
     greyBG: '#171616',
+    greyText: '#A1A1A1',
     membersCardBG: 'rgba(22, 22, 22, 0.72)',
     cardBG: '#202123',
     red: {
