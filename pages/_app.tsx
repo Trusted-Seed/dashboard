@@ -20,4 +20,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   </ChakraProvider>
 );
 
-export default withUrqlClient(() => ({ url: GRAPH_URL }))(App);
+export default withUrqlClient(() => ({ url: GRAPH_URL }), {
+  ssr: true,
+  staleWhileRevalidate: true,
+})(App);

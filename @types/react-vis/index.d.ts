@@ -619,7 +619,9 @@ declare module 'react-vis' {
     top?: number;
     left?: number;
     title?: string;
-    style?: CSSProperties;
+    style?:
+      | CSSProperties
+      | { ticks?: CSSProperties; line?: CSSProperties; text?: CSSProperties };
     className?: string;
     hideTicks?: boolean;
     hideLine?: boolean;
@@ -650,7 +652,9 @@ declare module 'react-vis' {
     top?: number;
     left?: number;
     title?: string;
-    style?: CSSProperties;
+    style?:
+      | CSSProperties
+      | { ticks?: CSSProperties; line?: CSSProperties; text?: CSSProperties };
     className?: string;
     hideTicks?: boolean;
     hideLine?: boolean;

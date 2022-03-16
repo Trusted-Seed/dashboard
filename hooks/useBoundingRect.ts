@@ -1,4 +1,4 @@
-import { MutableRefObject, useLayoutEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 const debounce = (
   limit: number,
@@ -46,7 +46,7 @@ export const useBoundingRect = (
 
   const ref = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if ('undefined' !== typeof window && ref.current) {
       const measure = () =>
         window.requestAnimationFrame(() =>

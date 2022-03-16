@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, Theme } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 
 export const theme = extendTheme({
@@ -52,6 +52,8 @@ export const theme = extendTheme({
     darkCeruleanBlue: '#0b7385',
   },
 });
+
+export const colors = (theme as Theme).colors;
 
 export const globalStyles = css`
   html,

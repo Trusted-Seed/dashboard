@@ -29,8 +29,8 @@ export const Item: React.FC<ItemProps> = ({
   const handleFocus = () => setTrackIsActive(true);
 
   const handleBlur = () => {
-    if (userDidTab) {
-      index + 1 === positions.length && setTrackIsActive(false);
+    if (userDidTab && index + 1 === positions.length) {
+      setTrackIsActive(false);
     }
     setUserDidTab(false);
   };
