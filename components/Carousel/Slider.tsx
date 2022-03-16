@@ -1,6 +1,6 @@
 import { Box, Button, HStack, VStack } from '@chakra-ui/react';
 import { useBoundingRect } from 'hooks/useBoundingRect';
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 
 type SliderProps = {
   setTrackIsActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -26,7 +26,7 @@ export const Slider: React.FC<SliderProps> = ({
 }) => {
   const [ref, { width }] = useBoundingRect();
 
-  useLayoutEffect(
+  useEffect(
     () => setSliderWidth(Math.round(width ?? 0)),
     [width, setSliderWidth],
   );
