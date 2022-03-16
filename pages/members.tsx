@@ -11,7 +11,7 @@ import MembersBGImage from 'assets/members-bg.svg';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { attributes } from 'content/members.md';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
-import { formatDate } from 'utils/dateHelpers';
+import { formatDate } from 'utils/formatHelpers';
 import { config } from 'web3';
 
 type MembersContentAttributes = {
