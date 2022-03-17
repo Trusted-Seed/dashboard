@@ -13,6 +13,8 @@ export const JoinUsButton: React.FC<FlexProps> = props => {
           px={12}
           textTransform="uppercase"
           letterSpacing="0.4rem"
+          color="ceruleanBlue"
+          bg="blackAlpha.500"
         >
           Join Us
         </Button>

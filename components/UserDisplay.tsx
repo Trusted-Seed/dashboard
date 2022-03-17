@@ -44,7 +44,6 @@ export const UserDisplay: React.FC = () => {
           <HStack align="center" spacing={{ base: 2, lg: 4 }}>
             <Button
               px={3}
-              size="lg"
               borderRadius="full"
               variant="ghost"
               bg="blackAlpha.500"
@@ -55,7 +54,6 @@ export const UserDisplay: React.FC = () => {
             </Button>
             <Button
               px={3}
-              size="lg"
               borderRadius="full"
               variant="ghost"
               bg="blackAlpha.500"
@@ -84,13 +82,7 @@ export const UserDisplay: React.FC = () => {
             </Button>
           </HStack>
         ) : (
-          <Button
-            px={6}
-            size="lg"
-            fontSize="md"
-            borderRadius="full"
-            colorScheme="red"
-          >
+          <Button px={6} fontSize="md" borderRadius="full" colorScheme="red">
             Wrong Network
           </Button>
         )}

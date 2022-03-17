@@ -69,7 +69,7 @@ const ApplyStageOnePage: React.FC = () => {
           </Text>
         </Flex>
         <Link href="/apply-stage-two" _hover={{}}>
-          <Button variant="container">Start</Button>
+          <Button>Start</Button>
         </Link>
       </Flex>
     </BackgroundContainer>

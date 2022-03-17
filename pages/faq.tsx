@@ -110,7 +110,13 @@ export const FAQPage: React.FC = () => (
         </Link>
       </Text>
       <Link href={discordLink} isExternal _hover={{}}>
-        <Button variant="outline" letterSpacing="0.25rem" size="md">
+        <Button
+          variant="outline"
+          letterSpacing="0.25rem"
+          size="md"
+          color="ceruleanBlue"
+          bg="blackAlpha.500"
+        >
           Go Discord
         </Button>
       </Link>

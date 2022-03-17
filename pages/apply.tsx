@@ -70,7 +70,7 @@ const MembershipPage: React.FC = () => {
           </Flex>
         </Flex>
         <Link href="/apply-stage-one" _hover={{}}>
-          <Button variant="contained">Apply for membership</Button>
+          <Button>Apply for membership</Button>
         </Link>
       </Flex>
     </BackgroundContainer>
