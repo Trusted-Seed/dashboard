@@ -1,5 +1,6 @@
 import { LinkIcon } from '@chakra-ui/icons';
-import { Button, Flex, HStack, Link, Text, VStack } from '@chakra-ui/react';
+import { Flex, HStack, Link, Text, VStack } from '@chakra-ui/react';
+import { Button } from 'components/Button';
 import { Card } from 'components/Card';
 
 export type Message = {
@@ -75,13 +76,14 @@ export const MessageCard: React.FC<Message> = ({
         )}
       </VStack>
     </HStack>
-    <Link isExternal href={url}>
+    <Link isExternal href={url} _hover={{}}>
       <Button
         colorScheme="yellow"
-        borderRadius="full"
+        borderColor="yellow.400"
+        bg="yellow.400"
         size="sm"
         fontSize="md"
-        px={10}
+        px={8}
       >
         {action}
       </Button>

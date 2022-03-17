@@ -24,6 +24,7 @@ export const MemberCountCard: React.FC<
       <Text
         fontSize={{ base: 'xl', lg: '2xl' }}
         display="inline-block"
+        fontWeight="bold"
         whiteSpace="nowrap"
       >
         Total member count

@@ -1,4 +1,5 @@
-import { Button, StackProps, Text } from '@chakra-ui/react';
+import { StackProps, Text } from '@chakra-ui/react';
+import { Button } from 'components/Button';
 import { Card } from 'components/Card';
 import { useCallback, useMemo, useState } from 'react';
 import { useWallet } from 'web3';
@@ -122,12 +123,15 @@ export const MembershipCard: React.FC<StackProps> = props => {
       <Text>{description}</Text>
       <Button
         colorScheme="yellow"
-        borderRadius="full"
+        borderColor="yellow.400"
+        bg="yellow.400"
         size="sm"
         fontSize="md"
         px={3}
         onClick={onClick}
         isLoading={isConnecting}
+        _hover={{ bg: 'yellow.600', borderColor: 'yellow.600' }}
+        _focus={{ borderColor: 'yellow.600' }}
       >
         {action}
       </Button>

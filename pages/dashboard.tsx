@@ -1,10 +1,13 @@
 import 'react-vis/dist/style.css';
 
-import { Flex, HStack, VStack } from '@chakra-ui/react';
+import { Flex, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
+import { CSTKScoreCard } from 'components/Cards/CSTKScore';
 import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { MembershipCard } from 'components/Cards/Membership';
+import { MembersListCard } from 'components/Cards/MembersList';
+import { MemberSpotlightCard } from 'components/Cards/MemberSpotlight';
 import { Message, MessageCard } from 'components/Cards/Message';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
@@ -37,11 +40,7 @@ export const DashboardPage: React.FC = () => {
         }}
       />
       <VStack w="100%" py={8} px={20} zIndex={1} textAlign="center" spacing={8}>
-        <Flex
-          w={{ base: '100%', xl: '85%', '2xl': '80%' }}
-          alignSelf="flex-start"
-          mb={-2}
-        >
+        <Flex w={{ base: '100%', xl: '85%' }} alignSelf="flex-start" mb={-2}>
           <Carousel gap={32}>
             {messages.map((message, id) => (
               <MessageCard {...message} key={id} />
@@ -55,7 +54,11 @@ export const DashboardPage: React.FC = () => {
           </Link>
         </HStack>
         <CSTKSupplyGraphCard w="100%" />
-        <Flex h="100rem" />
+        <SimpleGrid columns={3} gap={8} w="100%">
+          <CSTKScoreCard />
+          <MemberSpotlightCard />
+          <MembersListCard />
+        </SimpleGrid>
       </VStack>
     </>
   );
