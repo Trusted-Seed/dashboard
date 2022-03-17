@@ -1,4 +1,4 @@
-import { Spinner, StackProps, Text } from '@chakra-ui/react';
+import { StackProps, Text } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
 import { config } from 'web3';
@@ -8,7 +8,7 @@ export const MemberCountCard: React.FC<
     isMembersPage?: boolean;
   } & StackProps
 > = ({ isMembersPage = false, ...props }) => {
-  const [{ fetching, data }] = useTokenInfoQuery({
+  const [{ data }] = useTokenInfoQuery({
     variables: { address: config.CSTK.address },
   });
 
@@ -34,7 +34,7 @@ export const MemberCountCard: React.FC<
         fontSize={{ base: '7xl', lg: '8xl', xl: '9xl' }}
         lineHeight={{ base: '4rem', lg: '5rem', xl: '6rem' }}
       >
-        {fetching ? <Spinner /> : totalMembers}
+        {totalMembers}
       </Text>
     </Card>
   );
