@@ -32,6 +32,15 @@ export const formatDateForPlot = (d: Date | string | number): string => {
   return `${month} ${year}`.toUpperCase();
 };
 
+export const formatDateForPlotHint = (d: Date | string | number): string => {
+  // eslint-disable-next-line no-param-reassign
+  d = new Date(d);
+  const date = d.getDate();
+  const monthIndex = d.getMonth();
+  const month = months[monthIndex].slice(0, 3);
+  return `${month} ${date}`.toUpperCase();
+};
+
 export const formatNumberForPlot = (num: number, digits = 2): string => {
   const lookup = [
     { value: 1, symbol: '' },

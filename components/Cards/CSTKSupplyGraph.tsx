@@ -1,13 +1,17 @@
-import { StackProps, Text, useTheme } from '@chakra-ui/react';
+import { Box, StackProps, Text, useTheme } from '@chakra-ui/react';
 import { Card } from 'components/Card';
+import { ChartHint } from 'components/ChartHint';
 import { useTokenSnapshotsQuery } from 'graphql/autogen/types';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   AreaSeries,
+  Crosshair,
   FlexibleWidthXYPlot,
   GradientDefs,
+  Hint,
   HorizontalGridLines,
   LineSeries,
+  MarkSeries,
   XAxis,
   YAxis,
 } from 'react-vis';
@@ -19,6 +23,7 @@ import {
 import { config } from 'web3';
 
 export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
+  const [hoveredNode, setHoveredNode] = useState<DataPoint | null>(null);
   const [{ data }] = useTokenSnapshotsQuery({
     variables: { address: config.CSTK.address },
   });
@@ -33,7 +38,12 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
   const { colors } = useTheme();
 
   return (
-    <Card p={8} align="flex-start" {...props}>
+    <Card
+      p={8}
+      align="flex-start"
+      onMouseLeave={() => setHoveredNode(null)}
+      {...props}
+    >
       <Text
         fontSize={{ base: 'md', lg: 'lg' }}
         display="inline-block"
@@ -84,6 +94,36 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
             text: { stroke: 'none', fill: colors.cyan[400] },
           }}
           left={10}
+        />
+        {hoveredNode && (
+          <Crosshair
+            values={[hoveredNode]}
+            style={{
+              line: {
+                background: 'none',
+                width: 0,
+                borderRight: '1px dashed',
+                borderRightColor: colors.cyan[400],
+              },
+            }}
+          >
+            <Box />
+          </Crosshair>
+        )}
+        {hoveredNode && (
+          <Hint
+            value={hoveredNode}
+            align={{ vertical: 'top', horizontal: 'left' }}
+          >
+            <ChartHint value={hoveredNode} />
+          </Hint>
+        )}
+        <MarkSeries
+          data={snapshots}
+          onNearestXY={node => {
+            setHoveredNode(node as DataPoint);
+          }}
+          opacity={0}
         />
       </FlexibleWidthXYPlot>
     </Card>
