@@ -17,7 +17,7 @@ export const LayoutWrapper: React.FC = ({ children }) => {
         w="100%"
         maxW="8xl"
         pb={16}
-        display={{ base: 'flex', md: 'none' }}
+        display={{ base: 'flex', lg: 'none' }}
       >
         <Flex
           justify="center"
@@ -25,7 +25,7 @@ export const LayoutWrapper: React.FC = ({ children }) => {
           fontWeight="bold"
           textAlign="center"
           w="100%"
-          h="100vh"
+          h="100%"
           px={2}
         >
           Currently smaller screens are not supported.
@@ -38,7 +38,7 @@ export const LayoutWrapper: React.FC = ({ children }) => {
         w="100%"
         maxW="8xl"
         pb={16}
-        display={{ base: 'none', md: 'flex' }}
+        display={{ base: 'none', lg: 'flex' }}
       >
         <Header />
         {children}
