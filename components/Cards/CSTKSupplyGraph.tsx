@@ -1,4 +1,4 @@
-import { StackProps, Text } from '@chakra-ui/react';
+import { StackProps, Text, useTheme } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 import { useTokenSnapshotsQuery } from 'graphql/autogen/types';
 import { useMemo } from 'react';
@@ -11,7 +11,6 @@ import {
   XAxis,
   YAxis,
 } from 'react-vis';
-import { colors } from 'styles/theme';
 import { DataPoint } from 'utils/chart';
 import {
   formatDateForPlot as formatDate,
@@ -31,6 +30,7 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
       })) ?? [],
     [data],
   );
+  const { colors } = useTheme();
 
   return (
     <Card p={8} align="flex-start" {...props}>

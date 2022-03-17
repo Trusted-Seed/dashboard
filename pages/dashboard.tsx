@@ -37,11 +37,17 @@ export const DashboardPage: React.FC = () => {
         }}
       />
       <VStack w="100%" py={8} px={20} zIndex={1} textAlign="center" spacing={8}>
-        <Carousel gap={32}>
-          {messages.map((message, id) => (
-            <MessageCard {...message} key={id} />
-          ))}
-        </Carousel>
+        <Flex
+          w={{ base: '100%', xl: '85%', '2xl': '80%' }}
+          alignSelf="flex-start"
+          mb={-2}
+        >
+          <Carousel gap={32}>
+            {messages.map((message, id) => (
+              <MessageCard {...message} key={id} />
+            ))}
+          </Carousel>
+        </Flex>
         <HStack w="100%" spacing={8}>
           <MembershipCard flexGrow={1} h="100%" />
           <Link href="/members" _hover={{}} flex={1} h="100%">

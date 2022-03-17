@@ -1,7 +1,16 @@
-import { extendTheme, Theme } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 
 export const theme = extendTheme({
+  breakpoints: {
+    base: '0em',
+    sm: '30em',
+    md: '48em',
+    lg: '62em',
+    xl: '80em',
+    '2xl': '96em',
+    '3xl': '120em',
+  },
   fonts: {
     body: `'Urbanist', sans-serif`,
     heading: `'Urbanist', sans-serif`,
@@ -52,8 +61,6 @@ export const theme = extendTheme({
     darkCeruleanBlue: '#0b7385',
   },
 });
-
-export const colors = (theme as Theme).colors;
 
 export const globalStyles = css`
   html,

@@ -27,13 +27,7 @@ export const Carousel: React.FC<{ gap: number; children: JSX.Element[] }> = ({
     `(min-width: ${breakpoints.base}) and (max-width: ${breakpoints.lg})`,
   );
 
-  const [isBetweenLgAnd2xl] = useMediaQuery(
-    `(min-width: ${breakpoints.lg}) and (max-width: ${breakpoints['2xl']})`,
-  );
-
-  const [isGreaterThan2xl] = useMediaQuery(
-    `(min-width: ${breakpoints['2xl']})`,
-  );
+  const [isGreaterThanLg] = useMediaQuery(`(min-width: ${breakpoints.lg})`);
 
   useEffect(() => {
     if (isBetweenBaseAndLg) {
@@ -41,23 +35,12 @@ export const Carousel: React.FC<{ gap: number; children: JSX.Element[] }> = ({
       setMultiplier(0.65);
       setConstraint(1);
     }
-    if (isBetweenLgAnd2xl) {
+    if (isGreaterThanLg) {
       setItemWidth(sliderWidth / 2 - gap);
       setMultiplier(0.5);
       setConstraint(2);
     }
-    if (isGreaterThan2xl) {
-      setItemWidth(sliderWidth / 3 - gap);
-      setMultiplier(0.35);
-      setConstraint(3);
-    }
-  }, [
-    isBetweenBaseAndLg,
-    isBetweenLgAnd2xl,
-    isGreaterThan2xl,
-    sliderWidth,
-    gap,
-  ]);
+  }, [isBetweenBaseAndLg, isGreaterThanLg, sliderWidth, gap]);
 
   const sliderProps = {
     setTrackIsActive,
