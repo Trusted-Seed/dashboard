@@ -130,7 +130,10 @@ export const MembershipCard: React.FC<StackProps> = props => {
         px={3}
         onClick={onClick}
         isLoading={isConnecting}
-        _hover={{ bg: 'yellow.600', borderColor: 'yellow.600' }}
+        _hover={{
+          color: 'white',
+          boxShadow: '0px 9px 17px rgba(3, 3, 3, 0.35)',
+        }}
         _focus={{ borderColor: 'yellow.600' }}
       >
         {action}

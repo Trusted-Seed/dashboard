@@ -1,11 +1,12 @@
-import { Flex, HStack, IconButton, Text, VStack } from '@chakra-ui/react';
+import { Flex, HStack, Text, VStack } from '@chakra-ui/react';
 import LandingBGImage from 'assets/landing-bg.svg';
 import LandingBGFooterImage from 'assets/landing-bg-footer.svg';
+import { IconButton } from 'components/Button';
 import { JoinUsButton } from 'components/JoinUsButton';
 import { LandingSection } from 'components/LandingSection';
 import { Link } from 'components/Link';
-import { attributes } from 'content/home.md';
-import { contactInfo } from 'utils/contactInfo';
+import { attributes } from 'content/landing.md';
+import { ICONS, LinkType } from 'utils/linkHelpers';
 
 type Section = {
   title: string;
@@ -13,16 +14,18 @@ type Section = {
   image: string;
 };
 
-type HomeContentAttributes = {
+type LandingContentAttributes = {
   title: string;
   subTitle: string;
   date: Date;
   sections: Section[];
+  links: LinkType[];
 };
 
-const { title, subTitle, sections } = attributes as HomeContentAttributes;
+const { title, subTitle, sections, links } =
+  attributes as LandingContentAttributes;
 
-export const HomePage: React.FC = () => {
+export const LandingPage: React.FC = () => {
   const titleFontSize = { base: '5xl', lg: '6xl', xl: '7xl' };
   const descFontSize = { base: 'xl', xl: '2xl' };
 
@@ -84,16 +87,14 @@ export const HomePage: React.FC = () => {
         </Text>
         <JoinUsButton py={8} />
         <HStack>
-          {contactInfo.map(({ label, icon, url }, k) => (
+          {links.map(({ label, iconType, url }, k) => (
             <Link key={k} href={url} isExternal>
               <IconButton
                 fontSize="xl"
-                borderRadius="50%"
                 aria-label={label}
                 color="black"
                 bg="white"
-                _hover={{ bg: 'ceruleanBlue' }}
-                icon={icon}
+                icon={ICONS[iconType]}
               />
             </Link>
           ))}
@@ -103,4 +104,4 @@ export const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default LandingPage;

@@ -1,4 +1,5 @@
 ---
+discordUrl: https://discord.link/commonsstack
 membershipFAQ:
   - answer: >-
       * Be a core part of an altruistic & tech-forward community aiming to

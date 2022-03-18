@@ -18,4 +18,51 @@ messages:
     url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
     image: /images/giveth.png
     action: Read
+spotlight:
+  name: Username 2021
+  image: /images/username.png
+  imageLink:
+    label: Youtube
+    iconType: youtube
+    url: https://www.youtube.com/channel/UCoyHywZn8YMalyx4ZbvQoyw
+  title: Graphic Designer
+  quote: The Giveth mission is to reward & empower those who give
+  links:
+    - label: Twitter
+      iconType: twitter
+      url: https://twitter.com
+    - label: Medium
+      iconType: medium
+      url: https://medium.com/giveth
+members:
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
+  - name: Username 2021
+    image: /images/username.png
+    description: Graphic Designer
 ---
