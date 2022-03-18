@@ -14,7 +14,6 @@ import { AccordionUpIcon } from 'components/icons/AccordionUpIcon';
 import { Link } from 'components/Link';
 import { attributes } from 'content/faq.md';
 import ReactMarkdown from 'react-markdown';
-import { contactInfo } from 'utils/contactInfo';
 
 type FAQ = {
   question: string;
@@ -23,16 +22,14 @@ type FAQ = {
 
 type FAQContentAttributes = {
   title: string;
+  discordUrl: string;
   date: Date;
   membershipFAQ: FAQ[];
   scoreFAQ: FAQ[];
 };
 
-const { membershipFAQ, scoreFAQ } = attributes as FAQContentAttributes;
-
-const { url: discordLink } = contactInfo.find(
-  info => info.label === 'Discord',
-) ?? { url: '#' };
+const { membershipFAQ, scoreFAQ, discordUrl } =
+  attributes as FAQContentAttributes;
 
 const FAQSection: React.FC<{ faqs: FAQ[] }> = ({ faqs }) => (
   <Accordion w="100%" maxW="3xl" allowToggle border="none">
@@ -105,11 +102,11 @@ export const FAQPage: React.FC = () => (
         If you have a question that is not covered here, you can reach out to us
         by email or join us for the next Trusted Seed Office Hour that happen
         every Tuesday at 12 pm EST in the{' '}
-        <Link href={discordLink} isExternal color="ceruleanBlue">
+        <Link href={discordUrl} isExternal color="ceruleanBlue">
           Commons Stack Discord!
         </Link>
       </Text>
-      <Link href={discordLink} isExternal _hover={{}}>
+      <Link href={discordUrl} isExternal _hover={{}}>
         <Button
           variant="outline"
           letterSpacing="0.25rem"

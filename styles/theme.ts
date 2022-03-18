@@ -63,9 +63,39 @@ export const theme = extendTheme({
 });
 
 export const globalStyles = css`
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #2b2d31;
+    border-radius: 2.5px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #12bad6;
+    border-radius: 2.5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0b7385;
+  }
+
   html,
   body {
     background: #09090a;
     overflow-x: hidden;
+    scrollbar-color: #12bad6 #2b2d31;
+    ::-webkit-scrollbar-track {
+      background: #2b2d31;
+      border-radius: 0px;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
   }
 `;

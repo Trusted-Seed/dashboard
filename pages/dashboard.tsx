@@ -6,19 +6,23 @@ import { CSTKScoreCard } from 'components/Cards/CSTKScore';
 import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { MembershipCard } from 'components/Cards/Membership';
-import { MembersListCard } from 'components/Cards/MembersList';
-import { MemberSpotlightCard } from 'components/Cards/MemberSpotlight';
+import { MembersListCard, MemberType } from 'components/Cards/MembersList';
+import {
+  MemberSpotlightCard,
+  MemberSpotlightType,
+} from 'components/Cards/MemberSpotlight';
 import { Message, MessageCard } from 'components/Cards/Message';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
 import { attributes } from 'content/dashboard.md';
 
 type HomeContentAttributes = {
-  title: string;
   messages: Message[];
+  spotlight: MemberSpotlightType;
+  members: MemberType[];
 };
 
-const { messages } = attributes as HomeContentAttributes;
+const { messages, spotlight, members } = attributes as HomeContentAttributes;
 
 export const DashboardPage: React.FC = () => {
   return (
@@ -56,8 +60,8 @@ export const DashboardPage: React.FC = () => {
         <CSTKSupplyGraphCard w="100%" />
         <SimpleGrid columns={3} gap={8} w="100%">
           <CSTKScoreCard />
-          <MemberSpotlightCard />
-          <MembersListCard />
+          <MemberSpotlightCard {...spotlight} />
+          <MembersListCard {...{ members }} />
         </SimpleGrid>
       </VStack>
     </>

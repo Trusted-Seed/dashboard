@@ -32,3 +32,11 @@ gql`
     }
   }
 `;
+
+gql`
+  query TokenBalance($address: String!) {
+    member(id: "MEMBER_ADDRESS") {
+      balance
+    }
+  }
+`;

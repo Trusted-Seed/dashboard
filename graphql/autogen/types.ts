@@ -498,6 +498,15 @@ export type TokenSnapshotsQuery = {
   }>;
 };
 
+export type TokenBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+export type TokenBalanceQuery = {
+  __typename?: 'Query';
+  member?: { __typename?: 'Member'; balance: any } | null;
+};
+
 export const TokenInfoDocument = gql`
   query TokenInfo($address: ID!) {
     token(id: $address) {
@@ -543,6 +552,22 @@ export function useTokenSnapshotsQuery(
 ) {
   return Urql.useQuery<TokenSnapshotsQuery>({
     query: TokenSnapshotsDocument,
+    ...options,
+  });
+}
+export const TokenBalanceDocument = gql`
+  query TokenBalance($address: String!) {
+    member(id: "MEMBER_ADDRESS") {
+      balance
+    }
+  }
+`;
+
+export function useTokenBalanceQuery(
+  options: Omit<Urql.UseQueryArgs<TokenBalanceQueryVariables>, 'query'>,
+) {
+  return Urql.useQuery<TokenBalanceQuery>({
+    query: TokenBalanceDocument,
     ...options,
   });
 }

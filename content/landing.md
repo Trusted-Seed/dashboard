@@ -11,4 +11,20 @@ sections:
   - description: Create sustainable funding for public goods, initiallyspecifically for token engineering research, open-source software, and, eventually, all kinds of nonprofit causes through a curated list of reputable & experienced community members who are aligned with this mission.
     title: Mission
     image: /images/mission.svg
+links:
+  - label: Telegram
+    iconType: telegram
+    url: https://t.me/joinchat/HGrjjRS2PoowbH1ODuefuA
+  - label: Twitter
+    iconType: twitter
+    url: https://twitter.com/commonsstack
+  - label: Discord
+    iconType: discord
+    url: https://discord.link/commonsstack
+  - label: Medium
+    iconType: medium
+    url: https://medium.com/commonsstack
+  - label: Calendar
+    iconType: calendar
+    url: '#'
 ---

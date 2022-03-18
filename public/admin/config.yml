@@ -8,49 +8,141 @@ collections:
     label: 'Pages'
     files:
       - label: 'Landing'
-        name: 'home'
-        file: 'content/home.md'
+        name: 'landing'
+        file: 'content/landing.md'
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
           - label: 'Sections'
             name: 'sections'
             widget: list
+            required: true
             fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Description', name: 'description', widget: 'text' }
-              - { label: 'Image', name: 'image', widget: 'image' }
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'text',
+                  required: true,
+                }
+              - {
+                  label: 'Image',
+                  name: 'image',
+                  widget: 'image',
+                  required: true,
+                }
+          - label: 'Contact Links'
+            name: 'links'
+            widget: list
+            required: true
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string' }
+              - {
+                  label: 'Icon Type',
+                  name: 'iconType',
+                  widget: 'select',
+                  options:
+                    [
+                      'twitter',
+                      'youtube',
+                      'medium',
+                      'telegram',
+                      'discord',
+                      'calendar',
+                    ],
+                  required: true,
+                }
+              - { label: 'URL', name: 'url', widget: 'text', required: true }
       - label: 'About Us'
         name: 'about'
         file: 'content/about.md'
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
+          - {
+              label: 'Description',
+              name: 'description',
+              widget: 'text',
+              required: true,
+            }
       - label: 'FAQ'
         name: 'faq'
         file: 'content/faq.md'
         fields:
+          - {
+              label: 'Discord URL',
+              name: 'discordUrl',
+              widget: 'string',
+              required: true,
+            }
           - label: 'TS Membership FAQ'
             name: 'membershipFAQ'
             widget: list
+            required: true
             fields:
-              - { label: 'Question', name: 'question', widget: 'string' }
-              - { label: 'Answer', name: 'answer', widget: 'markdown' }
+              - {
+                  label: 'Question',
+                  name: 'question',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Answer',
+                  name: 'answer',
+                  widget: 'markdown',
+                  required: true,
+                }
           - label: 'CSTK Score FAQ'
             name: 'scoreFAQ'
             widget: list
+            required: true
             fields:
-              - { label: 'Question', name: 'question', widget: 'string' }
-              - { label: 'Answer', name: 'answer', widget: 'markdown' }
+              - {
+                  label: 'Question',
+                  name: 'question',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Answer',
+                  name: 'answer',
+                  widget: 'markdown',
+                  required: true,
+                }
       - label: 'Members'
         name: 'members'
         file: 'content/members.md'
         fields:
-          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-          - { label: 'Description', name: 'description', widget: 'text' }
-          - { label: 'Tier One Members', name: 'firstMembers', widget: 'list' }
-          - { label: 'Tier Two Members', name: 'secondMembers', widget: 'list' }
+          - {
+              label: 'Publish Date',
+              name: 'date',
+              widget: 'datetime',
+              required: true,
+            }
+          - {
+              label: 'Description',
+              name: 'description',
+              widget: 'text',
+              required: true,
+            }
+          - {
+              label: 'Tier One Members',
+              name: 'firstMembers',
+              widget: 'list',
+              required: true,
+            }
+          - {
+              label: 'Tier Two Members',
+              name: 'secondMembers',
+              widget: 'list',
+              required: true,
+            }
           - label: 'Tier Three Members'
             name: 'thirdMembers'
+            required: true
             widget: 'list'
       - label: 'Dashboard'
         name: 'dashboard'
@@ -59,9 +151,146 @@ collections:
           - label: 'Important Messages'
             name: 'messages'
             widget: list
+            required: true
             fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Description', name: 'description', widget: 'text' }
-              - { label: 'URL', name: 'url', widget: 'string' }
-              - { label: 'Image', name: 'image', widget: 'image' }
-              - { label: 'Action Text', name: 'action', widget: 'string' }
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'text',
+                  required: true,
+                }
+              - { label: 'URL', name: 'url', widget: 'string', required: true }
+              - {
+                  label: 'Image',
+                  name: 'image',
+                  widget: 'image',
+                  required: true,
+                }
+              - {
+                  label: 'Action Text',
+                  name: 'action',
+                  widget: 'string',
+                  required: true,
+                }
+          - label: 'Member Spotlight'
+            name: 'spotlight'
+            widget: object
+            required: true
+            fields:
+              - {
+                  label: 'Name',
+                  name: 'name',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Quote',
+                  name: 'quote',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Image',
+                  name: 'image',
+                  widget: 'image',
+                  required: true,
+                }
+              - label: 'Image Link'
+                name: 'imageLink'
+                widget: object
+                required: true
+                fields:
+                  - {
+                      label: 'Label',
+                      name: 'label',
+                      widget: 'string',
+                      required: true,
+                    }
+                  - {
+                      label: 'Icon Type',
+                      name: 'iconType',
+                      widget: 'select',
+                      options:
+                        [
+                          'twitter',
+                          'youtube',
+                          'medium',
+                          'telegram',
+                          'discord',
+                          'calendar',
+                        ],
+                      required: true,
+                    }
+                  - {
+                      label: 'URL',
+                      name: 'url',
+                      widget: 'text',
+                      required: true,
+                    }
+              - label: 'Contact Links'
+                name: 'links'
+                widget: list
+                required: true
+                fields:
+                  - {
+                      label: 'Label',
+                      name: 'label',
+                      widget: 'string',
+                      required: true,
+                    }
+                  - {
+                      label: 'Icon Type',
+                      name: 'iconType',
+                      widget: 'select',
+                      options:
+                        [
+                          'twitter',
+                          'youtube',
+                          'medium',
+                          'telegram',
+                          'discord',
+                          'calendar',
+                        ],
+                      required: true,
+                    }
+                  - {
+                      label: 'URL',
+                      name: 'url',
+                      widget: 'text',
+                      required: true,
+                    }
+          - label: 'Top Members'
+            name: 'members'
+            widget: list
+            required: true
+            fields:
+              - {
+                  label: 'Name',
+                  name: 'name',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'text',
+                  required: true,
+                }
+              - {
+                  label: 'Image',
+                  name: 'image',
+                  widget: 'image',
+                  required: true,
+                }
