@@ -1,7 +1,11 @@
 import 'react-vis/dist/style.css';
 
-import { Flex, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
+import { Flex, Grid, HStack, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
+import {
+  AssociationBoardCard,
+  AssociationBoardType,
+} from 'components/Cards/AssociationBoard';
 import { CSTKScoreCard } from 'components/Cards/CSTKScore';
 import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
 import { MemberCountCard } from 'components/Cards/MemberCount';
@@ -11,18 +15,26 @@ import {
   MemberSpotlightCard,
   MemberSpotlightType,
 } from 'components/Cards/MemberSpotlight';
-import { Message, MessageCard } from 'components/Cards/Message';
+import { MessageCard, MessageType } from 'components/Cards/Message';
+import { PartnershipCard, PartnershipType } from 'components/Cards/Partnership';
+import { POAPCard } from 'components/Cards/POAP';
+import { SocialCard, SocialType } from 'components/Cards/Social';
+import { SwagShopCard } from 'components/Cards/SwagShop';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
 import { attributes } from 'content/dashboard.md';
 
 type HomeContentAttributes = {
-  messages: Message[];
+  messages: MessageType[];
   spotlight: MemberSpotlightType;
   members: MemberType[];
+  associationBoard: AssociationBoardType;
+  social: SocialType;
+  partnerships: PartnershipType[];
 };
 
-const { messages, spotlight, members } = attributes as HomeContentAttributes;
+const { messages, spotlight, members, associationBoard, social, partnerships } =
+  attributes as HomeContentAttributes;
 
 export const DashboardPage: React.FC = () => {
   return (
@@ -62,6 +74,28 @@ export const DashboardPage: React.FC = () => {
           <CSTKScoreCard />
           <MemberSpotlightCard {...spotlight} />
           <MembersListCard {...{ members }} />
+        </SimpleGrid>
+        <Grid templateColumns="2fr 1fr" gap={8} w="100%">
+          <AssociationBoardCard {...associationBoard} />
+          <SwagShopCard />
+        </Grid>
+        <SimpleGrid columns={2} gap={8} w="100%">
+          <POAPCard />
+          <SocialCard {...social} />
+        </SimpleGrid>
+        <Text
+          textTransform="uppercase"
+          fontWeight="bold"
+          fontSize="xl"
+          letterSpacing="1rem"
+          py={2}
+        >
+          Partnerships
+        </Text>
+        <SimpleGrid columns={3} gap={8} w="100%">
+          {partnerships.map((p, i) => (
+            <PartnershipCard key={i} {...p} />
+          ))}
         </SimpleGrid>
       </VStack>
     </>
