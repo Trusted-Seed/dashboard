@@ -3,7 +3,7 @@ import { Flex, HStack, Link, Text, VStack } from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
 
-export type Message = {
+export type MessageType = {
   title: string;
   description: string;
   action: string;
@@ -11,7 +11,7 @@ export type Message = {
   url?: string;
 };
 
-export const MessageCard: React.FC<Message> = ({
+export const MessageCard: React.FC<MessageType> = ({
   title,
   description,
   url,

@@ -294,3 +294,44 @@ collections:
                   widget: 'image',
                   required: true,
                 }
+          - label: 'Association Board'
+            name: 'associationBoard'
+            widget: object
+            required: true
+            fields:
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Count Text',
+                  name: 'countText',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Count',
+                  name: 'count',
+                  widget: 'number',
+                  required: true,
+                }
+              - {
+                  label: 'Action Text',
+                  name: 'actionText',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Action URL',
+                  name: 'actionUrl',
+                  widget: 'string',
+                  required: true,
+                }

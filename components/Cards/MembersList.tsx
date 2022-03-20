@@ -1,4 +1,11 @@
-import { Flex, HStack, StackProps, Text, VStack } from '@chakra-ui/react';
+import {
+  Flex,
+  HStack,
+  Stack,
+  StackProps,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
 import { Link } from 'components/Link';
@@ -25,7 +32,11 @@ export const MembersListCard: React.FC<
   }, []);
   return (
     <Card p={8} align="flex-start" justify="space-between" {...props}>
-      <HStack justify="space-between" w="100%">
+      <Stack
+        justify="space-between"
+        w="100%"
+        direction={{ base: 'column', xl: 'row' }}
+      >
         <Text
           fontSize={{ base: 'md', lg: 'lg' }}
           display="inline-block"
@@ -38,7 +49,7 @@ export const MembersListCard: React.FC<
             View All
           </Button>
         </Link>
-      </HStack>
+      </Stack>
       <VStack
         spacing={3}
         overflowY="auto"

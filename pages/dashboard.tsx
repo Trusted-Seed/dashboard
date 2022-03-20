@@ -1,7 +1,11 @@
 import 'react-vis/dist/style.css';
 
-import { Flex, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
+import { Flex, Grid, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
+import {
+  AssociationBoardCard,
+  AssociationBoardType,
+} from 'components/Cards/AssociationBoard';
 import { CSTKScoreCard } from 'components/Cards/CSTKScore';
 import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
 import { MemberCountCard } from 'components/Cards/MemberCount';
@@ -11,18 +15,21 @@ import {
   MemberSpotlightCard,
   MemberSpotlightType,
 } from 'components/Cards/MemberSpotlight';
-import { Message, MessageCard } from 'components/Cards/Message';
+import { MessageCard, MessageType } from 'components/Cards/Message';
+import { SwagShopCard } from 'components/Cards/SwagShop';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
 import { attributes } from 'content/dashboard.md';
 
 type HomeContentAttributes = {
-  messages: Message[];
+  messages: MessageType[];
   spotlight: MemberSpotlightType;
   members: MemberType[];
+  associationBoard: AssociationBoardType;
 };
 
-const { messages, spotlight, members } = attributes as HomeContentAttributes;
+const { messages, spotlight, members, associationBoard } =
+  attributes as HomeContentAttributes;
 
 export const DashboardPage: React.FC = () => {
   return (
@@ -63,6 +70,10 @@ export const DashboardPage: React.FC = () => {
           <MemberSpotlightCard {...spotlight} />
           <MembersListCard {...{ members }} />
         </SimpleGrid>
+        <Grid templateColumns="2fr 1fr" gap={8} w="100%">
+          <AssociationBoardCard {...associationBoard} />
+          <SwagShopCard />
+        </Grid>
       </VStack>
     </>
   );

@@ -11,7 +11,7 @@ export const Button: React.FC<ChakraButtonProps> = props => (
     borderColor="ceruleanBlue"
     borderWidth="2px"
     borderRadius="full"
-    fontWeight="500"
+    fontWeight="bold"
     color="black"
     transition="all 0.25s"
     pos="relative"

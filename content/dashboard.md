@@ -65,4 +65,11 @@ members:
   - name: Username 2021
     image: /images/username.png
     description: Graphic Designer
+associationBoard:
+  title: Trusted Seed Association Board
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero, vestibulum morbi vel aliquam, amet, lectus erat dictumst porttitor. Ac a nec, tempor ultrices elementum.
+  countText: Number of board members
+  count: 3
+  actionText: Read More
+  actionUrl: https://wiki.commonsstack.org/
 ---
