@@ -72,4 +72,35 @@ associationBoard:
   count: 3
   actionText: Read More
   actionUrl: https://wiki.commonsstack.org/
+social:
+  title: Join Us!
+  links:
+    - label: Telegram
+      iconType: telegram
+      url: https://t.me/joinchat/HGrjjRS2PoowbH1ODuefuA
+    - label: Twitter
+      iconType: twitter
+      url: https://twitter.com/commonsstack
+    - label: Discord
+      iconType: discord
+      url: https://discord.link/commonsstack
+    - label: Medium
+      iconType: medium
+      url: https://medium.com/commonsstack
+    - label: Calendar
+      iconType: calendar
+      url: '#'
+partnerships:
+  - image: /images/tec-logo.svg
+    description: Advancing the field of token engineering in a regenerative way.
+    actionText: Read More
+    actionUrl: https://tecommons.org/
+  - image: /images/regen-network-logo.svg
+    description: Building foundational fintech infrastructure for ecological claims and data.
+    actionText: Read More
+    actionUrl: https://regen.network/
+  - image: /images/giveth-logo.svg
+    description: Building the Future of Giving using blockchain technology.
+    actionText: Read More
+    actionUrl: https://giveth.io/
 ---

@@ -23,7 +23,7 @@ export const AssociationBoardCard: React.FC<
   actionUrl,
   ...props
 }) => (
-  <Card p={8} align="flex-start" justify="flex-end" {...props}>
+  <Card p={8} spacing={6} align="flex-start" justify="flex-end" {...props}>
     <Text
       color="ceruleanBlue"
       fontSize="4xl"

@@ -335,3 +335,70 @@ collections:
                   widget: 'string',
                   required: true,
                 }
+          - label: 'Social Channels'
+            name: 'social'
+            widget: object
+            required: true
+            fields:
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - label: 'Social Links'
+                name: 'links'
+                widget: list
+                required: true
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string' }
+                  - {
+                      label: 'Icon Type',
+                      name: 'iconType',
+                      widget: 'select',
+                      options:
+                        [
+                          'twitter',
+                          'youtube',
+                          'medium',
+                          'telegram',
+                          'discord',
+                          'calendar',
+                        ],
+                      required: true,
+                    }
+                  - {
+                      label: 'URL',
+                      name: 'url',
+                      widget: 'text',
+                      required: true,
+                    }
+          - label: 'Partnerships'
+            name: 'partnerships'
+            widget: list
+            required: true
+            fields:
+              - {
+                  label: 'Image',
+                  name: 'image',
+                  widget: 'image',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Action Text',
+                  name: 'actionText',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Action URL',
+                  name: 'actionUrl',
+                  widget: 'string',
+                  required: true,
+                }

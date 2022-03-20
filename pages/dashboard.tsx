@@ -1,6 +1,6 @@
 import 'react-vis/dist/style.css';
 
-import { Flex, Grid, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
+import { Flex, Grid, HStack, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
 import {
   AssociationBoardCard,
@@ -16,6 +16,9 @@ import {
   MemberSpotlightType,
 } from 'components/Cards/MemberSpotlight';
 import { MessageCard, MessageType } from 'components/Cards/Message';
+import { PartnershipCard, PartnershipType } from 'components/Cards/Partnership';
+import { POAPCard } from 'components/Cards/POAP';
+import { SocialCard, SocialType } from 'components/Cards/Social';
 import { SwagShopCard } from 'components/Cards/SwagShop';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
@@ -26,9 +29,11 @@ type HomeContentAttributes = {
   spotlight: MemberSpotlightType;
   members: MemberType[];
   associationBoard: AssociationBoardType;
+  social: SocialType;
+  partnerships: PartnershipType[];
 };
 
-const { messages, spotlight, members, associationBoard } =
+const { messages, spotlight, members, associationBoard, social, partnerships } =
   attributes as HomeContentAttributes;
 
 export const DashboardPage: React.FC = () => {
@@ -74,6 +79,24 @@ export const DashboardPage: React.FC = () => {
           <AssociationBoardCard {...associationBoard} />
           <SwagShopCard />
         </Grid>
+        <SimpleGrid columns={2} gap={8} w="100%">
+          <POAPCard />
+          <SocialCard {...social} />
+        </SimpleGrid>
+        <Text
+          textTransform="uppercase"
+          fontWeight="bold"
+          fontSize="xl"
+          letterSpacing="1rem"
+          py={2}
+        >
+          Partnerships
+        </Text>
+        <SimpleGrid columns={3} gap={8} w="100%">
+          {partnerships.map((p, i) => (
+            <PartnershipCard key={i} {...p} />
+          ))}
+        </SimpleGrid>
       </VStack>
     </>
   );
