@@ -13,7 +13,7 @@ export const useENS = (
   const populateENS = useCallback(async () => {
     try {
       setFetching(true);
-      const ethProvider = await getEthersProvider('0x1');
+      const ethProvider = getEthersProvider('0x1');
       if (address && ethProvider) {
         const ens = await ethProvider.lookupAddress(address);
         setENS(ens);

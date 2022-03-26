@@ -24,3 +24,4 @@ package-lock.json
 
 # typescript
 tsconfig.tsbuildinfo
+graphql/autogen/types.ts

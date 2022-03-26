@@ -34,8 +34,22 @@ gql`
 `;
 
 gql`
-  query TokenBalance($address: String!) {
-    member(id: "MEMBER_ADDRESS") {
+  query TokenBalance($address: ID!) {
+    member(id: $address) {
+      balance
+    }
+  }
+`;
+
+gql`
+  query MemberSnapshots($address: String!) {
+    memberSnapshots(
+      where: { member: $address }
+      orderBy: timestamp
+      orderDirection: desc
+      first: 1000
+    ) {
+      timestamp
       balance
     }
   }
