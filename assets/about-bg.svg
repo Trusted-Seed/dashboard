@@ -1,25 +1,24 @@
 <svg width="1317" height="417" viewBox="0 0 1317 417" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
   .leaf {
-    animation: 5.5s opacity ease-in-out infinite both;
+    animation: 9s opacity ease-in-out infinite both;
     filter: url(#dropshadow);
   }
   @keyframes opacity {
     0% {opacity: 1}
-    40% {opacity: 0.05}
-    60% {opacity: 0.05}
+    50% {opacity: 0.05}
     100% {opacity: 1}
   }
-  #leaf0 {animation-delay: -0.5s}
-  #leaf1 {animation-delay: -1s}
-  #leaf2 {animation-delay: -1.5s}
-  #leaf3 {animation-delay: -2s}
-  #leaf4 {animation-delay: -2.5s}
-  #leaf5 {animation-delay: -3s}
-  #leaf6 {animation-delay: -3.5s}
-  #leaf7 {animation-delay: -4s}
-  #leaf8 {animation-delay: -4.5s}
-  #leaf9 {animation-delay: -5s}
+  #leaf0 {animation-delay: -0.75s}
+  #leaf1 {animation-delay: -1.5s}
+  #leaf2 {animation-delay: -2.25s}
+  #leaf3 {animation-delay: -3s}
+  #leaf4 {animation-delay: -3.75s}
+  #leaf5 {animation-delay: -4.5s}
+  #leaf6 {animation-delay: -5.25s}
+  #leaf7 {animation-delay: -6s}
+  #leaf8 {animation-delay: -6.75s}
+  #leaf9 {animation-delay: -7.5s}
 </style>
 <g filter="url(#filter0_d_911_24)">
 <g filter="url(#filter1_d_911_24)" class="leaf" id="leaf0">
