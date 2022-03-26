@@ -60,6 +60,9 @@ export const theme = extendTheme({
     ceruleanBlue: '#12BAD6',
     darkCeruleanBlue: '#0b7385',
   },
+  shadows: {
+    outline: '0 !important',
+  },
 });
 
 export const globalStyles = css`
