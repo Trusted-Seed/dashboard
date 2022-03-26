@@ -1,6 +1,7 @@
 import {
   Box,
   Flex,
+  Select,
   Spinner,
   StackProps,
   Text,
@@ -8,7 +9,10 @@ import {
 } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 import { ChartHint } from 'components/ChartHint';
-import { useTokenSnapshotsQuery } from 'graphql/autogen/types';
+import {
+  useMemberSnapshotsQuery,
+  useTokenSnapshotsQuery,
+} from 'graphql/autogen/types';
 import { useMemo, useState } from 'react';
 import {
   AreaSeries,
@@ -27,37 +31,83 @@ import {
   formatDateForPlot as formatDate,
   formatNumberForPlot as formatNumber,
 } from 'utils/formatHelpers';
-import { config } from 'web3';
+import { config, useWallet } from 'web3';
 
 export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
+  const { colors } = useTheme();
+  const { address, isConnected } = useWallet();
+
+  const [view, setView] = useState<string>('total');
   const [hoveredNode, setHoveredNode] = useState<DataPoint | null>(null);
-  const [{ fetching, data }] = useTokenSnapshotsQuery({
-    variables: { address: config.CSTK.address },
-  });
-  const snapshots: DataPoint[] = useMemo(
+
+  const [{ fetching: fetchingTotalSnapshots, data: totalData }] =
+    useTokenSnapshotsQuery({
+      variables: { address: config.CSTK.address },
+    });
+  const totalSnapshots: DataPoint[] = useMemo(
     () =>
-      data?.tokenSnapshots.map(({ timestamp, totalSupply }) => ({
+      totalData?.tokenSnapshots.map(({ timestamp, totalSupply }) => ({
         x: timestamp,
         y: Number(totalSupply),
       })) ?? [],
-    [data],
+    [totalData],
   );
-  const { colors } = useTheme();
+
+  const [{ fetching: fetchingMemberSnapshots, data: memberData }] =
+    useMemberSnapshotsQuery({
+      variables: { address: address?.toLowerCase() ?? '' },
+      pause: !isConnected,
+    });
+  const memberSnapshots: DataPoint[] = useMemo(
+    () =>
+      memberData?.memberSnapshots.map(({ timestamp, balance }) => ({
+        x: timestamp,
+        y: Number(balance),
+      })) ?? [],
+    [memberData],
+  );
+
+  const fetching = useMemo(
+    () => fetchingMemberSnapshots || fetchingTotalSnapshots,
+    [fetchingTotalSnapshots, fetchingMemberSnapshots],
+  );
+  const snapshots = useMemo(
+    () =>
+      isConnected && view === 'member' && memberSnapshots.length > 0
+        ? memberSnapshots
+        : totalSnapshots,
+    [isConnected, view, totalSnapshots, memberSnapshots],
+  );
 
   return (
-    <Card
-      p={8}
-      align="flex-start"
-      onMouseLeave={() => setHoveredNode(null)}
-      {...props}
-    >
-      <Text
-        fontSize={{ base: 'md', lg: 'lg' }}
-        display="inline-block"
-        whiteSpace="nowrap"
-      >
-        Total CSTK Supply
-      </Text>
+    <Card p={8} align="flex-start" {...props}>
+      {isConnected && memberSnapshots.length > 0 ? (
+        <Flex>
+          <Select
+            defaultValue="total"
+            value={view}
+            onChange={e => setView(e.target.value)}
+            border="2px solid"
+            borderColor="ceruleanBlue"
+            borderRadius="full"
+            _hover={{}}
+            _focus={{}}
+            fontSize={{ base: 'md', lg: 'lg' }}
+            sx={{ '>option': { bg: 'cardBG' } }}
+          >
+            <option value="member" label="My CSTK" />
+            <option value="total" label="Total CSTK Supply" />
+          </Select>
+        </Flex>
+      ) : (
+        <Text
+          fontSize={{ base: 'md', lg: 'lg' }}
+          display="inline-block"
+          whiteSpace="nowrap"
+        >
+          Total CSTK Supply
+        </Text>
+      )}
       {fetching ? (
         <Flex
           w="100%"
@@ -69,7 +119,10 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
           <Spinner size="xl" thickness="4px" speed="0.65s" mb={8} />
         </Flex>
       ) : (
-        <FlexibleWidthXYPlot height={420}>
+        <FlexibleWidthXYPlot
+          height={420}
+          onMouseLeave={() => setHoveredNode(null)}
+        >
           <HorizontalGridLines
             tickTotal={6}
             style={{ stroke: colors.whiteAlpha[200] }}
