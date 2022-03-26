@@ -6,7 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { WEB3_MODAL_OPTIONS } from 'web3';
+import { WEB3_MODAL_OPTIONS } from 'web3/options';
 import Web3Modal from 'web3modal';
 
 export type WalletContextType = {
@@ -82,10 +82,8 @@ export const WalletProvider: React.FC = ({ children }) => {
       const modalProvider = await web3Modal.connect();
 
       await setWalletProvider(modalProvider);
-
       modalProvider.on('accountsChanged', () => {
-        disconnect();
-        window.location.reload();
+        setWalletProvider(modalProvider);
       });
       modalProvider.on('chainChanged', () => {
         setWalletProvider(modalProvider);
@@ -100,14 +98,11 @@ export const WalletProvider: React.FC = ({ children }) => {
   }, [setWalletProvider, disconnect]);
 
   useEffect(() => {
-    const load = async () => {
-      if (web3Modal?.cachedProvider) {
-        await connectWallet();
-      } else {
-        setConnecting(false);
-      }
-    };
-    load();
+    if (web3Modal?.cachedProvider) {
+      connectWallet();
+    } else {
+      setConnecting(false);
+    }
   }, [connectWallet]);
 
   return (

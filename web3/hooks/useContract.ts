@@ -6,9 +6,9 @@ import { getEthersProvider } from 'web3/providers';
 export const useReadContract = (info: ContractInfo): Contract | null => {
   const [contract, setContract] = useState<Contract | null>(null);
 
-  const createContract = useCallback(async () => {
+  const createContract = useCallback(() => {
     const { chainId, address, abi } = info;
-    const provider = await getEthersProvider(chainId);
+    const provider = getEthersProvider(chainId);
     if (provider) {
       setContract(new Contract(address, abi, provider));
     }
