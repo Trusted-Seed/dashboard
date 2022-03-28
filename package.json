@@ -10,7 +10,7 @@
     "lint:nofix": "eslint --ignore-path .gitignore \"*/**/*.{js,jsx,ts,tsx}\"",
     "lint": "yarn lint:nofix --quiet --fix",
     "format": "prettier --ignore-path .gitignore --write \"{*,**/*}.{ts,tsx,js,jsx,json,yml,yaml,md}\"",
-    "prepare": "husky install",
+    "prepare": "yarn generate && husky install",
     "generate": "graphql-codegen --config=codegen.yml"
   },
   "devDependencies": {
