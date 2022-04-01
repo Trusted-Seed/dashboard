@@ -1,36 +1,29 @@
-import { InitOptions } from 'netlify-cms-core';
+import NetlifyIdentityWidget from 'netlify-identity-widget';
 import { useEffect } from 'react';
 
-const prodConfig: InitOptions = {
-  config: {
-    backend: {
-      name: 'git-gateway',
-      branch: 'dev',
-    },
-    collections: [],
-  },
-};
+const isLocal = process.env.NEXT_PUBLIC_NETLIFY_ENV === 'development';
 
-const localConfig: InitOptions = {
-  config: {
-    backend: {
-      name: 'proxy',
-      proxy_url: 'http://localhost:8081/api/v1',
-    },
-    collections: [],
-  },
-};
-
-const NETLIFY_ENV = process.env.NEXT_PUBLIC_NETLIFY_ENV;
-
-const netlifyConfig: InitOptions =
-  NETLIFY_ENV === 'development' ? localConfig : prodConfig;
+declare global {
+  interface Window {
+    netlifyIdentity?: typeof NetlifyIdentityWidget;
+  }
+}
 
 const NetlifyPage: React.FC = () => {
   useEffect(() => {
     (async () => {
+      window.netlifyIdentity = NetlifyIdentityWidget;
       const CMS = (await import('netlify-cms-app')).default;
-      CMS.init(netlifyConfig);
+      CMS.init({
+        config: {
+          backend: {
+            name: 'git-gateway',
+            branch: 'dev',
+          },
+          local_backend: isLocal,
+          collections: [],
+        },
+      });
     })();
   }, []);
 
