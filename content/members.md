@@ -1,6 +1,10 @@
 ---
-date: 2022-02-28T18:31:40.290Z
-description: Members of the Trusted Seed put skin in the game by contributing to the Commons Stack, entitling them to a CSTK Score which denotes their reputation in the Trusted Seed. They will use their expertise to help steward new forms of sustainably funded Commons ecosystems, especially in the period immediately following their launch.
+date: 2022-04-01T09:41:37.389Z
+description: Members of the Trusted Seed put skin in the game by contributing to
+  the Commons Stack, entitling them to a CSTK Score which denotes their
+  reputation in the Trusted Seed. They will use their expertise to help steward
+  new forms of sustainably funded Commons ecosystems, especially in the period
+  immediately following their launch.
 firstMembers:
   - Benjamin Scholtz
   - Bernd Lapp
