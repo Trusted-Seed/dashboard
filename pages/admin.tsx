@@ -6,13 +6,6 @@ const prodConfig: InitOptions = {
     backend: {
       name: 'git-gateway',
       branch: 'dev',
-      commit_messages: {
-        create: 'Create {{collection}} "{{slug}}" by {{author-login}}',
-        update: 'Update {{collection}} "{{slug}}" by {{author-login}}',
-        delete: 'Delete {{collection}} "{{slug}}" by {{author-login}}',
-        uploadMedia: 'Upload "{{path}}" by {{author-login}}',
-        deleteMedia: 'Delete "{{path}}" by {{author-login}}',
-      },
     },
     collections: [],
   },
