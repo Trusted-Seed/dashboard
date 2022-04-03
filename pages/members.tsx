@@ -9,8 +9,8 @@ import {
 } from '@chakra-ui/react';
 import MembersBGImage from 'assets/members-bg.svg';
 import { MemberCountCard } from 'components/Cards/MemberCount';
-import { attributes } from 'content/members.md';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
+import { usePageAttributes } from 'hooks/usePageAttributes';
 import { formatDate } from 'utils/formatHelpers';
 import { config } from 'web3';
 
@@ -22,10 +22,9 @@ type MembersContentAttributes = {
   thirdMembers: string[];
 };
 
-const { description, date, firstMembers, secondMembers, thirdMembers } =
-  attributes as MembersContentAttributes;
-
 export const MembersPage: React.FC = () => {
+  const { description, date, firstMembers, secondMembers, thirdMembers } =
+    usePageAttributes<MembersContentAttributes>('members');
   const titleFontSize = { base: '5xl', lg: '6xl', xl: '7xl' };
   const titleLineHeight = { base: '4rem', lg: '5rem' };
   const descFontSize = { base: 'lg', lg: 'xl' };

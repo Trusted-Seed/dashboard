@@ -1,6 +1,6 @@
 import 'react-vis/dist/style.css';
 
-import { Flex, Grid, HStack, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Flex, Grid, SimpleGrid, Stack, Text, VStack } from '@chakra-ui/react';
 import DashboardBGImage from 'assets/dashboard-bg.svg';
 import {
   AssociationBoardCard,
@@ -22,9 +22,9 @@ import { SocialCard, SocialType } from 'components/Cards/Social';
 import { SwagShopCard } from 'components/Cards/SwagShop';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
-import { attributes } from 'content/dashboard.md';
+import { usePageAttributes } from 'hooks/usePageAttributes';
 
-type HomeContentAttributes = {
+type DashboardContentAttributes = {
   messages: MessageType[];
   spotlight: MemberSpotlightType;
   members: MemberType[];
@@ -33,10 +33,16 @@ type HomeContentAttributes = {
   partnerships: PartnershipType[];
 };
 
-const { messages, spotlight, members, associationBoard, social, partnerships } =
-  attributes as HomeContentAttributes;
-
 export const DashboardPage: React.FC = () => {
+  const {
+    messages,
+    spotlight,
+    members,
+    associationBoard,
+    social,
+    partnerships,
+  } = usePageAttributes<DashboardContentAttributes>('dashboard');
+
   return (
     <>
       <Flex
@@ -63,23 +69,23 @@ export const DashboardPage: React.FC = () => {
             ))}
           </Carousel>
         </Flex>
-        <HStack w="100%" spacing={8}>
+        <Stack w="100%" spacing={8} direction={{ base: 'column', lg: 'row' }}>
           <MembershipCard flexGrow={1} h="100%" />
           <Link href="/members" _hover={{}} flex={1} h="100%">
             <MemberCountCard w="100%" h="100%" />
           </Link>
-        </HStack>
+        </Stack>
         <CSTKSupplyGraphCard w="100%" />
-        <SimpleGrid columns={3} gap={8} w="100%">
+        <SimpleGrid columns={{ base: 1, lg: 3 }} gap={8} w="100%">
           <CSTKScoreCard />
           <MemberSpotlightCard {...spotlight} />
           <MembersListCard {...{ members }} />
         </SimpleGrid>
-        <Grid templateColumns="2fr 1fr" gap={8} w="100%">
+        <Grid templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={8} w="100%">
           <AssociationBoardCard {...associationBoard} />
           <SwagShopCard />
         </Grid>
-        <SimpleGrid columns={2} gap={8} w="100%">
+        <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8} w="100%">
           <POAPCard />
           <SocialCard {...social} />
         </SimpleGrid>
@@ -92,7 +98,7 @@ export const DashboardPage: React.FC = () => {
         >
           Partnerships
         </Text>
-        <SimpleGrid columns={3} gap={8} w="100%">
+        <SimpleGrid columns={{ base: 1, lg: 3 }} gap={8} w="100%">
           {partnerships.map((p, i) => (
             <PartnershipCard key={i} {...p} />
           ))}

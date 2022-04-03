@@ -5,16 +5,22 @@ messages:
     url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
     action: Vote
   - title: Read this Medium article…
-    description: The Giveth mission is to reward & empower those who give — to projects, to society, and to the world. With GIVbacks, we’re rewarding givers by giving GIV to donors to verified projects on Giveth.
+    description: The Giveth mission is to reward & empower those who give — to
+      projects, to society, and to the world. With GIVbacks, we’re rewarding
+      givers by giving GIV to donors to verified projects on Giveth.
     url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
     action: Read
   - title: Read this Medium article…
-    description: The Giveth mission is to reward & empower those who give — to projects, to society, and to the world. With GIVbacks, we’re rewarding givers by giving GIV to donors to verified projects on Giveth.
+    description: The Giveth mission is to reward & empower those who give — to
+      projects, to society, and to the world. With GIVbacks, we’re rewarding
+      givers by giving GIV to donors to verified projects on Giveth.
     url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
     image: /images/giveth.png
     action: Read
   - title: Read another Medium article…
-    description: The Giveth mission is to reward & empower those who give — to projects, to society, and to the world. With GIVbacks, we’re rewarding givers by giving GIV to donors to verified projects on Giveth.
+    description: The Giveth mission is to reward & empower those who give — to
+      projects, to society, and to the world. With GIVbacks, we’re rewarding
+      givers by giving GIV to donors to verified projects on Giveth.
     url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
     image: /images/giveth.png
     action: Read
@@ -67,7 +73,9 @@ members:
     description: Graphic Designer
 associationBoard:
   title: Trusted Seed Association Board
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero, vestibulum morbi vel aliquam, amet, lectus erat dictumst porttitor. Ac a nec, tempor ultrices elementum.
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero,
+    vestibulum morbi vel aliquam, amet, lectus erat dictumst porttitor. Ac a
+    nec, tempor ultrices elementum.
   countText: Number of board members
   count: 3
   actionText: Read More
@@ -96,7 +104,9 @@ partnerships:
     actionText: Read More
     actionUrl: https://tecommons.org/
   - image: /images/regen-network-logo.svg
-    description: Building foundational fintech infrastructure for ecological claims and data.
+    description:
+      Building foundational fintech infrastructure for ecological claims
+      and data.
     actionText: Read More
     actionUrl: https://regen.network/
   - image: /images/giveth-logo.svg

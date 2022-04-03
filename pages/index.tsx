@@ -5,7 +5,7 @@ import { IconButton } from 'components/Button';
 import { JoinUsButton } from 'components/JoinUsButton';
 import { LandingSection } from 'components/LandingSection';
 import { Link } from 'components/Link';
-import { attributes } from 'content/landing.md';
+import { usePageAttributes } from 'hooks/usePageAttributes';
 import { ICONS, LinkType } from 'utils/linkHelpers';
 
 type Section = {
@@ -22,10 +22,9 @@ type LandingContentAttributes = {
   links: LinkType[];
 };
 
-const { title, subTitle, sections, links } =
-  attributes as LandingContentAttributes;
-
 export const LandingPage: React.FC = () => {
+  const { title, subTitle, sections, links } =
+    usePageAttributes<LandingContentAttributes>('landing');
   const titleFontSize = { base: '5xl', lg: '6xl', xl: '7xl' };
   const descFontSize = { base: 'xl', xl: '2xl' };
 

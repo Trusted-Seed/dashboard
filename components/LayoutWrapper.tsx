@@ -16,7 +16,7 @@ export const LayoutWrapper: React.FC = ({ children }) => (
       w="100%"
       maxW="8xl"
       pb={16}
-      display={{ base: 'flex', lg: 'none' }}
+      display={{ base: 'flex', md: 'none' }}
     >
       <Flex
         justify="center"
@@ -37,7 +37,7 @@ export const LayoutWrapper: React.FC = ({ children }) => (
       w="100%"
       maxW="8xl"
       pb={16}
-      display={{ base: 'none', lg: 'flex' }}
+      display={{ base: 'none', md: 'flex' }}
     >
       <Header />
       {children}

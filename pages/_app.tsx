@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   }
 
   return (
-    <ChakraProvider resetCSS theme={theme}>
+    <ChakraProvider theme={theme}>
       <Head />
       <Global styles={globalStyles} />
       <WalletProvider>

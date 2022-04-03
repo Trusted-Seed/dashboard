@@ -1,5 +1,5 @@
 ---
-date: 2022-04-01T09:41:37.389Z
+date: 2022-04-03T04:42:54.491Z
 description: Members of the Trusted Seed put skin in the game by contributing to
   the Commons Stack, entitling them to a CSTK Score which denotes their
   reputation in the Trusted Seed. They will use their expertise to help steward

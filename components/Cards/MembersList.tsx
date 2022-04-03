@@ -35,7 +35,7 @@ export const MembersListCard: React.FC<
       <Stack
         justify="space-between"
         w="100%"
-        direction={{ base: 'column', xl: 'row' }}
+        direction={{ base: 'row', lg: 'column', xl: 'row' }}
       >
         <Text
           fontSize={{ base: 'md', lg: 'lg' }}

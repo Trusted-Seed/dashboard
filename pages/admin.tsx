@@ -1,5 +1,7 @@
+import { PagePreview } from 'components/PagePreview';
 import NetlifyIdentityWidget from 'netlify-identity-widget';
 import { useEffect } from 'react';
+import { slugs } from 'utils/content';
 
 const isLocal = process.env.NEXT_PUBLIC_NETLIFY_ENV === 'development';
 
@@ -14,6 +16,10 @@ const NetlifyPage: React.FC = () => {
     (async () => {
       window.netlifyIdentity = NetlifyIdentityWidget;
       const CMS = (await import('netlify-cms-app')).default;
+      CMS.registerPreviewStyle('/preview.css');
+      slugs.forEach(slug => {
+        CMS.registerPreviewTemplate(slug, PagePreview);
+      });
       CMS.init({
         config: {
           backend: {
