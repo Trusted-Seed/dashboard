@@ -46,7 +46,6 @@ const SignTerms: React.FC = () => {
         frameBorder="0"
         height="184"
         width="100%"
-        back
       ></iframe>
       <Flex css={{ gap: '.5rem' }}>
         <Text fontSize="xl" fontWeight="700">
@@ -66,7 +65,6 @@ const SignTerms: React.FC = () => {
         frameBorder="0"
         height="184"
         width="100%"
-        back
       ></iframe>
     </Flex>
   );

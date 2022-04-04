@@ -19,6 +19,6 @@
     "baseUrl": ".",
     "incremental": true
   },
-  "exclude": ["node_modules", ".next", "out"],
+  "exclude": ["node_modules", ".next", "out", "lambdas"],
   "include": ["next-env.d.ts", "static.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
 }
