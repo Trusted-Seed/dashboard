@@ -3,6 +3,10 @@ import { Button } from 'components/Button';
 import { LinkOpenIcon } from 'components/icons/LinkOpenIcon';
 import React from 'react';
 
+// Dynamo, wallet address to payload
+// Webhook to fetch from Dynamo and a webhook to store
+// in dynamo
+
 const SignTerms: React.FC = () => {
   return (
     <Flex

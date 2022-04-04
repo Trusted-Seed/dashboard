@@ -1,0 +1,6 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"ethereumAddress\": \"0xb8b8BCb1C9E15a9A2325C90b0803E6d225598245\"}"
+}
