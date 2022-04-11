@@ -123,7 +123,7 @@ export const FAQPage: React.FC = () => {
         </Text>
         <FAQSection faqs={membershipFAQ} />
         <Text fontWeight="800" fontSize="2xl">
-          CSTK Score
+          TRUST Score
         </Text>
         <FAQSection faqs={scoreFAQ} />
       </VStack>

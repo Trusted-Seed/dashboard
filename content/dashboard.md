@@ -113,4 +113,6 @@ partnerships:
     description: Building the Future of Giving using blockchain technology.
     actionText: Read More
     actionUrl: https://giveth.io/
+poaps:
+  - id: 1241
 ---

@@ -19,13 +19,13 @@ import WrongNetworkImage from 'assets/wrong-network.svg';
 import { ConnectButton } from 'components/ConnectButton';
 import { DownArrowIcon } from 'components/icons/DownArrowIcon';
 import { NetworkLabel } from 'components/NetworkLabel';
+import { useENS } from 'hooks/useENS';
 import React from 'react';
 import {
   formatAddress,
   isSupportedNetwork,
   NETWORK_INFO,
   switchChainOnMetaMask,
-  useENS,
   useWallet,
 } from 'web3';
 

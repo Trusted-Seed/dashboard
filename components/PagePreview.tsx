@@ -1,6 +1,7 @@
 import { PreviewTemplateComponentProps } from 'netlify-cms-core';
 import { useEffect, useRef } from 'react';
 
+// https://github.com/netlify/netlify-cms/issues/793
 export const PagePreview: React.FC<PreviewTemplateComponentProps> = ({
   entry,
 }) => {
