@@ -4,13 +4,13 @@ import { config, useWallet } from 'web3';
 
 import { useReadContract } from './useContract';
 
-export const useCSLOVEBalance = (): {
+export const useTSLOVEBalance = (): {
   fetching: boolean;
   balance: BigNumber;
 } => {
   const { address } = useWallet();
 
-  const contract = useReadContract(config.CSLOVE);
+  const contract = useReadContract(config.TSLOVE);
 
   const [fetching, setFetching] = useState(false);
 
@@ -26,7 +26,7 @@ export const useCSLOVEBalance = (): {
         }
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.error('Error fetching CSLOVE balance', error);
+        console.error('Error fetching TSLOVE balance', error);
         setBalance(BigNumber.from(0));
       } finally {
         setFetching(false);

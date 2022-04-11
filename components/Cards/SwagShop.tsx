@@ -1,10 +1,11 @@
-import { Image, StackProps, Text } from '@chakra-ui/react';
+import { Image, Link, StackProps, Text } from '@chakra-ui/react';
 import ShopImage from 'assets/shop.svg';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
-import { useCSLOVEBalance } from 'hooks/useCSLOVEBalance';
+import { useTSLOVEBalance } from 'hooks/useTSLOVEBalance';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
+import { SWAG_SHOP_URL } from 'utils/constants';
 import { useWallet } from 'web3';
 
 type Section = {
@@ -19,7 +20,7 @@ const SECTIONS: Section[] = [
         <Text as="span" color="ceruleanBlue">
           Connect Wallet
         </Text>{' '}
-        to view your CSLOVE balance
+        to view your TSLOVE balance
       </>
     ),
     action: 'Connect Wallet',
@@ -76,7 +77,7 @@ const SECTIONS: Section[] = [
 export const SwagShopCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
 
-  const { fetching, balance } = useCSLOVEBalance();
+  const { fetching, balance } = useTSLOVEBalance();
   const index: number = useMemo(() => {
     if (isConnected) {
       // TODO: Check membership and return 1 or 2
@@ -96,10 +97,12 @@ export const SwagShopCard: React.FC<StackProps> = props => {
     switch (index) {
       case 4:
       case 3:
+        break;
       case 2:
       case 1:
-        push('/membership');
+        push('/apply');
         break;
+      case 0:
       default:
         connectWallet();
     }
@@ -111,14 +114,22 @@ export const SwagShopCard: React.FC<StackProps> = props => {
       <Text fontWeight="bold" textAlign="center" fontSize="xl" maxW="15rem">
         {description}
       </Text>
-      <Button
-        onClick={onClick}
-        isLoading={isConnecting}
-        size="sm"
-        fontSize="md"
-      >
-        {action}
-      </Button>
+      {index < 3 ? (
+        <Button
+          onClick={onClick}
+          isLoading={isConnecting}
+          size="sm"
+          fontSize="md"
+        >
+          {action}
+        </Button>
+      ) : (
+        <Link isExternal href={SWAG_SHOP_URL} _hover={{}}>
+          <Button size="sm" fontSize="md">
+            {action}
+          </Button>
+        </Link>
+      )}
     </Card>
   );
 };

@@ -3,7 +3,6 @@ import {
   Flex,
   SimpleGrid,
   SimpleGridProps,
-  Spinner,
   Text,
   VStack,
 } from '@chakra-ui/react';
@@ -28,12 +27,12 @@ export const MembersPage: React.FC = () => {
   const titleFontSize = { base: '5xl', lg: '6xl', xl: '7xl' };
   const titleLineHeight = { base: '4rem', lg: '5rem' };
   const descFontSize = { base: 'lg', lg: 'xl' };
-  const [{ fetching, data }] = useTokenInfoQuery({
-    variables: { address: config.CSTK.address },
+  const [{ data }] = useTokenInfoQuery({
+    variables: { address: config.TRUST.address },
   });
 
   // const totalMembers = data?.token?.numMembers ?? 0;
-  const totalCSTK = data?.token?.totalSupply ?? 0;
+  const totalSupply = data?.token?.totalSupply ?? 0;
   return (
     <>
       <Flex
@@ -89,7 +88,7 @@ export const MembersPage: React.FC = () => {
             fontSize={descFontSize}
             letterSpacing="0.2rem"
           >
-            Total Number Of CSTK
+            Total Number Of TRUST
           </Text>
           <Text
             color="ceruleanBlue"
@@ -97,7 +96,7 @@ export const MembersPage: React.FC = () => {
             fontSize={titleFontSize}
             lineHeight={titleLineHeight}
           >
-            {fetching ? <Spinner /> : totalCSTK.toLocaleString('en-US')}
+            {totalSupply.toLocaleString('en-US')}
           </Text>
           <VStack w="100%" spacing={16} py={16}>
             <MembersDisplay members={firstMembers} fontWeight="bold" />

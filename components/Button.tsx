@@ -15,7 +15,7 @@ export const Button: React.FC<ChakraButtonProps> = props => (
     color="black"
     transition="all 0.25s"
     pos="relative"
-    px={6}
+    px={8}
     zIndex="0"
     _before={{
       content: '""',

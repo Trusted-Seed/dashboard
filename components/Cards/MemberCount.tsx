@@ -9,7 +9,7 @@ export const MemberCountCard: React.FC<
   } & StackProps
 > = ({ isMembersPage = false, ...props }) => {
   const [{ fetching, data }] = useTokenInfoQuery({
-    variables: { address: config.CSTK.address },
+    variables: { address: config.TRUST.address },
   });
 
   const totalMembers = data?.token?.numMembers ?? 0;
