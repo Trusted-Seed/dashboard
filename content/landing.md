@@ -1,5 +1,5 @@
 ---
-title: Lorem ipsum lorem ipsum
+title: Trusted Seed  Landing Page
 subTitle: Create a sustainable funding for public goods,
 sections:
   - description: The Trusted Seed is a key cultural initialization tool for
@@ -8,14 +8,12 @@ sections:
       the early stages of a Commons’ governance.
     title: Vision
     image: /images/vision.svg
-  - description:
-      The Trusted Seed is a group of trusted community members that hold
+  - description: The Trusted Seed is a group of trusted community members that hold
       the non-transferable CSTK tokens, representing their reputation within the
       Commons Stack.
     title: About Us
     image: /images/about-us.svg
-  - description:
-      Create sustainable funding for public goods, initiallyspecifically
+  - description: Create sustainable funding for public goods, initiallyspecifically
       for token engineering research, open-source software, and, eventually, all
       kinds of nonprofit causes through a curated list of reputable &
       experienced community members who are aligned with this mission.
@@ -36,5 +34,5 @@ links:
     url: https://medium.com/commonsstack
   - label: Calendar
     iconType: calendar
-    url: '#'
+    url: "#"
 ---
