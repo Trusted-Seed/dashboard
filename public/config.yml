@@ -399,3 +399,9 @@ collections:
                   widget: 'string',
                   required: true,
                 }
+          - label: 'POAP Badges'
+            name: 'poaps'
+            widget: list
+            required: true
+            fields:
+              - { label: 'ID', name: 'id', widget: 'string', required: true }

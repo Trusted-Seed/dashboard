@@ -6,8 +6,6 @@ import {
   AssociationBoardCard,
   AssociationBoardType,
 } from 'components/Cards/AssociationBoard';
-import { CSTKScoreCard } from 'components/Cards/CSTKScore';
-import { CSTKSupplyGraphCard } from 'components/Cards/CSTKSupplyGraph';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { MembershipCard } from 'components/Cards/Membership';
 import { MembersListCard, MemberType } from 'components/Cards/MembersList';
@@ -20,6 +18,8 @@ import { PartnershipCard, PartnershipType } from 'components/Cards/Partnership';
 import { POAPCard } from 'components/Cards/POAP';
 import { SocialCard, SocialType } from 'components/Cards/Social';
 import { SwagShopCard } from 'components/Cards/SwagShop';
+import { TRUSTScoreCard } from 'components/Cards/TRUSTScore';
+import { TRUSTSupplyGraphCard } from 'components/Cards/TRUSTSupplyGraph';
 import { Carousel } from 'components/Carousel';
 import { Link } from 'components/Link';
 import { usePageAttributes } from 'hooks/usePageAttributes';
@@ -31,6 +31,7 @@ type DashboardContentAttributes = {
   associationBoard: AssociationBoardType;
   social: SocialType;
   partnerships: PartnershipType[];
+  poaps: { id: string }[];
 };
 
 export const DashboardPage: React.FC = () => {
@@ -41,6 +42,7 @@ export const DashboardPage: React.FC = () => {
     associationBoard,
     social,
     partnerships,
+    poaps,
   } = usePageAttributes<DashboardContentAttributes>('dashboard');
 
   return (
@@ -75,9 +77,9 @@ export const DashboardPage: React.FC = () => {
             <MemberCountCard w="100%" h="100%" />
           </Link>
         </Stack>
-        <CSTKSupplyGraphCard w="100%" />
+        <TRUSTSupplyGraphCard w="100%" />
         <SimpleGrid columns={{ base: 1, lg: 3 }} gap={8} w="100%">
-          <CSTKScoreCard />
+          <TRUSTScoreCard />
           <MemberSpotlightCard {...spotlight} />
           <MembersListCard {...{ members }} />
         </SimpleGrid>
@@ -86,7 +88,7 @@ export const DashboardPage: React.FC = () => {
           <SwagShopCard />
         </Grid>
         <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8} w="100%">
-          <POAPCard />
+          <POAPCard poaps={poaps.map(p => p.id)} />
           <SocialCard {...social} />
         </SimpleGrid>
         <Text

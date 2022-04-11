@@ -33,7 +33,7 @@ import {
 } from 'utils/formatHelpers';
 import { config, useWallet } from 'web3';
 
-export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
+export const TRUSTSupplyGraphCard: React.FC<StackProps> = props => {
   const { colors } = useTheme();
   const { address, isConnected } = useWallet();
 
@@ -42,7 +42,7 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
 
   const [{ fetching: fetchingTotalSnapshots, data: totalData }] =
     useTokenSnapshotsQuery({
-      variables: { address: config.CSTK.address },
+      variables: { address: config.TRUST.address },
     });
   const totalSnapshots: DataPoint[] = useMemo(
     () =>
@@ -95,8 +95,8 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
             fontSize={{ base: 'md', lg: 'lg' }}
             sx={{ '>option': { bg: 'cardBG' } }}
           >
-            <option value="member" label="My CSTK" />
-            <option value="total" label="Total CSTK Supply" />
+            <option value="member" label="My TRUST" />
+            <option value="total" label="Total TRUST Supply" />
           </Select>
         </Flex>
       ) : (
@@ -105,7 +105,7 @@ export const CSTKSupplyGraphCard: React.FC<StackProps> = props => {
           display="inline-block"
           whiteSpace="nowrap"
         >
-          Total CSTK Supply
+          Total TRUST Supply
         </Text>
       )}
       {fetching ? (

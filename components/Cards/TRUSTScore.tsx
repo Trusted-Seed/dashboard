@@ -4,7 +4,7 @@ import { Card } from 'components/Card';
 import { useTokenBalanceQuery, useTokenInfoQuery } from 'graphql/autogen/types';
 import { config, useWallet } from 'web3';
 
-export const CSTKScoreCard: React.FC<StackProps> = props => {
+export const TRUSTScoreCard: React.FC<StackProps> = props => {
   const { address, isConnected, isConnecting, connectWallet } = useWallet();
   const [{ data: balanceData }] = useTokenBalanceQuery({
     variables: { address: address?.toLowerCase() ?? '' },
@@ -13,7 +13,7 @@ export const CSTKScoreCard: React.FC<StackProps> = props => {
   const balance = Number(balanceData?.member?.balance ?? 0);
 
   const [{ data: supplyData }] = useTokenInfoQuery({
-    variables: { address: config.CSTK.address },
+    variables: { address: config.TRUST.address },
   });
 
   const totalSupply = Number(supplyData?.token?.totalSupply ?? 0);
@@ -28,7 +28,7 @@ export const CSTKScoreCard: React.FC<StackProps> = props => {
         display="inline-block"
         whiteSpace="nowrap"
       >
-        CSTK Score
+        TRUST Score
       </Text>
       <VStack spacing={4} align="flex-start" justify="flex-end" flex={1}>
         {isConnected ? (
@@ -39,7 +39,7 @@ export const CSTKScoreCard: React.FC<StackProps> = props => {
                 letterSpacing="0.25rem"
                 fontSize="sm"
               >
-                My CSTK Score
+                My TRUST Score
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
                 {balance.toFixed(3)}
@@ -54,7 +54,7 @@ export const CSTKScoreCard: React.FC<StackProps> = props => {
                 % of Total Supply
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
-                {percentSupply.toFixed(3)}
+                {percentSupply.toFixed(3)}%
               </Text>
             </VStack>
             <VStack spacing={0} align="flex-start">
@@ -63,7 +63,7 @@ export const CSTKScoreCard: React.FC<StackProps> = props => {
                 letterSpacing="0.25rem"
                 fontSize="sm"
               >
-                Total CSTK Supply
+                Total TRUST Supply
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
                 {totalSupply.toLocaleString()}
