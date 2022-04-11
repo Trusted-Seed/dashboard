@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { Global } from '@emotion/react';
 import { Head } from 'components/Head';
 import { LayoutWrapper } from 'components/LayoutWrapper';
+import { ApplicatonContextProvider } from 'context/ApplicationContext';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
@@ -27,9 +28,11 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       <Head />
       <Global styles={globalStyles} />
       <WalletProvider>
-        <LayoutWrapper>
-          <Component {...pageProps} />
-        </LayoutWrapper>
+        <ApplicatonContextProvider>
+          <LayoutWrapper>
+            <Component {...pageProps} />
+          </LayoutWrapper>
+        </ApplicatonContextProvider>
       </WalletProvider>
     </ChakraProvider>
   );
