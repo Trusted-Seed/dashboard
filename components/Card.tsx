@@ -1,6 +1,10 @@
-import { StackProps, VStack } from '@chakra-ui/react';
+import { Spinner, StackProps, VStack } from '@chakra-ui/react';
 
-export const Card: React.FC<StackProps> = ({ children, ...props }) => (
+export const Card: React.FC<StackProps & { isLoading?: boolean }> = ({
+  children,
+  isLoading,
+  ...props
+}) => (
   <VStack
     p={{ base: 16, lg: 20, xl: 24 }}
     borderRadius={{ base: 'xl', lg: '2xl', xl: '3xl' }}
@@ -8,8 +12,19 @@ export const Card: React.FC<StackProps> = ({ children, ...props }) => (
     boxShadow="md"
     spacing={4}
     textAlign="left"
+    justify={isLoading ? 'center' : undefined}
     {...props}
   >
-    {children}
+    {isLoading ? (
+      <Spinner
+        size="xl"
+        thickness="4px"
+        speed="0.65s"
+        mb={8}
+        color="ceruleanBlue"
+      />
+    ) : (
+      children
+    )}
   </VStack>
 );

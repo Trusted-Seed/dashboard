@@ -2,7 +2,9 @@ import { Image, StackProps, Text } from '@chakra-ui/react';
 import ShopImage from 'assets/shop.svg';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
-import { useCallback, useMemo, useState } from 'react';
+import { useCSLOVEBalance } from 'hooks/useCSLOVEBalance';
+import { useRouter } from 'next/router';
+import { useCallback, useMemo } from 'react';
 import { useWallet } from 'web3';
 
 type Section = {
@@ -10,19 +12,18 @@ type Section = {
   action: string;
 };
 
-const DISCONNECTED_SECTION: Section = {
-  description: (
-    <>
-      <Text as="span" color="ceruleanBlue">
-        Connect Wallet
-      </Text>{' '}
-      to view your CSLOVE balance
-    </>
-  ),
-  action: 'Connect Wallet',
-};
-
 const SECTIONS: Section[] = [
+  {
+    description: (
+      <>
+        <Text as="span" color="ceruleanBlue">
+          Connect Wallet
+        </Text>{' '}
+        to view your CSLOVE balance
+      </>
+    ),
+    action: 'Connect Wallet',
+  },
   {
     description: (
       <>
@@ -74,21 +75,38 @@ const SECTIONS: Section[] = [
 
 export const SwagShopCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
-  const [index, setIndex] = useState(0);
 
-  const { description, action } = useMemo(
-    () => (isConnected ? SECTIONS[index] : DISCONNECTED_SECTION),
-    [index, isConnected],
-  );
+  const { fetching, balance } = useCSLOVEBalance();
+  const index: number = useMemo(() => {
+    if (isConnected) {
+      // TODO: Check membership and return 1 or 2
+      if (balance.gte(1)) {
+        return 3;
+      }
+      return 4;
+    }
+    return 0;
+  }, [isConnected, balance]);
 
-  const onClick = useCallback(
-    () =>
-      isConnected ? setIndex(i => (i + 1) % SECTIONS.length) : connectWallet(),
-    [connectWallet, setIndex, isConnected],
-  );
+  const { description, action } = SECTIONS[index];
+
+  const { push } = useRouter();
+
+  const onClick = useCallback(() => {
+    switch (index) {
+      case 4:
+      case 3:
+      case 2:
+      case 1:
+        push('/membership');
+        break;
+      default:
+        connectWallet();
+    }
+  }, [index, connectWallet, push]);
 
   return (
-    <Card p={8} spacing={6} {...props}>
+    <Card p={8} spacing={6} isLoading={fetching} {...props}>
       <Image src={ShopImage.src} mb={2} />
       <Text fontWeight="bold" textAlign="center" fontSize="xl" maxW="15rem">
         {description}
