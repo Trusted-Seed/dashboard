@@ -1,5 +1,4 @@
 import fetchApp from '@functions/fetch-application';
-import hello from '@functions/hello';
 import storeForm from '@functions/store-form';
 import type { AWS } from '@serverless/typescript';
 
@@ -18,12 +17,10 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
-      AWS_SECRET_ACCESS_KEY: '${env:AWS_SECRET}',
-      AWS_ACCESS_KEY_ID: '${env:AWS_ACCESS_KEY}',
     },
   },
   // import the function via paths
-  functions: { hello, storeForm, fetchApp },
+  functions: { storeForm, fetchApp },
   package: { individually: true },
   custom: {
     esbuild: {

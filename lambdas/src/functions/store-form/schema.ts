@@ -9,12 +9,12 @@ export default {
           type: 'array',
           items: {
             type: 'object',
-            properites: {
+            properties: {
               type: { type: 'string' },
               text: { type: 'string' },
               field: {
                 type: 'object',
-                properites: {
+                properties: {
                   id: { type: 'string' },
                   type: { type: 'string' },
                 },
