@@ -14,7 +14,7 @@ export const POAPCard: React.FC<StackProps> = props => {
   );
 
   return (
-    <Card p={8} spacing={6} {...props}>
+    <Card p={8} spacing={6} hasDot {...props}>
       <Image src={POAPImage.src} />
       <Text fontWeight="bold" textAlign="center" fontSize="xl">
         You have unclaimed{' '}
