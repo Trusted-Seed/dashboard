@@ -19,5 +19,9 @@ export const formatJSONResponse: { statusCode: number; body: string } = (
   return {
     statusCode: 200,
     body: JSON.stringify(response),
+    headers: {
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Origin': '*',
+    },
   };
 };

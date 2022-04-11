@@ -3,5 +3,5 @@ export default {
   properties: {
     ethereumAddress: { type: 'string' },
   },
-  required: ['name'],
+  required: ['ethereumAddress'],
 } as const;

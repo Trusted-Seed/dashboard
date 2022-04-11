@@ -26,11 +26,19 @@ const ApplicationContext =
   createContext<ApplicationContextType>(initialContext);
 
 const fetchApplication = async (address: string) => {
-  const resp = await fetch(FETCH_APPLICATION_ENDPOINT, {
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ethereumAddress: address }),
-  });
-  return resp.json();
+  try {
+    const resp = await fetch(FETCH_APPLICATION_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({ ethereumAddress: address }),
+    });
+    return resp.json();
+  } catch (e) {
+    console.error(e); // eslint-disable-line
+  }
 };
 
 // TODO: stubbed for minter contract
@@ -48,7 +56,7 @@ export const ApplicatonContextProvider: React.FC = ({
   useEffect(() => {
     const f = async (address: string) => {
       const resp = await fetchApplication(address);
-      setApplied(resp.exists);
+      setApplied(resp?.exists || false);
     };
     if (address) {
       f(address);
@@ -69,5 +77,5 @@ export const ApplicatonContextProvider: React.FC = ({
   );
 };
 
-export const useCeramic: () => ApplicationContextType = () =>
+export const useApplication: () => ApplicationContextType = () =>
   useContext(ApplicationContext);
