@@ -12,9 +12,10 @@ export const POAPCard: React.FC<StackProps & { poaps: string[] }> = ({
   const { fetching, deliveryAddressInfo } = usePOAPs(poaps);
 
   const poapToClaimIndex = deliveryAddressInfo.findIndex(a => !a.claimed);
-  const poapInfo = poapToClaimIndex
-    ? deliveryAddressInfo[poapToClaimIndex].poapInfo
-    : null;
+  const poapInfo =
+    poapToClaimIndex >= 0
+      ? deliveryAddressInfo[poapToClaimIndex].poapInfo
+      : null;
 
   return (
     <Card p={8} spacing={6} isLoading={fetching} hasDot={!!poapInfo} {...props}>
