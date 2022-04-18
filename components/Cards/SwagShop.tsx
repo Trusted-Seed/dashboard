@@ -2,6 +2,7 @@ import { Image, Link, StackProps, Text } from '@chakra-ui/react';
 import ShopImage from 'assets/shop.svg';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
+import { useApplication } from 'context/ApplicationContext';
 import { useTSLOVEBalance } from 'hooks/useTSLOVEBalance';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
@@ -76,18 +77,24 @@ const SECTIONS: Section[] = [
 
 export const SwagShopCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
+  const { member, applied } = useApplication();
 
   const { fetching, balance } = useTSLOVEBalance();
   const index: number = useMemo(() => {
     if (isConnected) {
-      // TODO: Check membership and return 1 or 2
+      if (!applied) {
+        return 1;
+      }
+      if (!member) {
+        return 2;
+      }
       if (balance.gte(1)) {
         return 3;
       }
       return 4;
     }
     return 0;
-  }, [isConnected, balance]);
+  }, [isConnected, balance, applied, member]);
 
   const { description, action } = SECTIONS[index];
 
@@ -99,6 +106,8 @@ export const SwagShopCard: React.FC<StackProps> = props => {
       case 3:
         break;
       case 2:
+        push('/membership');
+        break;
       case 1:
         push('/apply');
         break;

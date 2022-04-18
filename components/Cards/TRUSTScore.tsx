@@ -1,16 +1,13 @@
 import { StackProps, Text, VStack } from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
-import { useTokenBalanceQuery, useTokenInfoQuery } from 'graphql/autogen/types';
+import { useApplication } from 'context/ApplicationContext';
+import { useTokenInfoQuery } from 'graphql/autogen/types';
 import { config, useWallet } from 'web3';
 
 export const TRUSTScoreCard: React.FC<StackProps> = props => {
-  const { address, isConnected, isConnecting, connectWallet } = useWallet();
-  const [{ data: balanceData }] = useTokenBalanceQuery({
-    variables: { address: address?.toLowerCase() ?? '' },
-    pause: !isConnected,
-  });
-  const balance = Number(balanceData?.member?.balance ?? 0);
+  const { isConnected, isConnecting, connectWallet } = useWallet();
+  const { balance } = useApplication();
 
   const [{ data: supplyData }] = useTokenInfoQuery({
     variables: { address: config.TRUST.address },

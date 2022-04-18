@@ -2,15 +2,23 @@ import { Flex, Text, VStack } from '@chakra-ui/react';
 import MembershipBGImage from 'assets/membership-bg.svg';
 import { Button } from 'components/Button';
 import { MembershipDetails } from 'components/MembershipDetails';
+import { useApplication } from 'context/ApplicationContext';
+import { usePageAttributes } from 'hooks/usePageAttributes';
 import { useRouter } from 'next/router';
 import { useWallet } from 'web3';
 
+type MembershipContentAttributes = {
+  poaps: { id: string }[];
+};
+
 const MembershipPage: React.FC = () => {
+  const { poaps } = usePageAttributes<MembershipContentAttributes>('dashboard');
+
   const { isConnected, connectWallet, isConnecting } = useWallet();
   const fontSize = { base: '3xl', xl: '3xl' };
   const { push } = useRouter();
-  // TODO check membership status
-  const isMember = true;
+  const { applied, signed, duesPaid } = useApplication();
+  const showMembershipDetails: boolean = applied && signed && duesPaid > 0;
   return (
     <>
       <Flex
@@ -32,8 +40,8 @@ const MembershipPage: React.FC = () => {
       <VStack w="100%" flex={1} zIndex={1} p={16}>
         {isConnected ? (
           <>
-            {isMember ? (
-              <MembershipDetails />
+            {showMembershipDetails ? (
+              <MembershipDetails poaps={poaps.map(p => p.id)} />
             ) : (
               <VStack w="100%" justify="center" h="100%" spacing={8}>
                 <Text textAlign="center" fontSize={fontSize}>

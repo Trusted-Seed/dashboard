@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { LinkOpenIcon } from 'components/icons/LinkOpenIcon';
-import React from 'react';
+import { STATUTES_URL, TERMS_AND_CONDITIONS_URL } from 'utils/constants';
 
 // Dynamo, wallet address to payload
 // Webhook to fetch from Dynamo and a webhook to store
@@ -31,7 +31,7 @@ const SignTerms: React.FC = () => {
         <Text fontSize="xl" fontWeight="700">
           Terms and Conditions
         </Text>
-        <a href="https://ipfs.web3.party/ipfs/QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n">
+        <a href={TERMS_AND_CONDITIONS_URL}>
           <LinkOpenIcon />
         </a>
       </Flex>
@@ -42,7 +42,7 @@ const SignTerms: React.FC = () => {
       </Text>
 
       <iframe
-        src="https://ipfs.web3.party/ipfs/QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n"
+        src={TERMS_AND_CONDITIONS_URL}
         frameBorder="0"
         height="184"
         width="100%"
@@ -51,7 +51,7 @@ const SignTerms: React.FC = () => {
         <Text fontSize="xl" fontWeight="700">
           Statues
         </Text>
-        <a href="https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5">
+        <a href={STATUTES_URL}>
           <LinkOpenIcon />
         </a>
       </Flex>
@@ -61,7 +61,7 @@ const SignTerms: React.FC = () => {
       </Text>
 
       <iframe
-        src="https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5"
+        src={STATUTES_URL}
         frameBorder="0"
         height="184"
         width="100%"
