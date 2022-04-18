@@ -118,7 +118,13 @@ export const SwagShopCard: React.FC<StackProps> = props => {
   }, [index, connectWallet, push]);
 
   return (
-    <Card p={8} spacing={6} isLoading={fetching} {...props}>
+    <Card
+      p={8}
+      spacing={6}
+      hasDot={index === 3}
+      isLoading={fetching}
+      {...props}
+    >
       <Image src={ShopImage.src} mb={2} />
       <Text fontWeight="bold" textAlign="center" fontSize="xl" maxW="15rem">
         {description}

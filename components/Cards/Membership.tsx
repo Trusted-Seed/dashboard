@@ -143,6 +143,7 @@ export const MembershipCard: React.FC<StackProps> = props => {
       justify="flex-end"
       bg="linear-gradient(180deg, #F3B34E 0%, #12BAD6 100%)"
       color="black"
+      hasDot={index === 2 || index === 4}
       {...props}
     >
       <Text fontSize={{ base: '2xl', lg: '3xl' }} fontWeight="bold">
