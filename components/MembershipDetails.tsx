@@ -7,10 +7,16 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Button } from 'components/Button';
+import { useApplication } from 'context/ApplicationContext';
 import { utils } from 'ethers';
-import { useTokenBalanceQuery, useTokenInfoQuery } from 'graphql/autogen/types';
+import { useTokenInfoQuery } from 'graphql/autogen/types';
+import {
+  PAY_DUES_URL,
+  STATUTES_URL,
+  TERMS_AND_CONDITIONS_URL,
+} from 'utils/constants';
 import { formatDateForMembership } from 'utils/formatHelpers';
-import { config, useWallet } from 'web3';
+import { config } from 'web3';
 
 import { BadgesDisplay } from './BadgesDisplay';
 import { Card } from './Card';
@@ -42,22 +48,21 @@ const ScoreDisplay: React.FC<{ title: string; value: string }> = ({
   </VStack>
 );
 
-export const MembershipDetails: React.FC = () => {
-  const { isConnected, address } = useWallet();
+export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
+  const {
+    member,
+    applicationDate,
+    signatureDate,
+    duesPaid,
+    balance,
+    paymentDate,
+    expiryDate,
+  } = useApplication();
 
-  // TODO: fetch membership details
-  const applicationDate = formatDateForMembership(new Date());
-  const signDate = formatDateForMembership(new Date());
-  const duesPaid = utils.parseUnits('250', 18);
-  const paymentDate = formatDateForMembership(new Date());
-  const expiryDate = formatDateForMembership(new Date());
-  const isApproved = true;
-
-  const [{ data: balanceData }] = useTokenBalanceQuery({
-    variables: { address: address?.toLowerCase() ?? '' },
-    pause: !isConnected,
-  });
-  const balance = Number(balanceData?.member?.balance ?? 0);
+  const appDateDisplay = formatDateForMembership(applicationDate ?? new Date());
+  const signDateDisplay = formatDateForMembership(signatureDate ?? new Date());
+  const paymentDateDisplay = formatDateForMembership(paymentDate ?? new Date());
+  const expiryDateDisplay = formatDateForMembership(expiryDate ?? new Date());
 
   const [{ data: supplyData }] = useTokenInfoQuery({
     variables: { address: config.TRUST.address },
@@ -90,7 +95,7 @@ export const MembershipDetails: React.FC = () => {
             </Text>
             :{' '}
             <Text as="span" color="ceruleanBlue">
-              {applicationDate}
+              {appDateDisplay}
             </Text>
           </Text>
           <Text> Your application is being processed </Text>
@@ -105,15 +110,23 @@ export const MembershipDetails: React.FC = () => {
             </Text>
             :{' '}
             <Text as="span" color="ceruleanBlue">
-              {signDate}
+              {signDateDisplay}
             </Text>
           </Text>
           <VStack align="stretch" spacing={0}>
-            <Link isExternal href="#" _hover={{ color: 'ceruleanBlue' }}>
+            <Link
+              isExternal
+              href={TERMS_AND_CONDITIONS_URL}
+              _hover={{ color: 'ceruleanBlue' }}
+            >
               <ExternalLinkIcon color="ceruleanBlue" mb={1} /> Terms and
               Conditions
             </Link>
-            <Link isExternal href="#" _hover={{ color: 'ceruleanBlue' }}>
+            <Link
+              isExternal
+              href={STATUTES_URL}
+              _hover={{ color: 'ceruleanBlue' }}
+            >
               <ExternalLinkIcon color="ceruleanBlue" mb={1} /> Statutes
             </Link>
           </VStack>
@@ -136,7 +149,7 @@ export const MembershipDetails: React.FC = () => {
               </Text>
               :{' '}
               <Text as="span" color="ceruleanBlue">
-                {utils.formatUnits(duesPaid, 18)} DAI
+                {duesPaid} DAI
               </Text>
             </Text>
             <Text>
@@ -145,7 +158,7 @@ export const MembershipDetails: React.FC = () => {
               </Text>
               :{' '}
               <Text as="span" color="ceruleanBlue">
-                {paymentDate}
+                {paymentDateDisplay}
               </Text>
             </Text>
             <Text>
@@ -154,11 +167,11 @@ export const MembershipDetails: React.FC = () => {
               </Text>
               :{' '}
               <Text as="span" color="ceruleanBlue">
-                {expiryDate}
+                {expiryDateDisplay}
               </Text>
             </Text>
           </VStack>
-          <Link isExternal href="#" _hover={{}}>
+          <Link isExternal href={PAY_DUES_URL} _hover={{}}>
             <Button>Pay additional dues</Button>
           </Link>
         </Card>
@@ -191,7 +204,7 @@ export const MembershipDetails: React.FC = () => {
             </Text>
             :{' '}
             <Text as="span" color="ceruleanBlue">
-              {paymentDate}
+              {paymentDateDisplay}
             </Text>
           </Text>
           <Text>
@@ -200,7 +213,7 @@ export const MembershipDetails: React.FC = () => {
             </Text>
             :{' '}
             <Text as="span" color="ceruleanBlue">
-              {expiryDate}
+              {expiryDateDisplay}
             </Text>
           </Text>
         </VStack>
@@ -208,7 +221,7 @@ export const MembershipDetails: React.FC = () => {
           <Button>Pay additional dues</Button>
         </Link>
       </Card>
-      {isApproved ? (
+      {member ? (
         <>
           <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} w="100%" gap={2}>
@@ -260,7 +273,7 @@ export const MembershipDetails: React.FC = () => {
             )}
           </SimpleGrid>
           <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
-          <BadgesDisplay />
+          <BadgesDisplay poaps={poaps} />
         </>
       ) : (
         <Card w="100%" color="ceruleanBlue" p={10} fontWeight="bold">

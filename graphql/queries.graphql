@@ -1,0 +1,47 @@
+query TokenInfo($address: ID!) {
+  token(id: $address) {
+    id
+    name
+    symbol
+    numMembers
+    totalSupply
+  }
+}
+
+query TokenSnapshots($address: String!) {
+  tokenSnapshots(
+    where: { token: $address }
+    orderBy: timestamp
+    orderDirection: desc
+    first: 1000
+  ) {
+    token {
+      id
+      name
+      symbol
+    }
+    timestamp
+    numMembers
+    totalSupply
+  }
+}
+
+query MemberInfo($address: ID!) {
+  member(id: $address) {
+    balance
+    startDate
+    expireDate
+  }
+}
+
+query MemberSnapshots($address: String!) {
+  memberSnapshots(
+    where: { member: $address }
+    orderBy: timestamp
+    orderDirection: desc
+    first: 1000
+  ) {
+    timestamp
+    balance
+  }
+}

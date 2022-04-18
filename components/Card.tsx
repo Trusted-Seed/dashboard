@@ -16,13 +16,7 @@ export const Card: React.FC<
     {...props}
   >
     {isLoading ? (
-      <Spinner
-        size="xl"
-        thickness="4px"
-        speed="0.65s"
-        mb={8}
-        color="ceruleanBlue"
-      />
+      <Spinner size="xl" thickness="4px" speed="0.65s" color="ceruleanBlue" />
     ) : (
       <>
         {children}
