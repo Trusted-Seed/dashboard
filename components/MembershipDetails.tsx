@@ -55,13 +55,13 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
     signatureDate,
     duesPaid,
     balance,
-    paymentDate,
+    startDate,
     expiryDate,
   } = useApplication();
 
   const appDateDisplay = formatDateForMembership(applicationDate ?? new Date());
   const signDateDisplay = formatDateForMembership(signatureDate ?? new Date());
-  const paymentDateDisplay = formatDateForMembership(paymentDate ?? new Date());
+  const startDateDisplay = formatDateForMembership(startDate ?? new Date());
   const expiryDateDisplay = formatDateForMembership(expiryDate ?? new Date());
 
   const [{ data: supplyData }] = useTokenInfoQuery({
@@ -158,7 +158,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
               </Text>
               :{' '}
               <Text as="span" color="ceruleanBlue">
-                {paymentDateDisplay}
+                {startDateDisplay}
               </Text>
             </Text>
             <Text>
@@ -204,7 +204,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
             </Text>
             :{' '}
             <Text as="span" color="ceruleanBlue">
-              {paymentDateDisplay}
+              {startDateDisplay}
             </Text>
           </Text>
           <Text>
