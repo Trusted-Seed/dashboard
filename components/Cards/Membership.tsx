@@ -1,7 +1,9 @@
 import { StackProps, Text } from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
-import { useCallback, useMemo, useState } from 'react';
+import { useApplication } from 'context/ApplicationContext';
+import { useRouter } from 'next/router';
+import { useCallback, useMemo } from 'react';
 import { useWallet } from 'web3';
 
 export type Message = {
@@ -18,20 +20,19 @@ type Section = {
   action: string;
 };
 
-const DISCONNECTED_SECTION: Section = {
-  title: 'Membership details',
-  description: (
-    <>
-      <Text as="span" fontWeight="bold">
-        Connect Wallet
-      </Text>{' '}
-      to view your details
-    </>
-  ),
-  action: 'Connect Wallet',
-};
-
 const SECTIONS: Section[] = [
+  {
+    title: 'Membership details',
+    description: (
+      <>
+        <Text as="span" fontWeight="bold">
+          Connect Wallet
+        </Text>{' '}
+        to view your details
+      </>
+    ),
+    action: 'Connect Wallet',
+  },
   {
     title: 'Membership details',
     description: (
@@ -95,18 +96,45 @@ const SECTIONS: Section[] = [
 
 export const MembershipCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
-  const [index, setIndex] = useState(0);
 
-  const { title, description, action } = useMemo(
-    () => (isConnected ? SECTIONS[index] : DISCONNECTED_SECTION),
-    [index, isConnected],
-  );
+  const { applied, member, expiryDate } = useApplication();
 
-  const onClick = useCallback(
-    () =>
-      isConnected ? setIndex(i => (i + 1) % SECTIONS.length) : connectWallet(),
-    [connectWallet, setIndex, isConnected],
-  );
+  const index: number = useMemo(() => {
+    if (isConnected) {
+      if (!applied) {
+        return 1;
+      }
+      if (!member) {
+        return 2;
+      }
+      const hasExpired = new Date().getTime() > (expiryDate?.getTime() ?? 0);
+      if (!hasExpired) {
+        return 3;
+      }
+      return 4;
+    }
+    return 0;
+  }, [isConnected, member, applied, expiryDate]);
+
+  const { title, description, action } = SECTIONS[index];
+
+  const { push } = useRouter();
+
+  const onClick = useCallback(() => {
+    switch (index) {
+      case 4:
+      case 3:
+      case 2:
+        push('/membership');
+        break;
+      case 1:
+        push('/apply');
+        break;
+      case 0:
+      default:
+        connectWallet();
+    }
+  }, [index, connectWallet, push]);
 
   return (
     <Card
