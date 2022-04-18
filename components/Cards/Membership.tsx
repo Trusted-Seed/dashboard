@@ -4,6 +4,7 @@ import { Card } from 'components/Card';
 import { useApplication } from 'context/ApplicationContext';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
+import { formatDateForMembership } from 'utils/formatHelpers';
 import { useWallet } from 'web3';
 
 export type Message = {
@@ -20,84 +21,88 @@ type Section = {
   action: string;
 };
 
-const SECTIONS: Section[] = [
-  {
-    title: 'Membership details',
-    description: (
-      <>
-        <Text as="span" fontWeight="bold">
-          Connect Wallet
-        </Text>{' '}
-        to view your details
-      </>
-    ),
-    action: 'Connect Wallet',
-  },
-  {
-    title: 'Membership details',
-    description: (
-      <>
-        The connected address is not in the Trusted Seed registry. If you have
-        already been accepted into the Trusted Seed, please connect with the
-        same Ethereum address that you used to join. If you have not yet applied
-        to be a member of the Trusted Seed, you will need to do that first
-      </>
-    ),
-    action: 'Apply for membership',
-  },
-  {
-    title: 'Membership details',
-    description: (
-      <>
-        Your application to become a trusted seed member has been{' '}
-        <Text as="span" fontWeight="bold">
-          approved
-        </Text>
-      </>
-    ),
-    action: 'Activate your membership now',
-  },
-  {
-    title: 'Your Trusted Seed membership is active!',
-    description: (
-      <>
-        Member since:{' '}
-        <Text as="span" fontWeight="bold">
-          2021-01-01
-        </Text>
-        <br />
-        Membership expires at:{' '}
-        <Text as="span" fontWeight="bold">
-          2022-01-01
-        </Text>
-      </>
-    ),
-    action: 'Manage membership',
-  },
-
-  {
-    title: 'Inactive member',
-    description: (
-      <>
-        Your Trusted Seed membership has{' '}
-        <Text as="span" fontWeight="bold">
-          expired
-        </Text>
-        !<br />
-        Membership expired:{' '}
-        <Text as="span" fontWeight="bold">
-          2021-01-01
-        </Text>
-      </>
-    ),
-    action: 'Activate your membership now',
-  },
-];
-
 export const MembershipCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
 
-  const { applied, member, expiryDate } = useApplication();
+  const { applied, member, startDate, expiryDate } = useApplication();
+
+  const SECTIONS: Section[] = useMemo(
+    () => [
+      {
+        title: 'Membership details',
+        description: (
+          <>
+            <Text as="span" fontWeight="bold">
+              Connect Wallet
+            </Text>{' '}
+            to view your details
+          </>
+        ),
+        action: 'Connect Wallet',
+      },
+      {
+        title: 'Membership details',
+        description: (
+          <>
+            The connected address is not in the Trusted Seed registry. If you
+            have already been accepted into the Trusted Seed, please connect
+            with the same Ethereum address that you used to join. If you have
+            not yet applied to be a member of the Trusted Seed, you will need to
+            do that first
+          </>
+        ),
+        action: 'Apply for membership',
+      },
+      {
+        title: 'Membership details',
+        description: (
+          <>
+            Your application to become a trusted seed member has been{' '}
+            <Text as="span" fontWeight="bold">
+              approved
+            </Text>
+          </>
+        ),
+        action: 'Activate your membership now',
+      },
+      {
+        title: 'Your Trusted Seed membership is active!',
+        description: (
+          <>
+            Member since:{' '}
+            <Text as="span" fontWeight="bold">
+              {formatDateForMembership(startDate ?? 0)}
+            </Text>
+            <br />
+            Membership expires at:{' '}
+            <Text as="span" fontWeight="bold">
+              {formatDateForMembership(expiryDate ?? 0)}
+            </Text>
+          </>
+        ),
+        action: 'Manage membership',
+      },
+
+      {
+        title: 'Inactive member',
+        description: (
+          <>
+            Your Trusted Seed membership has{' '}
+            <Text as="span" fontWeight="bold">
+              expired
+            </Text>
+            !<br />
+            Membership expired:{' '}
+            <Text as="span" fontWeight="bold">
+              {formatDateForMembership(expiryDate ?? 0)}
+            </Text>
+          </>
+        ),
+        action: 'Activate your membership now',
+      },
+    ],
+    [startDate, expiryDate],
+  );
 
   const index: number = useMemo(() => {
     if (isConnected) {

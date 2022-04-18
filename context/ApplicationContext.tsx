@@ -16,7 +16,7 @@ export type ApplicationContextType = {
   signatureDate: Date | null;
   duesPaid: number;
   balance: number;
-  paymentDate: Date | null;
+  startDate: Date | null;
   expiryDate: Date | null;
   member: boolean;
 };
@@ -32,7 +32,7 @@ const initialContext: ApplicationContextType = {
   signatureDate: null,
   duesPaid: 0,
   balance: 0,
-  paymentDate: null,
+  startDate: null,
   expiryDate: null,
   member: false,
 };
@@ -95,7 +95,7 @@ export const ApplicatonContextProvider: React.FC = ({
     pause: !address,
   });
   const balance = Number(memberData?.member?.balance ?? 0);
-  const paymentDate = new Date(memberData?.member?.startDate ?? 0);
+  const startDate = new Date(memberData?.member?.startDate ?? 0);
   const expiryDate = new Date(memberData?.member?.expireDate ?? 0);
 
   return (
@@ -107,7 +107,7 @@ export const ApplicatonContextProvider: React.FC = ({
         signatureDate,
         duesPaid,
         balance,
-        paymentDate,
+        startDate,
         expiryDate,
         member,
       }}
