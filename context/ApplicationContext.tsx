@@ -6,14 +6,16 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { FETCH_APPLICATION_ENDPOINT } from 'utils/constants';
+import { FETCH_APPLICATION_ENDPOINT, SIGNING_URL } from 'utils/constants';
 import { useWallet } from 'web3';
 
 export type ApplicationContextType = {
   applied: boolean;
   applicationDate: Date | null;
-  signed: boolean;
-  signatureDate: Date | null;
+  statutesSigned: boolean;
+  statutesSignatureDate: Date | null;
+  tandcSigned: boolean;
+  tandcSignatureDate: Date | null;
   duesPaid: number;
   balance: number;
   startDate: Date | null;
@@ -25,11 +27,23 @@ type ProviderProps = {
   children?: ReactNode;
 };
 
+// applied
+// applicationDate - need to get that from the webhook
+//
+// signed - from signer
+// signatureDate
+// https://github.com/commons-stack/swissmem-dapp/blob/67cfa2467b619068f2bcfa88b63886e3808d140e/src/pages/contribute/components/Statutes.js#L30
+// https://github.com/commons-stack/swissmem-dapp/blob/52933f0e7a051e31f7461fb67ac0c550cb2fbea0/src/util/api.js
+//
+// balance
+// latest member snapshot
 const initialContext: ApplicationContextType = {
   applied: false,
   applicationDate: null,
-  signed: false,
-  signatureDate: null,
+  statutesSigned: false,
+  statutesSignatureDate: null,
+  tandcSigned: false,
+  tandcSignatureDate: null,
   duesPaid: 0,
   balance: 0,
   startDate: null,
@@ -56,6 +70,21 @@ const fetchApplication = async (address: string) => {
   }
 };
 
+const fetchSignature = async (address: string, type: 'statutes' | 'tandc') => {
+  try {
+    const resp = await fetch(`${SIGNING_URL}signature/${address}_${type}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
+    return resp.json();
+  } catch (e) {
+    console.error(e); // eslint-disable-line
+  }
+};
+
 // TODO: stubbed for minter contract
 const checkMember = () => {
   return false;
@@ -69,8 +98,14 @@ export const ApplicatonContextProvider: React.FC = ({
   const [applicationDate] = useState<Date | null>(null);
 
   // TODO: get if signed and signature date
-  const [signed] = useState(false);
-  const [signatureDate] = useState<Date | null>(null);
+  const [statutesSigned, setStatutesSigned] = useState(false);
+  const [statutesSignatureDate, setStatutesSignatureDate] =
+    useState<Date | null>(null);
+
+  const [tandcSigned, setTandcSigned] = useState(false);
+  const [tandcSignatureDate, setTandcSignatureDate] = useState<Date | null>(
+    null,
+  );
 
   // TODO: get how much dues in DAI were paid and if membership is approved
   const [duesPaid] = useState<number>(250.0);
@@ -78,6 +113,7 @@ export const ApplicatonContextProvider: React.FC = ({
 
   const { address } = useWallet();
 
+  // Fetch application
   useEffect(() => {
     const f = async (address: string) => {
       const resp = await fetchApplication(address);
@@ -87,6 +123,30 @@ export const ApplicatonContextProvider: React.FC = ({
       f(address);
       const member = checkMember();
       setMember(member);
+    }
+  }, [address]);
+
+  // Fetch statues Signature
+  useEffect(() => {
+    const f = async (address: string) => {
+      const resp = await fetchSignature(address, 'statutes');
+      setStatutesSigned(resp);
+      setStatutesSignatureDate(resp);
+    };
+    if (address) {
+      f(address);
+    }
+  }, [address]);
+
+  // Fetch statues Signature
+  useEffect(() => {
+    const f = async (address: string) => {
+      const resp = await fetchSignature(address, 'tandc');
+      setTandcSigned(resp);
+      setTandcSignatureDate(resp);
+    };
+    if (address) {
+      f(address);
     }
   }, [address]);
 
@@ -103,8 +163,10 @@ export const ApplicatonContextProvider: React.FC = ({
       value={{
         applied,
         applicationDate,
-        signed,
-        signatureDate,
+        statutesSigned,
+        statutesSignatureDate,
+        tandcSigned,
+        tandcSignatureDate,
         duesPaid,
         balance,
         startDate,

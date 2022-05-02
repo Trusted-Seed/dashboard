@@ -4,13 +4,18 @@ export const GRAPH_URL =
 export const FETCH_APPLICATION_ENDPOINT =
   'https://0cbaohjdcg.execute-api.us-east-1.amazonaws.com/dev/application';
 
+export const SIGNING_URL = 'https://cs.datapinner.com/';
+
 export const SWAG_SHOP_URL = 'https://swag.trustedseed.org/';
 
-export const TERMS_AND_CONDITIONS_URL =
-  'https://ipfs.web3.party/ipfs/QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n';
+export const TERMS_AND_CONDITIONS_HASH =
+  'QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n';
 
-export const STATUTES_URL =
-  'https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5';
+export const TERMS_AND_CONDITIONS_URL = `https://ipfs.web3.party/ipfs/${TERMS_AND_CONDITIONS_HASH}`;
+
+export const STATUTES_HASH = 'QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5';
+
+export const STATUTES_URL = `https://ipfs.web3.party/ipfs/${STATUTES_HASH}`;
 
 // TODO: replace with givETH url
 export const PAY_DUES_URL = '#';
