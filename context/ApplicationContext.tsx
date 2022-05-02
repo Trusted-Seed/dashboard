@@ -1,3 +1,4 @@
+import { ethers } from 'ethers';
 import { useMemberInfoQuery } from 'graphql/autogen/types';
 import React, {
   createContext,
@@ -7,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { FETCH_APPLICATION_ENDPOINT, SIGNING_URL } from 'utils/constants';
+import { getCstkBalance } from 'utils/cstk';
 import { useWallet } from 'web3';
 
 export type ApplicationContextType = {
@@ -108,10 +110,10 @@ export const ApplicatonContextProvider: React.FC = ({
   );
 
   // TODO: get how much dues in DAI were paid and if membership is approved
-  const [duesPaid] = useState<number>(250.0);
+  const [duesPaid, setDuesPaid] = useState<number>(250.0);
   const [member, setMember] = useState(false);
 
-  const { address } = useWallet();
+  const { address, provider } = useWallet();
 
   // Fetch application
   useEffect(() => {
@@ -150,10 +152,23 @@ export const ApplicatonContextProvider: React.FC = ({
     }
   }, [address]);
 
+  useEffect(() => {
+    const f = async (address: string) => {
+      const balance = await getCstkBalance(address, provider);
+      if (balance.gt(0)) {
+        setDuesPaid(Number(ethers.utils.formatEther(balance)));
+      }
+    };
+    if (address && provider) {
+      f(address);
+    }
+  }, [address, provider]);
+
   const [{ data: memberData }] = useMemberInfoQuery({
     variables: { address: address?.toLowerCase() ?? '' },
     pause: !address,
   });
+
   const balance = Number(memberData?.member?.balance ?? 0);
   const startDate = new Date(memberData?.member?.startDate ?? 0);
   const expiryDate = new Date(memberData?.member?.expireDate ?? 0);
