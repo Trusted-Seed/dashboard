@@ -1,13 +1,29 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Link, Text } from '@chakra-ui/react';
 import { Button } from 'components/Button';
-import { LinkOpenIcon } from 'components/icons/LinkOpenIcon';
+import { ExternalLinkIcon } from 'components/icons/ExternalLinkIcon';
+import { usePageAttributes } from 'hooks/usePageAttributes';
 import { STATUTES_URL, TERMS_AND_CONDITIONS_URL } from 'utils/constants';
+
+export type SignContentAttributes = {
+  title: string;
+  description: string;
+  terms: {
+    title: string;
+    description: string;
+  };
+  statutes: {
+    title: string;
+    description: string;
+  };
+};
 
 // Dynamo, wallet address to payload
 // Webhook to fetch from Dynamo and a webhook to store
 // in dynamo
 
 const SignTerms: React.FC = () => {
+  const { title, description, terms, statutes } =
+    usePageAttributes<SignContentAttributes>('sign');
   return (
     <Flex
       direction="column"
@@ -16,12 +32,10 @@ const SignTerms: React.FC = () => {
       css={{ gap: '1.5rem' }}
     >
       <Text fontSize="3xl" color="blue.500">
-        Sign
+        {title}
       </Text>
-      <Text fontSize="3xl" alignItems="center" textAlign="center">
-        <Text>Lorem ipsum dolor sit amet, consectetur </Text>
-        <Text>adipiscing elit. Aliquam sed sit eget lectus.</Text>
-        <Text>Libero dictum mattis quis tincidunt risus.</Text>
+      <Text fontSize="3xl" alignItems="center" textAlign="center" maxW="xl">
+        {description}
       </Text>
       <Text fontSize="xl" color="blue.500">
         Connect wallet to view signature details
@@ -29,16 +43,14 @@ const SignTerms: React.FC = () => {
       <Button>Connect Wallet</Button>
       <Flex css={{ gap: '.5rem' }}>
         <Text fontSize="xl" fontWeight="700">
-          Terms and Conditions
+          {terms.title}
         </Text>
-        <a href={TERMS_AND_CONDITIONS_URL}>
-          <LinkOpenIcon />
-        </a>
+        <Link href={TERMS_AND_CONDITIONS_URL} isExternal _hover={{}}>
+          <ExternalLinkIcon color="ceruleanBlue" />
+        </Link>
       </Flex>
       <Text fontSize="xl" fontWeight="700" textAlign="center">
-        The Terms & Conditions apply to your membership of the Trusted
-        Seed&apos;s Swiss Association. It covers planned activities, membership,
-        rights & duties, membership score, risks, etc.
+        {terms.description}
       </Text>
 
       <iframe
@@ -46,26 +58,20 @@ const SignTerms: React.FC = () => {
         frameBorder="0"
         height="184"
         width="100%"
-      ></iframe>
+      />
       <Flex css={{ gap: '.5rem' }}>
         <Text fontSize="xl" fontWeight="700">
-          Statues
+          {statutes.title}
         </Text>
-        <a href={STATUTES_URL}>
-          <LinkOpenIcon />
-        </a>
+        <Link href={STATUTES_URL} isExternal _hover={{}}>
+          <ExternalLinkIcon color="ceruleanBlue" />
+        </Link>
       </Flex>
       <Text fontSize="xl" fontWeight="700" textAlign="center">
-        The Statutes describe and regulate the structure and governance of the
-        Trusted Seed&apos;s Swiss Association.
+        {statutes.description}
       </Text>
 
-      <iframe
-        src={STATUTES_URL}
-        frameBorder="0"
-        height="184"
-        width="100%"
-      ></iframe>
+      <iframe src={STATUTES_URL} frameBorder="0" height="184" width="100%" />
     </Flex>
   );
 };
