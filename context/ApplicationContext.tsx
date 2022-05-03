@@ -97,7 +97,7 @@ export const ApplicatonContextProvider: React.FC = ({
 }: ProviderProps) => {
   const [applied, setApplied] = useState(false);
   // TODO: get application date
-  const [applicationDate] = useState<Date | null>(null);
+  const [applicationDate, setApplicationDate] = useState<Date | null>(null);
 
   const [signDate, setSignDate] = useState<Date | null>(null);
 
@@ -128,6 +128,7 @@ export const ApplicatonContextProvider: React.FC = ({
     const f = async (address: string) => {
       const resp = await fetchApplication(address);
       setApplied(resp?.exists || false);
+      setApplicationDate(resp?.applyDate);
     };
     if (address) {
       f(address);
