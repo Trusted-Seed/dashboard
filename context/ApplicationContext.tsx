@@ -1,4 +1,3 @@
-import { ethers } from 'ethers';
 import { useMemberInfoQuery } from 'graphql/autogen/types';
 import React, {
   createContext,
@@ -8,7 +7,6 @@ import React, {
   useState,
 } from 'react';
 import { FETCH_APPLICATION_ENDPOINT, SIGNING_URL } from 'utils/constants';
-import { getCstkBalance } from 'utils/cstk';
 import { useWallet } from 'web3';
 
 export type ApplicationContextType = {
@@ -30,16 +28,7 @@ type ProviderProps = {
   children?: ReactNode;
 };
 
-// applied
 // applicationDate - need to get that from the webhook
-//
-// signed - from signer
-// signatureDate
-// https://github.com/commons-stack/swissmem-dapp/blob/67cfa2467b619068f2bcfa88b63886e3808d140e/src/pages/contribute/components/Statutes.js#L30
-// https://github.com/commons-stack/swissmem-dapp/blob/52933f0e7a051e31f7461fb67ac0c550cb2fbea0/src/util/api.js
-//
-// balance
-// latest member snapshot
 const initialContext: ApplicationContextType = {
   applied: false,
   applicationDate: null,
@@ -103,7 +92,6 @@ export const ApplicatonContextProvider: React.FC = ({
 
   const [signDate, setSignDate] = useState<Date | null>(null);
 
-  // TODO: get if signed and signature date
   const [statutesSigned, setStatutesSigned] = useState(false);
   const [statutesSignatureDate, setStatutesSignatureDate] =
     useState<Date | null>(null);
@@ -114,10 +102,10 @@ export const ApplicatonContextProvider: React.FC = ({
   );
 
   // TODO: get how much dues in DAI were paid and if membership is approved
-  const [duesPaid, setDuesPaid] = useState<number>(250.0); // Will continue to be blank
+  const [duesPaid] = useState<number>(250.0); // Will continue to be blank
   const [member, setMember] = useState(false);
 
-  const { address, provider } = useWallet();
+  const { address } = useWallet();
   const signDateCheck = (signDate: Date | null, newDate: Date) => {
     if (!signDate || signDate <= newDate) {
       setSignDate(newDate);
@@ -164,18 +152,6 @@ export const ApplicatonContextProvider: React.FC = ({
       f(address);
     }
   }, [address, signDate]);
-
-  useEffect(() => {
-    const f = async (address: string, provider: ethers.providers.Provider) => {
-      const balance = await getCstkBalance(address, provider);
-      if (balance.gt(0)) {
-        setDuesPaid(Number(ethers.utils.formatEther(balance)));
-      }
-    };
-    if (address && provider) {
-      f(address, provider);
-    }
-  }, [address, provider]);
 
   const [{ data: memberData }] = useMemberInfoQuery({
     variables: { address: address?.toLowerCase() ?? '' },
