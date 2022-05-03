@@ -110,7 +110,7 @@ export const ApplicatonContextProvider: React.FC = ({
   );
 
   // TODO: get how much dues in DAI were paid and if membership is approved
-  const [duesPaid, setDuesPaid] = useState<number>(250.0);
+  const [duesPaid, setDuesPaid] = useState<number>(250.0); // Will continue to be blank
   const [member, setMember] = useState(false);
 
   const { address, provider } = useWallet();
