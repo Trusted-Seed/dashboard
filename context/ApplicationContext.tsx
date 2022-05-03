@@ -23,11 +23,13 @@ export type ApplicationContextType = {
   startDate: Date | null;
   expiryDate: Date | null;
   member: boolean;
-  postSignature: (arg0: {
-    message: string;
-    type: 'statutes' | 'tandc';
-    address: string;
-  }) => Promise<void> | null;
+  postSignature:
+    | ((arg0: {
+        message: string;
+        type: 'statutes' | 'tandc';
+        address: string;
+      }) => Promise<void>)
+    | null;
 };
 
 type ProviderProps = {
