@@ -52,7 +52,8 @@ const SignButton = ({
 
 const SignTerms: React.FC = () => {
   const { connectWallet, isConnected, address } = useWallet();
-  const { statutesSignatureDate, tandcSignatureDate } = useApplication();
+  const { statutesSignatureDate, tandcSignatureDate, postSignature } =
+    useApplication();
   const [statueAgreed, setStatueAgreed] = useState(false);
   const [termsAgreed, setTermsAgreed] = useState(false);
 
@@ -119,13 +120,17 @@ const SignTerms: React.FC = () => {
         <SignButton
           text="Sign the Terms and Conditions"
           disabled={!termsAgreed}
-          onClick={() =>
+          onClick={() => {
+            if (!postSignature) {
+              return;
+            }
+
             postSignature({
               message: `I agree with statutes corresponding to IPFS hash ${TERMS_AND_CONDITIONS_HASH}`,
               type: 'tandc',
               address: address || '',
-            })
-          }
+            });
+          }}
         />
       )}
       <Flex css={{ gap: '.5rem' }}>
@@ -155,13 +160,16 @@ const SignTerms: React.FC = () => {
         <SignButton
           text="Sign the Statues"
           disabled={!statueAgreed}
-          onClick={() =>
+          onClick={() => {
+            if (!postSignature) {
+              return;
+            }
             postSignature({
               message: `I agree with statutes corresponding to IPFS hash ${STATUTES_HASH}`,
               type: 'statutes',
               address: address || '',
-            })
-          }
+            });
+          }}
         />
       )}
     </Flex>
