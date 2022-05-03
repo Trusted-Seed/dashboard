@@ -52,7 +52,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
   const {
     member,
     applicationDate,
-    signatureDate,
+    signDate,
     duesPaid,
     balance,
     startDate,
@@ -60,7 +60,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
   } = useApplication();
 
   const appDateDisplay = formatDateForMembership(applicationDate ?? new Date());
-  const signDateDisplay = formatDateForMembership(signatureDate ?? new Date());
+  const signDateDisplay = formatDateForMembership(signDate ?? new Date());
   const startDateDisplay = formatDateForMembership(startDate ?? new Date());
   const expiryDateDisplay = formatDateForMembership(expiryDate ?? new Date());
 

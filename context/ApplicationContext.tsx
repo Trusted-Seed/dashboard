@@ -18,6 +18,7 @@ export type ApplicationContextType = {
   statutesSignatureDate: Date | null;
   tandcSigned: boolean;
   tandcSignatureDate: Date | null;
+  signDate: Date | null;
   duesPaid: number;
   balance: number;
   startDate: Date | null;
@@ -46,6 +47,7 @@ const initialContext: ApplicationContextType = {
   statutesSignatureDate: null,
   tandcSigned: false,
   tandcSignatureDate: null,
+  signDate: null,
   duesPaid: 0,
   balance: 0,
   startDate: null,
@@ -99,6 +101,8 @@ export const ApplicatonContextProvider: React.FC = ({
   // TODO: get application date
   const [applicationDate] = useState<Date | null>(null);
 
+  const [signDate, setSignDate] = useState<Date | null>(null);
+
   // TODO: get if signed and signature date
   const [statutesSigned, setStatutesSigned] = useState(false);
   const [statutesSignatureDate, setStatutesSignatureDate] =
@@ -114,6 +118,13 @@ export const ApplicatonContextProvider: React.FC = ({
   const [member, setMember] = useState(false);
 
   const { address, provider } = useWallet();
+  const signDateCheck = (signDate: Date | null, newDate: Date) => {
+    if (!signDate || signDate <= newDate) {
+      setSignDate(newDate);
+      return;
+    }
+    return;
+  };
 
   // Fetch application
   useEffect(() => {
@@ -134,11 +145,12 @@ export const ApplicatonContextProvider: React.FC = ({
       const resp = await fetchSignature(address, 'statutes');
       setStatutesSigned(resp);
       setStatutesSignatureDate(resp);
+      signDateCheck(signDate, new Date());
     };
     if (address) {
       f(address);
     }
-  }, [address]);
+  }, [address, signDate]);
 
   // Fetch statues Signature
   useEffect(() => {
@@ -146,21 +158,22 @@ export const ApplicatonContextProvider: React.FC = ({
       const resp = await fetchSignature(address, 'tandc');
       setTandcSigned(resp);
       setTandcSignatureDate(resp);
+      signDateCheck(signDate, new Date());
     };
     if (address) {
       f(address);
     }
-  }, [address]);
+  }, [address, signDate]);
 
   useEffect(() => {
-    const f = async (address: string) => {
+    const f = async (address: string, provider: ethers.providers.Provider) => {
       const balance = await getCstkBalance(address, provider);
       if (balance.gt(0)) {
         setDuesPaid(Number(ethers.utils.formatEther(balance)));
       }
     };
     if (address && provider) {
-      f(address);
+      f(address, provider);
     }
   }, [address, provider]);
 
@@ -182,6 +195,7 @@ export const ApplicatonContextProvider: React.FC = ({
         statutesSignatureDate,
         tandcSigned,
         tandcSignatureDate,
+        signDate,
         duesPaid,
         balance,
         startDate,

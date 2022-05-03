@@ -17,8 +17,9 @@ const MembershipPage: React.FC = () => {
   const { isConnected, connectWallet, isConnecting } = useWallet();
   const fontSize = { base: '3xl', xl: '3xl' };
   const { push } = useRouter();
-  const { applied, signed, duesPaid } = useApplication();
-  const showMembershipDetails: boolean = applied && signed && duesPaid > 0;
+  const { applied, statutesSigned, tandcSigned, duesPaid } = useApplication();
+  const showMembershipDetails: boolean =
+    applied && statutesSigned && tandcSigned && duesPaid > 0;
   return (
     <>
       <Flex

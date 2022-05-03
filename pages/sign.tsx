@@ -1,7 +1,7 @@
 import { Checkbox, Flex, Text } from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { LinkOpenIcon } from 'components/icons/LinkOpenIcon';
-import { useApplication } from 'context/ApplicationContext.tsx';
+import { useApplication } from 'context/ApplicationContext';
 import { ChangeEvent, useState } from 'react';
 import {
   SIGNING_URL,
@@ -16,7 +16,7 @@ import { useWallet } from 'web3';
 // Webhook to fetch from Dynamo and a webhook to store
 // in dynamo
 
-const SignIndicator = ({ signatureDate }: { signatureDate: string | null }) => {
+const SignIndicator = ({ signatureDate }: { signatureDate: Date | null }) => {
   return (
     <Flex
       css={{
@@ -32,7 +32,7 @@ const SignIndicator = ({ signatureDate }: { signatureDate: string | null }) => {
         <Text as="span" size="xl" css={{ fontWeight: 700 }}>
           Status:
         </Text>{' '}
-        {signatureDate && <Text>Signed - {signatureDate}</Text>}
+        {signatureDate && <Text>Signed - {signatureDate.toString()}</Text>}
         Not signed
       </Text>
     </Flex>
@@ -61,6 +61,9 @@ const SignTerms: React.FC = () => {
   const [statueAgreed, setStatueAgreed] = useState(false);
   const [termsAgreed, setTermsAgreed] = useState(false);
   const signConsent = async (message: string) => {
+    if (!provider) {
+      return '';
+    }
     const signer = provider.getSigner();
     try {
       const signature = await signer.signMessage(message);
@@ -172,7 +175,7 @@ const SignTerms: React.FC = () => {
             postSignature({
               message: `I agree with statutes corresponding to IPFS hash ${TERMS_AND_CONDITIONS_HASH}`,
               type: 'tandc',
-              address,
+              address: address || '',
             })
           }
         />
@@ -208,7 +211,7 @@ const SignTerms: React.FC = () => {
             postSignature({
               message: `I agree with statutes corresponding to IPFS hash ${STATUTES_HASH}`,
               type: 'statutes',
-              address,
+              address: address || '',
             })
           }
         />
