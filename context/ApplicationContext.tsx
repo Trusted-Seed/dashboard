@@ -2,6 +2,7 @@ import { useMemberInfoQuery } from 'graphql/autogen/types';
 import React, {
   createContext,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -22,6 +23,11 @@ export type ApplicationContextType = {
   startDate: Date | null;
   expiryDate: Date | null;
   member: boolean;
+  postSignature: (arg0: {
+    message: string;
+    type: 'statutes' | 'tandc';
+    address: string;
+  }) => Promise<void> | null;
 };
 
 type ProviderProps = {
@@ -42,6 +48,7 @@ const initialContext: ApplicationContextType = {
   startDate: null,
   expiryDate: null,
   member: false,
+  postSignature: null,
 };
 
 const ApplicationContext =
@@ -105,7 +112,7 @@ export const ApplicatonContextProvider: React.FC = ({
   const [duesPaid] = useState<number>(250.0); // Will continue to be blank
   const [member, setMember] = useState(false);
 
-  const { address } = useWallet();
+  const { address, provider } = useWallet();
   const signDateCheck = (signDate: Date | null, newDate: Date) => {
     if (!signDate || signDate <= newDate) {
       setSignDate(newDate);
@@ -131,9 +138,11 @@ export const ApplicatonContextProvider: React.FC = ({
   useEffect(() => {
     const f = async (address: string) => {
       const resp = await fetchSignature(address, 'statutes');
-      setStatutesSigned(resp);
-      setStatutesSignatureDate(resp);
-      signDateCheck(signDate, new Date());
+      if (resp) {
+        setStatutesSigned(true);
+        setStatutesSignatureDate(new Date()); // Placeholder
+        signDateCheck(signDate, new Date());
+      }
     };
     if (address) {
       f(address);
@@ -144,9 +153,11 @@ export const ApplicatonContextProvider: React.FC = ({
   useEffect(() => {
     const f = async (address: string) => {
       const resp = await fetchSignature(address, 'tandc');
-      setTandcSigned(resp);
-      setTandcSignatureDate(resp);
-      signDateCheck(signDate, new Date());
+      if (resp) {
+        setTandcSigned(true);
+        setTandcSignatureDate(new Date()); // placeholder
+        signDateCheck(signDate, new Date());
+      }
     };
     if (address) {
       f(address);
@@ -157,6 +168,59 @@ export const ApplicatonContextProvider: React.FC = ({
     variables: { address: address?.toLowerCase() ?? '' },
     pause: !address,
   });
+  const signConsent = useCallback(
+    async (message: string) => {
+      if (!provider) {
+        return '';
+      }
+      const signer = provider.getSigner();
+      try {
+        const signature = await signer.signMessage(message);
+        return signature;
+      } catch (err) {
+        // TODO change to toast
+        console.error(err); // eslint-disable-line no-console
+      }
+    },
+    [provider],
+  );
+
+  const postSignature = async ({
+    message,
+    type,
+    address,
+  }: {
+    message: string;
+    type: 'statutes' | 'tandc';
+    address: string;
+  }) => {
+    const signature = await signConsent(message);
+    try {
+      await fetch(SIGNING_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          type,
+          message,
+          address,
+          signature,
+        }),
+      });
+      if (type === 'statutes') {
+        setStatutesSigned(true);
+        setStatutesSignatureDate(new Date());
+      }
+      if (type === 'tandc') {
+        setTandcSigned(true);
+        setTandcSignatureDate(new Date());
+      }
+    } catch (err) {
+      console.error(err); // eslint-disable-line no-console
+    }
+  };
 
   const balance = Number(memberData?.member?.balance ?? 0);
   const startDate = new Date(memberData?.member?.startDate ?? 0);
@@ -177,6 +241,7 @@ export const ApplicatonContextProvider: React.FC = ({
         startDate,
         expiryDate,
         member,
+        postSignature,
       }}
     >
       {children}

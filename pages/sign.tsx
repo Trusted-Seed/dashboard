@@ -4,17 +4,12 @@ import { LinkOpenIcon } from 'components/icons/LinkOpenIcon';
 import { useApplication } from 'context/ApplicationContext';
 import { ChangeEvent, useState } from 'react';
 import {
-  SIGNING_URL,
   STATUTES_HASH,
   STATUTES_URL,
   TERMS_AND_CONDITIONS_HASH,
   TERMS_AND_CONDITIONS_URL,
 } from 'utils/constants';
 import { useWallet } from 'web3';
-
-// Dynamo, wallet address to payload
-// Webhook to fetch from Dynamo and a webhook to store
-// in dynamo
 
 const SignIndicator = ({ signatureDate }: { signatureDate: Date | null }) => {
   return (
@@ -56,58 +51,12 @@ const SignButton = ({
 };
 
 const SignTerms: React.FC = () => {
-  const { connectWallet, isConnected, address, provider } = useWallet();
+  const { connectWallet, isConnected, address } = useWallet();
   const { statutesSignatureDate, tandcSignatureDate } = useApplication();
   const [statueAgreed, setStatueAgreed] = useState(false);
   const [termsAgreed, setTermsAgreed] = useState(false);
-  const signConsent = async (message: string) => {
-    if (!provider) {
-      return '';
-    }
-    const signer = provider.getSigner();
-    try {
-      const signature = await signer.signMessage(message);
-      return signature;
-    } catch (err) {
-      // TODO change to toast
-      console.error(err); // eslint-disable-line no-console
-    }
-  };
-
-  // statutes -> one type
-  // tandc -> another type
-  const postSignature = async ({
-    message,
-    type,
-    address,
-  }: {
-    message: string;
-    type: 'statutes' | 'tandc';
-    address: string;
-  }) => {
-    const signature = await signConsent(message);
-    try {
-      const resp = await fetch(SIGNING_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          type,
-          message,
-          address,
-          signature,
-        }),
-      });
-      console.log(resp); // eslint-disable-line no-console
-    } catch (err) {
-      console.error(err); // eslint-disable-line no-console
-    }
-  };
 
   const updateStatute = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e); // eslint-disable-line no-console
     setStatueAgreed(e.target.checked);
   };
 
@@ -115,7 +64,6 @@ const SignTerms: React.FC = () => {
     setTermsAgreed(e.target.checked);
   };
 
-  // if signed in
   return (
     <Flex
       direction="column"
