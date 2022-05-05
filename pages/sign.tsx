@@ -27,8 +27,13 @@ const SignIndicator = ({ signatureDate }: { signatureDate: Date | null }) => {
         <Text as="span" size="xl" css={{ fontWeight: 700 }}>
           Status:
         </Text>{' '}
-        {signatureDate && <Text>Signed - {signatureDate.toString()}</Text>}
-        Not signed
+        {signatureDate ? (
+          <Text as="span">
+            Signed - {`${signatureDate.toISOString().substring(0, 10)}`}
+          </Text>
+        ) : (
+          'Not signed'
+        )}
       </Text>
     </Flex>
   );
@@ -101,37 +106,40 @@ const SignTerms: React.FC = () => {
         Seed&apos;s Swiss Association. It covers planned activities, membership,
         rights & duties, membership score, risks, etc.
       </Text>
-      <SignIndicator signatureDate={statutesSignatureDate} />
+      <SignIndicator signatureDate={tandcSignatureDate} />
       <iframe
         src={TERMS_AND_CONDITIONS_URL}
         frameBorder="0"
         height="184"
         width="100%"
       ></iframe>
-      <Checkbox
-        id="statue"
-        css={{ borderColor: '#12BAD6' }}
-        onChange={updateTerms}
-      >
-        I agree to cryptographically sign a copy of these Terms and Conditions
-        by signing its IPFS hash
-      </Checkbox>
-      {!statutesSignatureDate && (
-        <SignButton
-          text="Sign the Terms and Conditions"
-          disabled={!termsAgreed}
-          onClick={() => {
-            if (!postSignature) {
-              return;
-            }
+      {!tandcSignatureDate && (
+        <>
+          <Checkbox
+            id="statue"
+            css={{ borderColor: '#12BAD6' }}
+            onChange={updateTerms}
+          >
+            I agree to cryptographically sign a copy of these Terms and
+            Conditions by signing its IPFS hash
+          </Checkbox>
 
-            postSignature({
-              message: `I agree with statutes corresponding to IPFS hash ${TERMS_AND_CONDITIONS_HASH}`,
-              type: 'tandc',
-              address: address || '',
-            });
-          }}
-        />
+          <SignButton
+            text="Sign the Terms and Conditions"
+            disabled={!termsAgreed}
+            onClick={() => {
+              if (!postSignature) {
+                return;
+              }
+
+              postSignature({
+                message: `I agree with Terms and Conditions corresponding to IPFS hash ${TERMS_AND_CONDITIONS_HASH}`,
+                type: 'tandc',
+                address: address || '',
+              });
+            }}
+          />
+        </>
       )}
       <Flex css={{ gap: '.5rem' }}>
         <Text fontSize="xl" fontWeight="700">
@@ -145,32 +153,35 @@ const SignTerms: React.FC = () => {
         The Statutes describe and regulate the structure and governance of the
         Trusted Seed&apos;s Swiss Association.
       </Text>
-      <SignIndicator signatureDate={tandcSignatureDate} />
+      <SignIndicator signatureDate={statutesSignatureDate} />
       <iframe
         src={STATUTES_URL}
         frameBorder="0"
         height="184"
         width="100%"
       ></iframe>
-      <Checkbox css={{ borderColor: '#12BAD6' }} onChange={updateStatute}>
-        I agree to cryptographically sign a copy of these Statutes by signing
-        its IPFS hash
-      </Checkbox>
-      {!tandcSignatureDate && (
-        <SignButton
-          text="Sign the Statues"
-          disabled={!statueAgreed}
-          onClick={() => {
-            if (!postSignature) {
-              return;
-            }
-            postSignature({
-              message: `I agree with statutes corresponding to IPFS hash ${STATUTES_HASH}`,
-              type: 'statutes',
-              address: address || '',
-            });
-          }}
-        />
+      {!statutesSignatureDate && (
+        <>
+          <Checkbox css={{ borderColor: '#12BAD6' }} onChange={updateStatute}>
+            I agree to cryptographically sign a copy of these Statutes by
+            signing its IPFS hash
+          </Checkbox>
+
+          <SignButton
+            text="Sign the Statues"
+            disabled={!statueAgreed}
+            onClick={() => {
+              if (!postSignature) {
+                return;
+              }
+              postSignature({
+                message: `I agree with statutes corresponding to IPFS hash ${STATUTES_HASH}`,
+                type: 'statutes',
+                address: address || '',
+              });
+            }}
+          />
+        </>
       )}
     </Flex>
   );

@@ -4,7 +4,7 @@ export const GRAPH_URL =
 export const FETCH_APPLICATION_ENDPOINT =
   'https://0cbaohjdcg.execute-api.us-east-1.amazonaws.com/dev/application';
 
-export const SIGNING_URL = 'https://cs.datapinner.com/';
+export const SIGNING_URL = 'https://cs.datapinner.com';
 
 export const SWAG_SHOP_URL = 'https://swag.trustedseed.org/';
 

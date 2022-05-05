@@ -66,7 +66,7 @@ const fetchApplication = async (address: string) => {
       },
       body: JSON.stringify({ ethereumAddress: address }),
     });
-    return resp.json();
+    return await resp.json();
   } catch (e) {
     console.error(e); // eslint-disable-line
   }
@@ -74,14 +74,14 @@ const fetchApplication = async (address: string) => {
 
 const fetchSignature = async (address: string, type: 'statutes' | 'tandc') => {
   try {
-    const resp = await fetch(`${SIGNING_URL}signature/${address}_${type}`, {
+    const resp = await fetch(`${SIGNING_URL}/signature/${address}_${type}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
     });
-    return resp.json();
+    return await resp.json();
   } catch (e) {
     console.error(e); // eslint-disable-line
   }
@@ -199,7 +199,7 @@ export const ApplicatonContextProvider: React.FC = ({
   }) => {
     const signature = await signConsent(message);
     try {
-      await fetch(SIGNING_URL, {
+      await fetch(`${SIGNING_URL}/signature`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
