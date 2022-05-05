@@ -3,6 +3,7 @@ import { attributes as dashboardAttributes } from 'content/dashboard.md';
 import { attributes as faqAttributes } from 'content/faq.md';
 import { attributes as landingAttributes } from 'content/landing.md';
 import { attributes as membersAttributes } from 'content/members.md';
+import { attributes as signAttributes } from 'content/sign.md';
 
 export const ATTRIBUTES = Object.freeze({
   about: aboutAttributes,
@@ -10,6 +11,7 @@ export const ATTRIBUTES = Object.freeze({
   faq: faqAttributes,
   landing: landingAttributes,
   members: membersAttributes,
+  sign: signAttributes,
 });
 
 export type SlugType = keyof typeof ATTRIBUTES;

@@ -405,3 +405,48 @@ collections:
             required: true
             fields:
               - { label: 'ID', name: 'id', widget: 'string', required: true }
+      - label: 'Sign'
+        name: 'sign'
+        file: 'content/sign.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
+          - {
+              label: 'Description',
+              name: 'description',
+              widget: 'text',
+              required: true,
+            }
+          - label: 'Terms and Conditions'
+            name: 'terms'
+            widget: object
+            required: true
+            fields:
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'string',
+                  required: true,
+                }
+          - label: 'Statutes'
+            name: 'statutes'
+            widget: object
+            required: true
+            fields:
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: true,
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'string',
+                  required: true,
+                }
