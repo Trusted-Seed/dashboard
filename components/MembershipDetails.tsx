@@ -154,7 +154,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
             </Text>
             <Text>
               <Text as="span" fontWeight="bold">
-                Payment Date:
+                Payment Date
               </Text>
               :{' '}
               <Text as="span" color="ceruleanBlue">
