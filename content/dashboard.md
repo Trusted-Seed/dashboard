@@ -1,29 +1,25 @@
 ---
 messages:
-  - title: Participate in governance
-    description: Don't forget to join this and that. Vote that begins on date xxx
-    url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
-    action: Vote
-  - title: Read this Medium article…
-    description: The Giveth mission is to reward & empower those who give — to
-      projects, to society, and to the world. With GIVbacks, we’re rewarding
-      givers by giving GIV to donors to verified projects on Giveth.
-    url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
-    action: Read
-  - title: Read this Medium article…
-    description: The Giveth mission is to reward & empower those who give — to
-      projects, to society, and to the world. With GIVbacks, we’re rewarding
-      givers by giving GIV to donors to verified projects on Giveth.
-    url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
-    image: /images/giveth.png
-    action: Read
-  - title: Read another Medium article…
-    description: The Giveth mission is to reward & empower those who give — to
-      projects, to society, and to the world. With GIVbacks, we’re rewarding
-      givers by giving GIV to donors to verified projects on Giveth.
-    url: https://medium.com/giveth/what-if-giving-gave-back-using-web3-to-evolve-philanthropy-a8500b7636ce
-    image: /images/giveth.png
-    action: Read
+  - title: "$TRUST: The reputation token of Trusted Seed"
+    description: "We are migrating the CSTK score to the new token $TRUST. Here’s
+      everything you need to know. "
+    url: https://medium.com/commonsstack/trust-the-reputation-token-of-trusted-seed-a63f293a12af
+    image: https://miro.medium.com/max/1400/0*4q8hMmhjlPA4_K1U
+    action: Read more
+  - title: Get ready to vote for the Commons Prize award!
+    description: Voting starts on May 11th. All $TRUST (formerly $CSTK) token
+      holders are eligible to cast their vote to choose the next community to
+      deploy a Commons and have an active role in shaping the future landscape
+      of Commons.
+    url: https://medium.com/commonsstack/get-ready-to-vote-for-the-commons-prize-award-46ec7e42e425
+    image: https://miro.medium.com/max/1400/0*BAAFG3QDE4zpEE3O
+    action: Read more
+  - title: Renew your Trusted Seed Membership
+    description: Trusted Seed memberships are up for renewal! For those who
+      activated in 2021, it’s time to renew
+    url: https://medium.com/commonsstack/renew-your-trusted-seed-membership-ce9b54f16987
+    image: https://miro.medium.com/max/1252/0*TenXCK3kudghujZK
+    action: Read more
 spotlight:
   name: Username 2021
   image: /images/username.png
@@ -97,15 +93,14 @@ social:
       url: https://medium.com/commonsstack
     - label: Calendar
       iconType: calendar
-      url: '#'
+      url: "#"
 partnerships:
   - image: /images/tec-logo.svg
     description: Advancing the field of token engineering in a regenerative way.
     actionText: Read More
     actionUrl: https://tecommons.org/
   - image: /images/regen-network-logo.svg
-    description:
-      Building foundational fintech infrastructure for ecological claims
+    description: Building foundational fintech infrastructure for ecological claims
       and data.
     actionText: Read More
     actionUrl: https://regen.network/
