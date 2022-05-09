@@ -1,23 +1,22 @@
 ---
-title: Trusted Seed  Landing Page
+title: Become One Of Us!
 subTitle: Create a sustainable funding for public goods,
 sections:
   - description: The Trusted Seed is a key cultural initialization tool for
-      blockchain networks. A reputable network of trusted actors with skin in
-      the game who can lend their wisdom and expertise to make good decisions in
-      the early stages of a Commons’ governance.
-    title: Vision
+      Regenerative Economies, stacking their DAOs with a trusted group of
+      curated regens like you.
+    title: Start Regen Economies
     image: /images/vision.svg
-  - description: The Trusted Seed is a group of trusted community members that hold
-      the non-transferable CSTK tokens, representing their reputation within the
-      Commons Stack.
-    title: About Us
+  - description: We started in 2021 supporting Commons Stack’s mission, by Hatching
+      the TEC. We have expanded beyond that to support the initialization of
+      Giveth and Ixo, and expect our members to be invited to many other early
+      stage Regen Economies.
+    title: History of Success
     image: /images/about-us.svg
-  - description: Create sustainable funding for public goods, initiallyspecifically
-      for token engineering research, open-source software, and, eventually, all
-      kinds of nonprofit causes through a curated list of reputable &
-      experienced community members who are aligned with this mission.
-    title: Mission
+  - description: The Trusted Seed is a key cultural initialization tool for
+      Regenerative Economies, stacking their DAOs with a trusted group of
+      curated regens as opposed to airdrop hunters.
+    title: Legal Shield
     image: /images/mission.svg
 links:
   - label: Telegram
