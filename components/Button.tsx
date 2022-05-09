@@ -31,13 +31,17 @@ export const Button: React.FC<ChakraButtonProps> = props => (
       opacity: 0,
       transition: 'all 0.25s',
     }}
-    _hover={{
-      borderColor: 'transparent',
-      color: 'white',
-      _before: {
-        opacity: 1,
-      },
-    }}
+    _hover={
+      props.isDisabled || props.disabled
+        ? {}
+        : {
+            borderColor: 'transparent',
+            color: 'white',
+            _before: {
+              opacity: 1,
+            },
+          }
+    }
     _focus={{
       borderColor: 'white',
     }}
@@ -67,12 +71,16 @@ export const IconButton: React.FC<ChakraIconButtonProps> = props => (
       opacity: 0,
       transition: 'all 0.25s',
     }}
-    _hover={{
-      color: 'white',
-      _before: {
-        opacity: 1,
-      },
-    }}
+    _hover={
+      props.isDisabled || props.disabled
+        ? {}
+        : {
+            color: 'white',
+            _before: {
+              opacity: 1,
+            },
+          }
+    }
     {...props}
   />
 );
