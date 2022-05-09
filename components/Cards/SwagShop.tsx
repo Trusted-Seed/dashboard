@@ -109,7 +109,7 @@ export const SwagShopCard: React.FC<StackProps> = props => {
         push('/membership');
         break;
       case 1:
-        push('/apply');
+        push('/join');
         break;
       case 0:
       default:

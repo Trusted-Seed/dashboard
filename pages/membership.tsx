@@ -49,7 +49,7 @@ const MembershipPage: React.FC = () => {
                   You are not yet a member of the <br />
                   Trusted Seed
                 </Text>
-                <Button onClick={() => push('/apply')}>
+                <Button onClick={() => push('/join')}>
                   Apply for membership
                 </Button>
               </VStack>
