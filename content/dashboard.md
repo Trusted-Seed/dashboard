@@ -1,5 +1,11 @@
 ---
 messages:
+  - title: Renew your Trusted Seed Membership
+    description: Trusted Seed memberships are up for renewal! For those who
+      activated in 2021, it’s time to renew
+    url: https://medium.com/commonsstack/renew-your-trusted-seed-membership-ce9b54f16987
+    image: https://miro.medium.com/max/1252/0*TenXCK3kudghujZK
+    action: Read more
   - title: "$TRUST: The reputation token of Trusted Seed"
     description: "We are migrating the CSTK score to the new token $TRUST. Here’s
       everything you need to know. "
@@ -13,12 +19,6 @@ messages:
       of Commons.
     url: https://medium.com/commonsstack/get-ready-to-vote-for-the-commons-prize-award-46ec7e42e425
     image: https://miro.medium.com/max/1400/0*BAAFG3QDE4zpEE3O
-    action: Read more
-  - title: Renew your Trusted Seed Membership
-    description: Trusted Seed memberships are up for renewal! For those who
-      activated in 2021, it’s time to renew
-    url: https://medium.com/commonsstack/renew-your-trusted-seed-membership-ce9b54f16987
-    image: https://miro.medium.com/max/1252/0*TenXCK3kudghujZK
     action: Read more
 spotlight:
   name: Username 2021
