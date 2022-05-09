@@ -10,7 +10,7 @@ messages:
     description: "We are migrating the CSTK score to the new token $TRUST. Here’s
       everything you need to know. "
     url: https://medium.com/commonsstack/trust-the-reputation-token-of-trusted-seed-a63f293a12af
-    image: https://miro.medium.com/max/1400/0*4q8hMmhjlPA4_K1U
+    image: /images/trusted-seed.jpg
     action: Read more
   - title: Get ready to vote for the Commons Prize award!
     description: Voting starts on May 11th. All $TRUST (formerly $CSTK) token
