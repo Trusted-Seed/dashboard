@@ -9,6 +9,12 @@ collections:
         file: 'content/landing.md'
         fields:
           - { label: 'Title', name: 'title', widget: 'string', required: true }
+          - {
+              label: 'Sub title',
+              name: 'subTitle',
+              widget: 'string',
+              required: true,
+            }
           - label: 'Sections'
             name: 'sections'
             widget: list
