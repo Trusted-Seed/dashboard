@@ -93,3 +93,10 @@ The project code base is mainly located within the `src` folder. This folder is 
 ### Advanced usage
 
 Any tsconfig.json can be used, but if you do, set the environment variable `TS_NODE_CONFIG` for building the application, eg `TS_NODE_CONFIG=./tsconfig.app.json npx serverless webpack`
+
+## Some commands
+
+- Go into lambdas
+- yarn install
+- test: serverless invoke local -f storeForm --path src/functions/store-form/mock.json
+- deploy: serverless deploy

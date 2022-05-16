@@ -19,7 +19,7 @@ const fetchApp: ValidatedEventAPIGatewayProxyEvent<
   const exist = await client.send(params);
   return formatJSONResponse({
     exists: !!exist?.Item,
-    applicationDate: exist?.Item.applyDate,
+    applicationDate: exist?.Item?.applyDate,
     event,
   });
 };
