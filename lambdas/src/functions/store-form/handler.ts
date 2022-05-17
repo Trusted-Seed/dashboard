@@ -10,13 +10,13 @@ const storeForm: ValidatedEventAPIGatewayProxyEvent<
 > = async event => {
   const client = new DynamoDBClient({ region: 'us-east-1' });
   const answerAddress = event.body.form_response.answers.find(
-    el => el.field?.id === 'DlXFaesGBpoF',
+    el => el.field?.id === 'AHWHiljlbokk',
   );
   const answerDate = event.body.form_response.submitted_at;
   const params = new PutItemCommand({
     TableName: 'ts_applications',
     Item: {
-      ethereumAddress: { S: answerAddress.field.id as string },
+      ethereumAddress: { S: answerAddress.text.toLowerCase() as string },
       applied: { BOOL: true },
       applyDate: { S: answerDate as string },
     },

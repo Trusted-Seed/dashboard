@@ -92,71 +92,140 @@ const Membership = () => {
 
 const Dues = () => {
   return (
-    <BackgroundContainer>
-      <Flex justifyContent="center" w="100%">
-        <Link href={PAY_DUES_URL} _hover={{}}>
-          <Button>Pay dues</Button>
-        </Link>
-      </Flex>
-    </BackgroundContainer>
-  );
-};
-
-const Completed = () => {
-  return (
-    <BackgroundContainer>
-      <Flex justifyContent="center" w="100%">
-        <Link href="/membership" _hover={{}}>
-          <Button>Go to Membership</Button>
-        </Link>
-      </Flex>
-    </BackgroundContainer>
-  );
-};
-
-const ConnectWallet = () => {
-  return (
     <Flex
       justifyContent="center"
-      _before={{
-        content: '""',
-        h: '200rem',
-        maxH: 'calc(100% - 20rem)',
-        width: '200rem',
-        top: '20rem',
-        left: '50%',
-        transform: 'translate(-50%,-50%)',
-        pos: 'absolute',
-        bg: `url(${signConnectBg.src})`,
-        bgPos: 'center',
-        bgRepeat: 'no-repeat',
-      }}
+      background={`url(${signConnectBg.src})`}
+      backgroundPosition="bottom"
+      bgRepeat="no-repeat"
+      position="absolute"
+      alignItems="center"
+      direction="column"
+      h="100%"
+      w="100%"
     >
-      <Link href="/membership" _hover={{}}>
-        <Button>Go to Membership</Button>
+      <Text fontSize="2xl" textAlign="center">
+        Pay dues to get access to your membership
+      </Text>
+      <Link href={PAY_DUES_URL} _hover={{}}>
+        <Button mt="1rem">Pay dues</Button>
       </Link>
     </Flex>
   );
 };
 
+const Completed = () => {
+  return (
+    <Flex
+      justifyContent="center"
+      background={`url(${signConnectBg.src})`}
+      backgroundPosition="bottom"
+      bgRepeat="no-repeat"
+      position="absolute"
+      alignItems="center"
+      direction="column"
+      h="100%"
+      w="100%"
+    >
+      <Text fontSize="2xl" textAlign="center">
+        Your membership is up and running
+      </Text>
+      <Link href="/membership" _hover={{}}>
+        <Button mt="1rem">Go to Membership</Button>
+      </Link>
+    </Flex>
+  );
+};
+
+const ApplicationNotApproved = () => {
+  return (
+    <Flex
+      justifyContent="center"
+      background={`url(${signConnectBg.src})`}
+      backgroundPosition="bottom"
+      bgRepeat="no-repeat"
+      position="absolute"
+      alignItems="center"
+      direction="column"
+      h="100%"
+      w="100%"
+    >
+      <Text fontSize="2xl" textAlign="center">
+        You will be able to sign the documents once your
+      </Text>
+      <Text fontSize="2xl">membership application has been approved</Text>
+    </Flex>
+  );
+};
+
+const ConnectWallet = () => {
+  const { connectWallet } = useWallet();
+  return (
+    <Flex
+      justifyContent="center"
+      background={`url(${signConnectBg.src})`}
+      backgroundPosition="bottom"
+      bgRepeat="no-repeat"
+      position="absolute"
+      alignItems="center"
+      direction="column"
+      h="100%"
+      w="100%"
+    >
+      <Text fontSize="2xl" textAlign="center">
+        Connect wallet
+      </Text>
+      <Text fontSize="2xl">to view signature details</Text>
+      <Button mt="1rem" onClick={connectWallet}>
+        ConnectWallet
+      </Button>
+    </Flex>
+  );
+};
+
 const MembershipPage: React.FC = () => {
-  const { applied, tandcSigned, statutesSigned, duesPaid } = useApplication();
+  const {
+    applied,
+    tandcSigned,
+    statutesSigned,
+    duesPaid,
+    applicationAccepted,
+  } = useApplication();
   const { isConnected } = useWallet();
 
   // add unconnected wallet state
   const pickPage = useCallback(() => {
-    if (applied && tandcSigned && statutesSigned && duesPaid) {
+    if (
+      applied &&
+      tandcSigned &&
+      statutesSigned &&
+      duesPaid &&
+      applicationAccepted
+    ) {
       return <Completed />;
-    } else if (applied && tandcSigned && statutesSigned) {
+    } else if (
+      applied &&
+      tandcSigned &&
+      statutesSigned &&
+      applicationAccepted
+    ) {
       return <Dues />;
-    } else if (applied && isConnected) {
+    } else if (applied && isConnected && applicationAccepted) {
       return <SignTerms />;
+    } else if (isConnected && applied && !applicationAccepted) {
+      return <ApplicationNotApproved />;
     } else if (!isConnected) {
       return <ConnectWallet />;
     } else {
       return <Membership />;
     }
-  }, [applied, tandcSigned, statutesSigned, duesPaid, isConnected]);
+  }, [
+    applied,
+    tandcSigned,
+    statutesSigned,
+    duesPaid,
+    isConnected,
+    applicationAccepted,
+  ]);
   return <>{pickPage()}</>;
 };
 
