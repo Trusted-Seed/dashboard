@@ -42,7 +42,6 @@ type ProviderProps = {
   children?: ReactNode;
 };
 
-// applicationDate - need to get that from the webhook
 const initialContext: ApplicationContextType = {
   applied: false,
   applicationDate: null,
@@ -95,9 +94,6 @@ const fetchSignature = async (address: string, type: 'statutes' | 'tandc') => {
 };
 
 const fetchApplicationAccepted = async (address: string) => {
-  // getPendingBalance
-  // if 0 false
-  // greater than 0 true
   const abi = [
     'function getPendingBalance(address name) view returns (uint256)',
   ];

@@ -12,19 +12,6 @@ import React, { useCallback } from 'react';
 import { PAY_DUES_URL } from 'utils/constants';
 import { useWallet } from 'web3';
 
-// - if user is not connected show connect  button
-// - if user has never applied show apply stages
-// - if user has already applied show sign stages
-// - if user has applied and signed show pay membership stage
-// - if user has done all the above then just show a button to go to membership page
-//
-// 1. show membership if user has not applied
-// 2. if user has applied show sign
-//   - make sure all sign states are handled
-// 3. If membership is signed show button that redirects to pay dues
-// 4. If everything done then show button that redirects to the
-//   membership page
-
 const Membership = () => {
   return (
     <BackgroundContainer>
@@ -192,7 +179,6 @@ const MembershipPage: React.FC = () => {
   } = useApplication();
   const { isConnected } = useWallet();
 
-  // add unconnected wallet state
   const pickPage = useCallback(() => {
     if (
       applied &&
