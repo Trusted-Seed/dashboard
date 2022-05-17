@@ -1,3 +1,4 @@
+import { ethers } from 'ethers';
 import { useMemberInfoQuery } from 'graphql/autogen/types';
 import React, {
   createContext,
@@ -7,12 +8,17 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { FETCH_APPLICATION_ENDPOINT, SIGNING_URL } from 'utils/constants';
+import {
+  FETCH_APPLICATION_ENDPOINT,
+  REGISTRY_CONTRACT_ADDRESS,
+  SIGNING_URL,
+} from 'utils/constants';
 import { useWallet } from 'web3';
 
 export type ApplicationContextType = {
   applied: boolean;
   applicationDate: Date | null;
+  applicationAccepted: boolean;
   statutesSigned: boolean;
   statutesSignatureDate: Date | null;
   tandcSigned: boolean;
@@ -36,10 +42,10 @@ type ProviderProps = {
   children?: ReactNode;
 };
 
-// applicationDate - need to get that from the webhook
 const initialContext: ApplicationContextType = {
   applied: false,
   applicationDate: null,
+  applicationAccepted: false,
   statutesSigned: false,
   statutesSignatureDate: null,
   tandcSigned: false,
@@ -87,6 +93,22 @@ const fetchSignature = async (address: string, type: 'statutes' | 'tandc') => {
   }
 };
 
+const fetchApplicationAccepted = async (address: string) => {
+  const abi = [
+    'function getPendingBalance(address name) view returns (uint256)',
+  ];
+  const provider = new ethers.providers.JsonRpcProvider(
+    'https://rpc.gnosischain.com',
+  );
+  const contract = new ethers.Contract(
+    REGISTRY_CONTRACT_ADDRESS,
+    abi,
+    provider,
+  );
+  const balance = await contract.getPendingBalance(address);
+  return balance > 0;
+};
+
 // TODO: stubbed for minter contract
 const checkMember = () => {
   return false;
@@ -96,6 +118,7 @@ export const ApplicatonContextProvider: React.FC = ({
   children,
 }: ProviderProps) => {
   const [applied, setApplied] = useState(false);
+  const [applicationAccepted, setApplicationAccepted] = useState(false);
   // TODO: get application date
   const [applicationDate, setApplicationDate] = useState<Date | null>(null);
 
@@ -134,6 +157,17 @@ export const ApplicatonContextProvider: React.FC = ({
       f(address);
       const member = checkMember();
       setMember(member);
+    }
+  }, [address]);
+
+  // Fetch application accepted
+  useEffect(() => {
+    const f = async (address: string) => {
+      const resp = await fetchApplicationAccepted(address);
+      setApplicationAccepted(resp || false);
+    };
+    if (address) {
+      f(address);
     }
   }, [address]);
 
@@ -234,6 +268,7 @@ export const ApplicatonContextProvider: React.FC = ({
       value={{
         applied,
         applicationDate,
+        applicationAccepted,
         statutesSigned,
         statutesSignatureDate,
         tandcSigned,
