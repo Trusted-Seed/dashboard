@@ -21,21 +21,20 @@ messages:
     image: https://miro.medium.com/max/1400/0*BAAFG3QDE4zpEE3O
     action: Read more
 spotlight:
-  name: Username 2021
-  image: /images/username.png
+  name: Michel Bauwens
+  image: /images/michel-bauwens-p2p-foundation.png
   imageLink:
-    label: Youtube
-    iconType: youtube
-    url: https://www.youtube.com/channel/UCoyHywZn8YMalyx4ZbvQoyw
-  title: Graphic Designer
-  quote: The Giveth mission is to reward & empower those who give
+    label: Twitter
+    iconType: twitter
+    url: https://twitter.com/mbauwens
+  title: P2P Foundation
+  quote: What we discovered is that it's slow going, there's no rapid revolution,
+    it's just like keep on working, making mistakes and learning. This is the
+    infrastructure of the future.
   links:
     - label: Twitter
       iconType: twitter
-      url: https://twitter.com
-    - label: Medium
-      iconType: medium
-      url: https://medium.com/giveth
+      url: https://twitter.com/mbauwens
 members:
   - name: Username 2021
     image: /images/username.png
