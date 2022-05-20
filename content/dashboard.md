@@ -77,7 +77,7 @@ social:
       url: https://medium.com/commonsstack
     - label: Calendar
       iconType: calendar
-      url: "#"
+      url: https://calendar.google.com/calendar/u/0/embed?src=c_vjdckfj4bharuovhd4rmo3dtv4@group.calendar.google.com&ctz=America/eastern
 partnerships:
   - image: /images/tec-logo.svg
     description: Advancing the field of token engineering in a regenerative way.
