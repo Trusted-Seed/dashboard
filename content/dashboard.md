@@ -65,7 +65,7 @@ social:
   links:
     - label: Telegram
       iconType: telegram
-      url: https://t.me/joinchat/HGrjjRS2PoowbH1ODuefuA
+      url: https://t.me/CommonsStack
     - label: Twitter
       iconType: twitter
       url: https://twitter.com/commonsstack
