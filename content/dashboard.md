@@ -24,9 +24,9 @@ spotlight:
   name: Michel Bauwens
   image: /images/michel-bauwens-p2p-foundation.png
   imageLink:
-    label: Twitter
-    iconType: twitter
-    url: https://twitter.com/mbauwens
+    label: YouTube
+    iconType: youtube
+    url: https://www.youtube.com/watch?v=0qZooSmQbQ4&t
   title: P2P Foundation
   quote: What we discovered is that it's slow going, there's no rapid revolution,
     it's just like keep on working, making mistakes and learning. This is the
@@ -36,36 +36,21 @@ spotlight:
       iconType: twitter
       url: https://twitter.com/mbauwens
 members:
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
-  - name: Username 2021
-    image: /images/username.png
-    description: Graphic Designer
+  - name: Luke Duncan
+    image: /images/luke-duncan-1hive.png
+    description: 1Hive
+  - name: Sebnem Rusitschka
+    image: /images/sebnem-rusitschka-tokengenie.org-freelio.io.jpg
+    description: Tokengenie.org & Freelio.io
+  - name: Trent McConaghy
+    image: /images/trent-mcconaghy-ocean-protocol.png
+    description: Ocean Protocol
+  - name: Simon De La Rouviere
+    image: /images/simon-de-la-rouviere-inventor-author-artist.png
+    description: Inventor, Author & Artist
+  - name: Dr. Michael Zargham
+    image: /images/dr.-michael-zargham-block.science-founder.png
+    description: Block.Science Founder
 associationBoard:
   title: Trusted Seed Association Board
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero,
