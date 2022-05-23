@@ -17,10 +17,10 @@ export const formatDate = (d: Date | string | number): string => {
   // eslint-disable-next-line no-param-reassign
   d = new Date(d);
   const year = d.getFullYear();
-  const date = d.getDate();
+  const date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
   const monthIndex = d.getMonth();
   const month = months[monthIndex];
-  return `${month} ${date}, ${year}`;
+  return `${date} ${month.slice(0, 3)} ${year}`;
 };
 
 export const formatDateForPlot = (d: Date | string | number): string => {
