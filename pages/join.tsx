@@ -109,7 +109,7 @@ const ConnectWallet = () => {
       <Text fontSize="2xl" textAlign="center">
         Connect wallet
       </Text>
-      <Text fontSize="2xl">to view signature details</Text>
+      <Text fontSize="2xl">to join Trusted Seed</Text>
       <Button mt="1rem" onClick={connectWallet}>
         ConnectWallet
       </Button>
