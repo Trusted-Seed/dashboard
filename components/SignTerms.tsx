@@ -69,7 +69,7 @@ const SignButton = ({
   );
 };
 
-const SignTerms: React.FC = () => {
+export const SignTerms: React.FC = () => {
   const { title, description, terms, statutes } =
     usePageAttributes<SignContentAttributes>('sign');
   const { connectWallet, isConnected, address } = useWallet();
@@ -197,5 +197,3 @@ const SignTerms: React.FC = () => {
     </Flex>
   );
 };
-
-export default SignTerms;

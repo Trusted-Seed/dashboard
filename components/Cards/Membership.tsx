@@ -112,7 +112,9 @@ export const MembershipCard: React.FC<StackProps> = props => {
       if (!member) {
         return 2;
       }
-      const hasExpired = new Date().getTime() > (expiryDate?.getTime() ?? 0);
+      const hasExpired = expiryDate
+        ? new Date().getTime() > expiryDate.getTime()
+        : false;
       if (!hasExpired) {
         return 3;
       }
