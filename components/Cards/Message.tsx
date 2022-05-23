@@ -32,6 +32,7 @@ export const MessageCard: React.FC<MessageType> = ({
           borderRadius="md"
           bgImage={`url(${image})`}
           bgSize="cover"
+          bgPos="center"
           w="8rem"
           minW="8rem"
           h="8rem"
