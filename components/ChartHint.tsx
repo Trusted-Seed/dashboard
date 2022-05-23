@@ -49,7 +49,7 @@ export const ChartHint: React.FC<HintProps> = ({ value: { x, y } }) => (
             {formatDateForPlotHint(x * 1000)}
           </Text>
           <Text fontSize="sm" textAlign="center" fontWeight="bold">
-            {y.toLocaleString()}
+            {y.toLocaleString('en-US')}
           </Text>
         </VStack>
       </PopoverContent>

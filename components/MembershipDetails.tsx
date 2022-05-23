@@ -8,7 +8,6 @@ import {
 } from '@chakra-ui/react';
 import { Button } from 'components/Button';
 import { useApplication } from 'context/ApplicationContext';
-import { utils } from 'ethers';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
 import {
   PAY_DUES_URL,
@@ -195,7 +194,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
             </Text>
             :{' '}
             <Text as="span" color="ceruleanBlue">
-              {utils.formatUnits(duesPaid, 18)} DAI
+              {duesPaid.toLocaleString('en-US')} DAI
             </Text>
           </Text>
           <Text>

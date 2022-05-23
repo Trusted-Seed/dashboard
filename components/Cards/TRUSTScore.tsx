@@ -63,7 +63,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 $TRUST - Total Supply
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
-                {totalSupply.toLocaleString()}
+                {totalSupply.toLocaleString('en-US')}
               </Text>
             </VStack>
           </>
