@@ -177,14 +177,16 @@ export const ApplicatonContextProvider: React.FC = ({
       const resp = await fetchSignature(address, 'statutes');
       if (resp) {
         setStatutesSigned(true);
-        setStatutesSignatureDate(new Date()); // Placeholder
-        signDateCheck(signDate, new Date());
+        setStatutesSignatureDate(new Date(resp?.updatedAt || ''));
+      } else {
+        setStatutesSigned(false);
+        setTandcSignatureDate(null);
       }
     };
     if (address) {
       f(address);
     }
-  }, [address, signDate]);
+  }, [address]);
 
   // Fetch statues Signature
   useEffect(() => {
@@ -192,14 +194,29 @@ export const ApplicatonContextProvider: React.FC = ({
       const resp = await fetchSignature(address, 'tandc');
       if (resp) {
         setTandcSigned(true);
-        setTandcSignatureDate(new Date()); // placeholder
-        signDateCheck(signDate, new Date());
+        setTandcSignatureDate(new Date(resp?.updatedAt || ''));
+      } else {
+        setStatutesSigned(false);
+        setTandcSignatureDate(null);
       }
     };
     if (address) {
       f(address);
     }
-  }, [address, signDate]);
+  }, [address]);
+
+  // Set sign date
+  useEffect(() => {
+    if (statutesSignatureDate && tandcSignatureDate) {
+      const date =
+        statutesSignatureDate > tandcSignatureDate
+          ? statutesSignatureDate
+          : tandcSignatureDate;
+      signDateCheck(signDate, date);
+    } else if (statutesSignatureDate) {
+      signDateCheck(signDate, statutesSignatureDate);
+    }
+  }, [statutesSignatureDate, tandcSignatureDate, signDate]);
 
   const [{ data: memberData }] = useMemberInfoQuery({
     variables: { address: address?.toLowerCase() ?? '' },
