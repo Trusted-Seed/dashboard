@@ -36,21 +36,33 @@ spotlight:
       iconType: twitter
       url: https://twitter.com/mbauwens
 members:
-  - name: Luke Duncan
-    image: /images/luke-duncan-1hive.png
-    description: 1Hive
-  - name: Sebnem Rusitschka
-    image: /images/sebnem-rusitschka-tokengenie.org-freelio.io.jpg
-    description: Tokengenie.org & Freelio.io
-  - name: Trent McConaghy
-    image: /images/trent-mcconaghy-ocean-protocol.png
-    description: Ocean Protocol
-  - name: Simon De La Rouviere
-    image: /images/simon-de-la-rouviere-inventor-author-artist.png
-    description: Inventor, Author & Artist
+  - name: Griff Green
+    description: Giveth, Commons Stack & DAppNode
+    image: /images/griff-green-giveth.png
   - name: Dr. Michael Zargham
     image: /images/dr.-michael-zargham-block.science-founder.png
     description: Block.Science Founder
+  - name: Simon De La Rouviere
+    image: /images/simon-de-la-rouviere-inventor-author-artist.png
+    description: Inventor, Author & Artist
+  - name: Angela Kreitenweis
+    description: Token Engineering Academy
+    image: /images/angela-kreitenweis.png
+  - name: Trent McConaghy
+    image: /images/trent-mcconaghy-ocean-protocol.png
+    description: Ocean Protocol
+  - name: Tamara Helenius
+    description: Commons Stack & Token Engineering Commons
+    image: /images/tamara-helenius.jpg
+  - name: Jeff Emmett
+    description: BlockScience & The Commons Stack
+    image: /images/jeff-emmett.png
+  - name: Sebnem Rusitschka
+    image: /images/sebnem-rusitschka-tokengenie.org-freelio.io.jpg
+    description: Tokengenie.org & Freelio.io
+  - name: Luke Duncan
+    image: /images/luke-duncan-1hive.png
+    description: 1Hive
 associationBoard:
   title: Trusted Seed Association Board
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero,
