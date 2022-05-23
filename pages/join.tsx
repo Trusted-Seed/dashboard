@@ -27,7 +27,7 @@ const Membership = () => {
             The Trusted Seed is a group of trusted community
           </Text>
           <Text textAlign="center">
-            members that hold thenon-transferable TRUST tokens,
+            members that hold thenon-transferable $TRUST tokens,
           </Text>{' '}
           representing their reputation within the Common Stack.
         </Text>

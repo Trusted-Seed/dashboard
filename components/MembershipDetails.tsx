@@ -228,45 +228,45 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
             {isSmallScreen ? (
               <VStack align="stretch" spacing={8}>
                 <ScoreDisplay
-                  title="My TRUST Score"
-                  value={balance.toFixed(3)}
+                  title="My $TRUST Score"
+                  value={balance.toFixed(0)}
                 />
                 <ScoreDisplay
                   title="% Of Total Supply"
-                  value={percentSupply.toFixed(3) + '%'}
+                  value={percentSupply.toFixed(2) + '%'}
                 />
               </VStack>
             ) : (
               <>
                 <ScoreDisplay
-                  title="My TRUST Score"
-                  value={balance.toFixed(3)}
+                  title="My $TRUST Score"
+                  value={balance.toFixed(0)}
                 />
                 <ScoreDisplay
                   title="% Of Total Supply"
-                  value={percentSupply.toFixed(3) + '%'}
+                  value={percentSupply.toFixed(2) + '%'}
                 />
               </>
             )}
             {isSmallScreen ? (
               <VStack align="stretch" spacing={8}>
                 <ScoreDisplay
-                  title="Total TRUST Supply"
+                  title="$TRUST - Total Supply"
                   value={totalSupply.toLocaleString('en-US')}
                 />
                 <ScoreDisplay
-                  title="Max TRUST Score"
+                  title="Max $TRUST Score"
                   value={maxScore.toLocaleString('en-US')}
                 />
               </VStack>
             ) : (
               <>
                 <ScoreDisplay
-                  title="Total TRUST Supply"
+                  title="$TRUST - Total Supply"
                   value={totalSupply.toLocaleString('en-US')}
                 />
                 <ScoreDisplay
-                  title="Max TRUST Score"
+                  title="Max $TRUST Score"
                   value={maxScore.toLocaleString('en-US')}
                 />
               </>

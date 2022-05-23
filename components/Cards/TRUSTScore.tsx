@@ -25,7 +25,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
         display="inline-block"
         whiteSpace="nowrap"
       >
-        TRUST Score
+        $TRUST Score
       </Text>
       <VStack spacing={4} align="flex-start" justify="flex-end" flex={1}>
         {isConnected ? (
@@ -36,10 +36,10 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 letterSpacing="0.25rem"
                 fontSize="sm"
               >
-                My TRUST Score
+                My $TRUST Score
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
-                {balance.toFixed(3)}
+                {balance.toFixed(0)}
               </Text>
             </VStack>
             <VStack spacing={0} align="flex-start">
@@ -51,7 +51,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 % of Total Supply
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
-                {percentSupply.toFixed(3)}%
+                {percentSupply.toFixed(2)}%
               </Text>
             </VStack>
             <VStack spacing={0} align="flex-start">
@@ -60,7 +60,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 letterSpacing="0.25rem"
                 fontSize="sm"
               >
-                Total TRUST Supply
+                $TRUST - Total Supply
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
                 {totalSupply.toLocaleString()}

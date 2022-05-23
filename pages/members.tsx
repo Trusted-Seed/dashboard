@@ -88,7 +88,7 @@ export const MembersPage: React.FC = () => {
             fontSize={descFontSize}
             letterSpacing="0.2rem"
           >
-            Total Number Of TRUST
+            $TRUST - Total Supply
           </Text>
           <Text
             color="ceruleanBlue"

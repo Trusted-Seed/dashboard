@@ -95,8 +95,8 @@ export const TRUSTSupplyGraphCard: React.FC<StackProps> = props => {
             fontSize={{ base: 'md', lg: 'lg' }}
             sx={{ '>option': { bg: 'cardBG' } }}
           >
-            <option value="member" label="My TRUST" />
-            <option value="total" label="Total TRUST Supply" />
+            <option value="member" label="My $TRUST" />
+            <option value="total" label="$TRUST - Total Supply" />
           </Select>
         </Flex>
       ) : (
@@ -105,7 +105,7 @@ export const TRUSTSupplyGraphCard: React.FC<StackProps> = props => {
           display="inline-block"
           whiteSpace="nowrap"
         >
-          Total TRUST Supply
+          $TRUST - Total Supply
         </Text>
       )}
       {fetching ? (

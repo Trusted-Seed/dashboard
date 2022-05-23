@@ -35,7 +35,7 @@ const ApplyStageOnePage: React.FC = () => {
               especially welcomed and will
             </Text>{' '}
             <Text>
-              increase the maximum TRUST Score applicants will be able to
+              increase the maximum $TRUST Score applicants will be able to
               obtain.
             </Text>
           </Text>
