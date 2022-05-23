@@ -16,6 +16,7 @@ export const Header: React.FC = () => {
         </Flex>
       </Link>
       <HStack align="center" spacing={{ base: 6, lg: 8, xl: 10 }}>
+        <ActiveLink href="/dashboard">Dashboard</ActiveLink>
         <ActiveLink href="/about">About</ActiveLink>
         <ActiveLink href="/join">Join</ActiveLink>
         <ActiveLink href="/faq">FAQ</ActiveLink>
