@@ -66,6 +66,7 @@ const fetchApplication = async (address: string) => {
   try {
     const resp = await fetch(FETCH_APPLICATION_ENDPOINT, {
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

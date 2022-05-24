@@ -128,22 +128,11 @@ const MembershipPage: React.FC = () => {
   const { isConnected } = useWallet();
 
   const pickPage = useCallback(() => {
-    if (
-      applied &&
-      tandcSigned &&
-      statutesSigned &&
-      duesPaid &&
-      applicationAccepted
-    ) {
+    if (tandcSigned && statutesSigned && duesPaid && applicationAccepted) {
       return <Completed />;
-    } else if (
-      applied &&
-      tandcSigned &&
-      statutesSigned &&
-      applicationAccepted
-    ) {
+    } else if (tandcSigned && statutesSigned && applicationAccepted) {
       return <Dues />;
-    } else if (applied && isConnected && applicationAccepted) {
+    } else if (isConnected && applicationAccepted) {
       return <SignTerms />;
     } else if (isConnected && applied && !applicationAccepted) {
       return <ApplicationNotApproved />;
