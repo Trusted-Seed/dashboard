@@ -6,7 +6,7 @@ import { ApplyStageZero } from 'components/ApplyStageZero';
 import { Button } from 'components/Button';
 import { Link } from 'components/Link';
 import { SignTerms } from 'components/SignTerms';
-import { useApplication } from 'context/ApplicationContext';
+import { MembershipStatus, useApplication } from 'context/ApplicationContext';
 import React, { useCallback, useState } from 'react';
 import { PAY_DUES_URL } from 'utils/constants';
 import { useWallet } from 'web3';
@@ -118,37 +118,33 @@ const ConnectWallet = () => {
 };
 
 const MembershipPage: React.FC = () => {
-  const {
-    applied,
-    tandcSigned,
-    statutesSigned,
-    duesPaid,
-    applicationAccepted,
-  } = useApplication();
+  const { membershipStatus } = useApplication();
   const { isConnected } = useWallet();
 
   const pickPage = useCallback(() => {
-    if (tandcSigned && statutesSigned && duesPaid && applicationAccepted) {
+    if (membershipStatus === MembershipStatus.ACTIVE_MEMBER) {
       return <Completed />;
-    } else if (tandcSigned && statutesSigned && applicationAccepted) {
+    } else if (
+      membershipStatus === MembershipStatus.SIGNED_NOT_PAID ||
+      membershipStatus === MembershipStatus.INACTIVE_MEMBER
+    ) {
       return <Dues />;
-    } else if (isConnected && applicationAccepted) {
+    } else if (
+      isConnected &&
+      membershipStatus === MembershipStatus.APPROVED_NOT_SIGNED
+    ) {
       return <SignTerms />;
-    } else if (isConnected && applied && !applicationAccepted) {
+    } else if (
+      isConnected &&
+      membershipStatus === MembershipStatus.APPLIED_NOT_APPROVED
+    ) {
       return <ApplicationNotApproved />;
     } else if (!isConnected) {
       return <ConnectWallet />;
     } else {
       return <Membership />;
     }
-  }, [
-    applied,
-    tandcSigned,
-    statutesSigned,
-    duesPaid,
-    isConnected,
-    applicationAccepted,
-  ]);
+  }, [membershipStatus, isConnected]);
   return <>{pickPage()}</>;
 };
 
