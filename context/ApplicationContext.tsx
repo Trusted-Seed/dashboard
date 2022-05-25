@@ -14,12 +14,12 @@ import { OldMember, oldMembers } from 'utils/oldMembers';
 import { config, useWallet } from 'web3';
 
 export enum MembershipStatus {
-  ACTIVE_MEMBER,
-  INACTIVE_MEMBER,
   NOT_MEMBER,
   APPLIED_NOT_APPROVED,
   APPROVED_NOT_SIGNED,
   SIGNED_NOT_PAID,
+  ACTIVE_MEMBER,
+  INACTIVE_MEMBER,
 }
 
 export type ApplicationContextType = {
@@ -123,12 +123,14 @@ export const ApplicatonContextProvider: React.FC = ({
   );
 
   const { address, provider } = useWallet();
-  const signDateCheck = (signDate: Date | null, newDate: Date) => {
-    if (!signDate || signDate <= newDate) {
-      setSignDate(newDate);
-      return;
-    }
-    return;
+
+  const signDateCheck = (newDate: Date) => {
+    setSignDate(oldDate => {
+      if (!oldDate || oldDate <= newDate) {
+        return newDate;
+      }
+      return oldDate;
+    });
   };
 
   // Fetch application
@@ -184,11 +186,11 @@ export const ApplicatonContextProvider: React.FC = ({
         statutesSignatureDate > tandcSignatureDate
           ? statutesSignatureDate
           : tandcSignatureDate;
-      signDateCheck(signDate, date);
+      signDateCheck(date);
     } else if (statutesSignatureDate) {
-      signDateCheck(signDate, statutesSignatureDate);
+      signDateCheck(statutesSignatureDate);
     }
-  }, [statutesSignatureDate, tandcSignatureDate, signDate]);
+  }, [statutesSignatureDate, tandcSignatureDate]);
 
   const signConsent = useCallback(
     async (message: string) => {
@@ -276,7 +278,7 @@ export const ApplicatonContextProvider: React.FC = ({
         expiryDate: new Date(oldMember.expireDate),
       };
     }
-    if (!memberData) {
+    if (!memberData?.member) {
       return {
         member: false,
         expiryDate: new Date(0),
