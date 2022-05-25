@@ -19,7 +19,6 @@ import { config } from 'web3';
 
 import { BadgesDisplay } from './BadgesDisplay';
 import { Card } from './Card';
-import { ClockIcon } from './icons/ClockIcon';
 import { ExternalLinkIcon } from './icons/ExternalLinkIcon';
 
 const ScoreDisplay: React.FC<{ title: string; value: string }> = ({
@@ -49,7 +48,6 @@ const ScoreDisplay: React.FC<{ title: string; value: string }> = ({
 
 export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
   const {
-    member,
     applicationDate,
     signDate,
     duesPaid,
@@ -220,66 +218,51 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
           <Button>Pay additional dues</Button>
         </Link>
       </Card>
-      {member ? (
-        <>
-          <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} w="100%" gap={2}>
-            {isSmallScreen ? (
-              <VStack align="stretch" spacing={8}>
-                <ScoreDisplay
-                  title="My $TRUST Score"
-                  value={balance.toFixed(0)}
-                />
-                <ScoreDisplay
-                  title="% Of Total Supply"
-                  value={percentSupply.toFixed(2) + '%'}
-                />
-              </VStack>
-            ) : (
-              <>
-                <ScoreDisplay
-                  title="My $TRUST Score"
-                  value={balance.toFixed(0)}
-                />
-                <ScoreDisplay
-                  title="% Of Total Supply"
-                  value={percentSupply.toFixed(2) + '%'}
-                />
-              </>
-            )}
-            {isSmallScreen ? (
-              <VStack align="stretch" spacing={8}>
-                <ScoreDisplay
-                  title="$TRUST - Total Supply"
-                  value={totalSupply.toLocaleString('en-US')}
-                />
-                <ScoreDisplay
-                  title="Max $TRUST Score"
-                  value={maxScore.toLocaleString('en-US')}
-                />
-              </VStack>
-            ) : (
-              <>
-                <ScoreDisplay
-                  title="$TRUST - Total Supply"
-                  value={totalSupply.toLocaleString('en-US')}
-                />
-                <ScoreDisplay
-                  title="Max $TRUST Score"
-                  value={maxScore.toLocaleString('en-US')}
-                />
-              </>
-            )}
-          </SimpleGrid>
-          <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
-          <BadgesDisplay poaps={poaps} />
-        </>
-      ) : (
-        <Card w="100%" color="ceruleanBlue" p={10} fontWeight="bold">
-          <ClockIcon boxSize="3rem" />
-          <Text> Your application is awaiting approval </Text>
-        </Card>
-      )}
+      <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} w="100%" gap={2}>
+        {isSmallScreen ? (
+          <VStack align="stretch" spacing={8}>
+            <ScoreDisplay title="My $TRUST Score" value={balance.toFixed(0)} />
+            <ScoreDisplay
+              title="% Of Total Supply"
+              value={percentSupply.toFixed(2) + '%'}
+            />
+          </VStack>
+        ) : (
+          <>
+            <ScoreDisplay title="My $TRUST Score" value={balance.toFixed(0)} />
+            <ScoreDisplay
+              title="% Of Total Supply"
+              value={percentSupply.toFixed(2) + '%'}
+            />
+          </>
+        )}
+        {isSmallScreen ? (
+          <VStack align="stretch" spacing={8}>
+            <ScoreDisplay
+              title="$TRUST - Total Supply"
+              value={totalSupply.toLocaleString('en-US')}
+            />
+            <ScoreDisplay
+              title="Max $TRUST Score"
+              value={maxScore.toLocaleString('en-US')}
+            />
+          </VStack>
+        ) : (
+          <>
+            <ScoreDisplay
+              title="$TRUST - Total Supply"
+              value={totalSupply.toLocaleString('en-US')}
+            />
+            <ScoreDisplay
+              title="Max $TRUST Score"
+              value={maxScore.toLocaleString('en-US')}
+            />
+          </>
+        )}
+      </SimpleGrid>
+      <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
+      <BadgesDisplay poaps={poaps} />
     </VStack>
   );
 };
