@@ -1,24 +1,22 @@
-import { Flex, Image, Link, SimpleGrid, Text } from '@chakra-ui/react';
+import { Image, Link, SimpleGrid } from '@chakra-ui/react';
 import BadgeImage from 'assets/badge.svg';
 import { DeliveryAddressInfo, usePOAPs } from 'hooks/usePOAPs';
 import { POAP_CLAIM_URL } from 'utils/constants';
-import { formatDateForMembership } from 'utils/formatHelpers';
 
 import { Button } from './Button';
 import { Card } from './Card';
 
-const BadgeDisplay: React.FC<DeliveryAddressInfo> = ({
-  claimed,
-  claimDate,
-  poapInfo,
-}) => (
+const BadgeDisplay: React.FC<DeliveryAddressInfo> = ({ claimed, poapInfo }) => (
   <Card p={8} justify="space-between">
     <Image src={BadgeImage.src} h="9rem" />
-    {claimed ? (
+    {/*
+    claimed ? (
       <Flex h="2.5rem" align="center">
-        <Text>{formatDateForMembership(claimDate ?? 0)}</Text>
+        <Text>{formatDate(claimDate ?? 0)}</Text>
       </Flex>
-    ) : (
+    ) :
+      */}
+    {!claimed && (
       <Link
         isExternal
         href={POAP_CLAIM_URL.replace('{{POAP_SLUG}}', poapInfo.slug)}
