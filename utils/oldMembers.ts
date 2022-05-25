@@ -1,8 +1,15 @@
-export type OldMember = { id: string; expireDate: string };
+export type OldMember = {
+  address: string;
+  duesPaid: number;
+  paymentDate: string;
+  expireDate: string;
+};
 
 export const oldMembers: OldMember[] = [
   {
-    id: '0x0000000000000000000000000000000000000000',
-    expireDate: '2022-05-25T08:55:02.577Z',
+    address: '0xa32aECda752cF4EF89956e83d60C04835d4FA867', // kristofer
+    duesPaid: 450,
+    paymentDate: '2022-04-19T00:00:00.000Z',
+    expireDate: '2023-04-19T00:00:00.000Z',
   },
 ];

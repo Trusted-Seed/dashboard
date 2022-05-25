@@ -7,10 +7,10 @@ import { formatDate } from 'utils/formatHelpers';
 import { Card } from './Card';
 
 export const PaymentDetails: React.FC<StackProps> = props => {
-  const { duesPaid, startDate, expiryDate, membershipStatus } =
+  const { duesPaid, paymentDate, expiryDate, membershipStatus } =
     useApplication();
 
-  const startDateDisplay = formatDate(startDate ?? new Date());
+  const paymentDateDisplay = formatDate(paymentDate ?? new Date());
   const expiryDateDisplay = formatDate(expiryDate ?? new Date());
 
   return (
@@ -86,7 +86,7 @@ export const PaymentDetails: React.FC<StackProps> = props => {
               <Text as="span" color="ceruleanBlue">
                 {membershipStatus === MembershipStatus.SIGNED_NOT_PAID
                   ? '-'
-                  : startDateDisplay}
+                  : paymentDateDisplay}
               </Text>
             </Text>
             <Text>

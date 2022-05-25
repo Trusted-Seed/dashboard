@@ -33,7 +33,7 @@ export type ApplicationContextType = {
   signDate: Date | null;
   duesPaid: number;
   balance: number;
-  startDate: Date | null;
+  paymentDate: Date | null;
   expiryDate: Date | null;
   member: boolean;
   maxTrustScore: number;
@@ -62,7 +62,7 @@ const initialContext: ApplicationContextType = {
   signDate: null,
   duesPaid: 0,
   balance: 0,
-  startDate: null,
+  paymentDate: null,
   expiryDate: null,
   member: false,
   membershipStatus: MembershipStatus.NOT_MEMBER,
@@ -260,34 +260,41 @@ export const ApplicatonContextProvider: React.FC = ({
   const balance = Number(
     memberData?.member?.balance ? memberData?.member?.balance.slice(0, -18) : 0,
   );
-  const startDate = new Date(memberData?.member?.startDate ?? 0);
-  const duesPaid = Number(memberData?.member?.duesPaid ?? 0);
 
-  const { member, expiryDate } = useMemo(() => {
+  const { member, duesPaid, paymentDate, expiryDate } = useMemo(() => {
     if (!address) {
       return {
         member: false,
+        duesPaid: 0,
+        paymentDate: new Date(0),
         expiryDate: new Date(0),
       };
     }
 
     const oldMember = oldMembers.find(
-      (member: OldMember) => member.id.toLowerCase() === address.toLowerCase(),
+      (member: OldMember) =>
+        member.address.toLowerCase() === address.toLowerCase(),
     );
     if (oldMember) {
       return {
         member: true,
+        duesPaid: oldMember.duesPaid,
+        paymentDate: new Date(oldMember.paymentDate),
         expiryDate: new Date(oldMember.expireDate),
       };
     }
     if (!memberData?.member) {
       return {
         member: false,
+        duesPaid: 0,
+        paymentDate: new Date(0),
         expiryDate: new Date(0),
       };
     }
     return {
       member: true,
+      duesPaid: Number(memberData?.member?.duesPaid ?? 0),
+      paymentDate: new Date(memberData?.member?.startDate ?? 0),
       expiryDate: new Date(memberData.member?.expireDate ?? 0),
     };
   }, [address, memberData]);
@@ -324,7 +331,7 @@ export const ApplicatonContextProvider: React.FC = ({
         signDate,
         duesPaid,
         balance,
-        startDate,
+        paymentDate,
         expiryDate,
         member,
         membershipStatus,

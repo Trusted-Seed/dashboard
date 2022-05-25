@@ -24,7 +24,7 @@ type Section = {
 export const MembershipCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
 
-  const { membershipStatus, startDate, expiryDate } = useApplication();
+  const { membershipStatus, paymentDate, expiryDate } = useApplication();
 
   const SECTIONS: Section[] = useMemo(
     () => [
@@ -82,9 +82,9 @@ export const MembershipCard: React.FC<StackProps> = props => {
         title: 'Your Trusted Seed membership is active!',
         description: (
           <>
-            Member since:{' '}
+            Membership renewed at:{' '}
             <Text as="span" fontWeight="bold">
-              {formatDate(startDate ?? 0)}
+              {formatDate(paymentDate ?? 0)}
             </Text>
             <br />
             Membership expires at:{' '}
@@ -114,7 +114,7 @@ export const MembershipCard: React.FC<StackProps> = props => {
         action: 'Activate your membership now',
       },
     ],
-    [startDate, expiryDate],
+    [paymentDate, expiryDate],
   );
 
   const index: number = useMemo(() => {
