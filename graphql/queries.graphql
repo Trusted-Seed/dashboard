@@ -26,11 +26,15 @@ query TokenSnapshots($address: String!) {
   }
 }
 
-query MemberInfo($address: ID!) {
-  member(id: $address) {
+query MemberInfo($id: ID!) {
+  member(id: $id) {
     balance
     startDate
     expireDate
+    duesPaid
+    token {
+      id
+    }
   }
 }
 

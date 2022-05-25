@@ -1,19 +1,26 @@
-import { ethers } from 'ethers';
 import { useMemberInfoQuery } from 'graphql/autogen/types';
+import { useMaxTrustScore } from 'hooks/useMaxTrustScore';
 import React, {
   createContext,
   ReactNode,
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
-import {
-  FETCH_APPLICATION_ENDPOINT,
-  REGISTRY_CONTRACT_ADDRESS,
-  SIGNING_URL,
-} from 'utils/constants';
-import { useWallet } from 'web3';
+import { FETCH_APPLICATION_ENDPOINT, SIGNING_URL } from 'utils/constants';
+import { OldMember, oldMembers } from 'utils/oldMembers';
+import { config, useWallet } from 'web3';
+
+export enum MembershipStatus {
+  ACTIVE_MEMBER,
+  INACTIVE_MEMBER,
+  NOT_MEMBER,
+  APPLIED_NOT_APPROVED,
+  APPROVED_NOT_SIGNED,
+  SIGNED_NOT_PAID,
+}
 
 export type ApplicationContextType = {
   applied: boolean;
@@ -29,6 +36,8 @@ export type ApplicationContextType = {
   startDate: Date | null;
   expiryDate: Date | null;
   member: boolean;
+  maxTrustScore: number;
+  membershipStatus: MembershipStatus;
   postSignature:
     | ((arg0: {
         message: string;
@@ -56,6 +65,8 @@ const initialContext: ApplicationContextType = {
   startDate: null,
   expiryDate: null,
   member: false,
+  membershipStatus: MembershipStatus.NOT_MEMBER,
+  maxTrustScore: 0,
   postSignature: null,
 };
 
@@ -94,33 +105,10 @@ const fetchSignature = async (address: string, type: 'statutes' | 'tandc') => {
   }
 };
 
-const fetchApplicationAccepted = async (address: string) => {
-  const abi = [
-    'function getPendingBalance(address name) view returns (uint256)',
-  ];
-  const provider = new ethers.providers.JsonRpcProvider(
-    'https://rpc.gnosischain.com',
-  );
-  const contract = new ethers.Contract(
-    REGISTRY_CONTRACT_ADDRESS,
-    abi,
-    provider,
-  );
-  const balance = await contract.getPendingBalance(address);
-  return balance > 0;
-};
-
-// TODO: stubbed for minter contract
-const checkMember = () => {
-  return false;
-};
-
 export const ApplicatonContextProvider: React.FC = ({
   children,
 }: ProviderProps) => {
   const [applied, setApplied] = useState(false);
-  const [applicationAccepted, setApplicationAccepted] = useState(false);
-  // TODO: get application date
   const [applicationDate, setApplicationDate] = useState<Date | null>(null);
 
   const [signDate, setSignDate] = useState<Date | null>(null);
@@ -133,10 +121,6 @@ export const ApplicatonContextProvider: React.FC = ({
   const [tandcSignatureDate, setTandcSignatureDate] = useState<Date | null>(
     null,
   );
-
-  // TODO: get how much dues in DAI were paid and if membership is approved
-  const [duesPaid] = useState<number>(250.0); // Will continue to be blank
-  const [member, setMember] = useState(false);
 
   const { address, provider } = useWallet();
   const signDateCheck = (signDate: Date | null, newDate: Date) => {
@@ -156,19 +140,6 @@ export const ApplicatonContextProvider: React.FC = ({
     };
     if (address) {
       f(address);
-      const member = checkMember();
-      setMember(member);
-    }
-  }, [address]);
-
-  // Fetch application accepted
-  useEffect(() => {
-    const f = async (address: string) => {
-      const resp = await fetchApplicationAccepted(address);
-      setApplicationAccepted(resp || false);
-    };
-    if (address) {
-      f(address);
     }
   }, [address]);
 
@@ -181,7 +152,7 @@ export const ApplicatonContextProvider: React.FC = ({
         setStatutesSignatureDate(new Date(resp?.updatedAt || ''));
       } else {
         setStatutesSigned(false);
-        setTandcSignatureDate(null);
+        setStatutesSignatureDate(null);
       }
     };
     if (address) {
@@ -189,7 +160,7 @@ export const ApplicatonContextProvider: React.FC = ({
     }
   }, [address]);
 
-  // Fetch statues Signature
+  // Fetch tandc Signature
   useEffect(() => {
     const f = async (address: string) => {
       const resp = await fetchSignature(address, 'tandc');
@@ -197,7 +168,7 @@ export const ApplicatonContextProvider: React.FC = ({
         setTandcSigned(true);
         setTandcSignatureDate(new Date(resp?.updatedAt || ''));
       } else {
-        setStatutesSigned(false);
+        setTandcSigned(false);
         setTandcSignatureDate(null);
       }
     };
@@ -219,10 +190,6 @@ export const ApplicatonContextProvider: React.FC = ({
     }
   }, [statutesSignatureDate, tandcSignatureDate, signDate]);
 
-  const [{ data: memberData }] = useMemberInfoQuery({
-    variables: { address: address?.toLowerCase() ?? '' },
-    pause: !address,
-  });
   const signConsent = useCallback(
     async (message: string) => {
       if (!provider) {
@@ -277,16 +244,75 @@ export const ApplicatonContextProvider: React.FC = ({
     }
   };
 
+  const [{ data: memberData }] = useMemberInfoQuery({
+    variables: {
+      id: (address?.toLowerCase() ?? '').concat(
+        config.TRUST.address.toLowerCase().slice(2),
+      ),
+    },
+    pause: !address,
+  });
+
+  const { maxTrustScore } = useMaxTrustScore();
+
   const balance = Number(memberData?.member?.balance ?? 0);
   const startDate = new Date(memberData?.member?.startDate ?? 0);
-  const expiryDate = new Date(memberData?.member?.expireDate ?? 0);
+  const duesPaid = Number(memberData?.member?.duesPaid ?? 0);
+
+  const { member, expiryDate } = useMemo(() => {
+    if (!address) {
+      return {
+        member: false,
+        expiryDate: new Date(0),
+      };
+    }
+
+    const oldMember = oldMembers.find(
+      (member: OldMember) => member.id.toLowerCase() === address.toLowerCase(),
+    );
+    if (oldMember) {
+      return {
+        member: true,
+        expiryDate: new Date(oldMember.expireDate),
+      };
+    }
+    if (!memberData) {
+      return {
+        member: false,
+        expiryDate: new Date(0),
+      };
+    }
+    return {
+      member: true,
+      expiryDate: new Date(memberData.member?.expireDate ?? 0),
+    };
+  }, [address, memberData]);
+
+  const membershipStatus = useMemo(() => {
+    if (expiryDate.getTime() > new Date().getTime()) {
+      return MembershipStatus.ACTIVE_MEMBER;
+    }
+    if (member) {
+      return MembershipStatus.INACTIVE_MEMBER;
+    }
+    if (maxTrustScore > 0) {
+      if (statutesSigned && tandcSigned) {
+        return MembershipStatus.SIGNED_NOT_PAID;
+      }
+      return MembershipStatus.APPROVED_NOT_SIGNED;
+    }
+    if (applied) {
+      return MembershipStatus.APPLIED_NOT_APPROVED;
+    }
+    return MembershipStatus.NOT_MEMBER;
+  }, [member, expiryDate, maxTrustScore, applied, tandcSigned, statutesSigned]);
 
   return (
     <ApplicationContext.Provider
       value={{
         applied,
         applicationDate,
-        applicationAccepted,
+        applicationAccepted: maxTrustScore > 0,
         statutesSigned,
         statutesSignatureDate,
         tandcSigned,
@@ -297,6 +323,8 @@ export const ApplicatonContextProvider: React.FC = ({
         startDate,
         expiryDate,
         member,
+        membershipStatus,
+        maxTrustScore,
         postSignature,
       }}
     >

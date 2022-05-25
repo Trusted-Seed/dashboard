@@ -1,5 +1,5 @@
 overwrite: true
-schema: 'https://api.thegraph.com/subgraphs/name/mendesfabio/commons-stack-membership'
+schema: 'https://api.thegraph.com/subgraphs/name/commons-stack/commons-stack-membership'
 generates:
   ./graphql/autogen/types.ts:
     documents:

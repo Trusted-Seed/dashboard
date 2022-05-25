@@ -26,6 +26,3 @@ export const POAP_DELIVERY_ADDRESSES_URL =
   'https://api.poap.xyz/delivery-addresses/{{POAP_ID}}/address/{{ADDRESS}}';
 
 export const POAP_CLAIM_URL = `https://poap.delivery/{{POAP_SLUG}}`;
-
-export const REGISTRY_CONTRACT_ADDRESS =
-  '0x28512FB7681c8615aef25a8EF3bcb90aFAC502cB';

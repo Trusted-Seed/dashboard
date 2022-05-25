@@ -63,11 +63,11 @@ export const formatNumberForPlot = (num: number, digits = 2): string => {
     : '0';
 };
 
-export const formatDateForMembership = (d: Date | string | number): string => {
-  // eslint-disable-next-line no-param-reassign
-  d = new Date(d);
-  const year = d.getFullYear();
-  const month = d.getMonth() < 10 ? `0${d.getMonth()}` : d.getMonth();
-  const date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
-  return `${year}-${month}-${date}`;
-};
+// export const formatDateForMembership = (d: Date | string | number): string => {
+//   // eslint-disable-next-line no-param-reassign
+//   d = new Date(d);
+//   const year = d.getFullYear();
+//   const month = d.getMonth() < 10 ? `0${d.getMonth()}` : d.getMonth();
+//   const date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
+//   return `${year}-${month}-${date}`;
+// };
