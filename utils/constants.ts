@@ -1,5 +1,5 @@
 export const GRAPH_URL =
-  'https://api.thegraph.com/subgraphs/name/mendesfabio/commons-stack-membership';
+  'https://api.thegraph.com/subgraphs/name/commons-stack/commons-stack-membership';
 
 export const FETCH_APPLICATION_ENDPOINT =
   'https://sukq8b8nwc.execute-api.us-east-1.amazonaws.com/dev/application';
