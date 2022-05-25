@@ -148,6 +148,12 @@ export const MembershipCard: React.FC<StackProps> = props => {
         push('/membership');
         break;
       case 3:
+        push(
+          membershipStatus === MembershipStatus.SIGNED_NOT_PAID
+            ? '/membership'
+            : '/join',
+        );
+        break;
       case 2:
       case 1:
         push('/join');
@@ -156,7 +162,7 @@ export const MembershipCard: React.FC<StackProps> = props => {
       default:
         connectWallet();
     }
-  }, [index, connectWallet, push]);
+  }, [index, connectWallet, push, membershipStatus]);
 
   return (
     <Card
@@ -165,7 +171,7 @@ export const MembershipCard: React.FC<StackProps> = props => {
       justify="flex-end"
       bg="linear-gradient(180deg, #F3B34E 0%, #12BAD6 100%)"
       color="black"
-      hasDot={index === 2 || index === 4}
+      hasDot={index === 3 || index === 5}
       {...props}
     >
       <Text fontSize={{ base: '2xl', lg: '3xl' }} fontWeight="bold">

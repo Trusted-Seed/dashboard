@@ -8,7 +8,6 @@ import { Link } from 'components/Link';
 import { SignTerms } from 'components/SignTerms';
 import { MembershipStatus, useApplication } from 'context/ApplicationContext';
 import React, { useCallback, useState } from 'react';
-import { PAY_DUES_URL } from 'utils/constants';
 import { useWallet } from 'web3';
 
 const Membership = () => {
@@ -39,9 +38,9 @@ const Dues = () => {
       w="100%"
     >
       <Text fontSize="2xl" textAlign="center">
-        Pay dues to get access to your membership
+        Activate your membership by paying the membership dues.
       </Text>
-      <Link href={PAY_DUES_URL} _hover={{}} isExternal>
+      <Link href="/membership" _hover={{}}>
         <Button mt="1rem">Pay dues</Button>
       </Link>
     </Flex>
@@ -64,8 +63,8 @@ const Completed = () => {
       <Text fontSize="2xl" textAlign="center">
         Your membership is up and running
       </Text>
-      <Link href="/membership" _hover={{}}>
-        <Button mt="1rem">Go to Membership</Button>
+      <Link href="/dashboard" _hover={{}}>
+        <Button mt="1rem">Go dashboard</Button>
       </Link>
     </Flex>
   );
@@ -85,9 +84,12 @@ const ApplicationNotApproved = () => {
       w="100%"
     >
       <Text fontSize="2xl" textAlign="center">
-        You will be able to sign the documents once your
+        Your application to become a trusted seed member is{' '}
+        <Text as="span" fontWeight="bold">
+          awaiting
+        </Text>{' '}
+        approval
       </Text>
-      <Text fontSize="2xl">membership application has been approved</Text>
     </Flex>
   );
 };

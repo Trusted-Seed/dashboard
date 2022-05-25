@@ -17,8 +17,7 @@ export const STATUTES_HASH = 'QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5';
 
 export const STATUTES_URL = `https://ipfs.web3.party/ipfs/${STATUTES_HASH}`;
 
-// TODO: replace with givETH url
-export const PAY_DUES_URL = '#';
+export const PAY_DUES_URL = 'https://giveth.io/project/trusted-seed';
 
 export const POAP_DELIVERY_URL = 'https://api.poap.xyz/delivery/{{POAP_ID}}';
 

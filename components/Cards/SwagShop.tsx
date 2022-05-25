@@ -2,7 +2,7 @@ import { Image, Link, StackProps, Text } from '@chakra-ui/react';
 import ShopImage from 'assets/shop.svg';
 import { Button } from 'components/Button';
 import { Card } from 'components/Card';
-import { useApplication } from 'context/ApplicationContext';
+import { MembershipStatus, useApplication } from 'context/ApplicationContext';
 import { useTSLOVEBalance } from 'hooks/useTSLOVEBalance';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
@@ -62,39 +62,36 @@ const SECTIONS: Section[] = [
   },
 
   {
-    description: (
-      <>
-        Another way{' '}
-        <Text as="span" color="ceruleanBlue">
-          to donate
-        </Text>{' '}
-        is to buy swag!
-      </>
-    ),
+    description: <>Support the Trusted Seed, buy some swag!</>,
     action: 'Paid crossbrand shop',
   },
 ];
 
 export const SwagShopCard: React.FC<StackProps> = props => {
   const { isConnected, isConnecting, connectWallet } = useWallet();
-  const { member, applied } = useApplication();
+  const { membershipStatus } = useApplication();
 
   const { fetching, balance } = useTSLOVEBalance();
   const index: number = useMemo(() => {
-    if (isConnected) {
-      if (!applied) {
-        return 1;
-      }
-      if (!member) {
-        return 2;
-      }
-      if (balance.gte(1)) {
-        return 3;
-      }
-      return 4;
+    if (!isConnected) {
+      return 0;
     }
-    return 0;
-  }, [isConnected, balance, applied, member]);
+    switch (membershipStatus) {
+      case MembershipStatus.INACTIVE_MEMBER:
+      case MembershipStatus.ACTIVE_MEMBER:
+        if (balance >= 45) {
+          return 3;
+        }
+        return 4;
+      case MembershipStatus.SIGNED_NOT_PAID:
+      case MembershipStatus.APPROVED_NOT_SIGNED:
+      case MembershipStatus.APPLIED_NOT_APPROVED:
+        return 2;
+      case MembershipStatus.NOT_MEMBER:
+      default:
+        return 1;
+    }
+  }, [isConnected, balance, membershipStatus]);
 
   const { description, action } = SECTIONS[index];
 
@@ -106,7 +103,11 @@ export const SwagShopCard: React.FC<StackProps> = props => {
       case 3:
         break;
       case 2:
-        push('/membership');
+        push(
+          membershipStatus === MembershipStatus.SIGNED_NOT_PAID
+            ? '/membership'
+            : '/join',
+        );
         break;
       case 1:
         push('/join');
@@ -115,7 +116,7 @@ export const SwagShopCard: React.FC<StackProps> = props => {
       default:
         connectWallet();
     }
-  }, [index, connectWallet, push]);
+  }, [index, connectWallet, push, membershipStatus]);
 
   return (
     <Card
@@ -129,21 +130,25 @@ export const SwagShopCard: React.FC<StackProps> = props => {
       <Text fontWeight="bold" textAlign="center" fontSize="xl" maxW="15rem">
         {description}
       </Text>
-      {index < 3 ? (
-        <Button
-          onClick={onClick}
-          isLoading={isConnecting}
-          size="sm"
-          fontSize="md"
-        >
-          {action}
-        </Button>
-      ) : (
-        <Link isExternal href={SWAG_SHOP_URL} _hover={{}}>
-          <Button size="sm" fontSize="md">
-            {action}
-          </Button>
-        </Link>
+      {membershipStatus !== MembershipStatus.APPLIED_NOT_APPROVED && (
+        <>
+          {index < 3 ? (
+            <Button
+              onClick={onClick}
+              isLoading={isConnecting}
+              size="sm"
+              fontSize="md"
+            >
+              {action}
+            </Button>
+          ) : (
+            <Link isExternal href={SWAG_SHOP_URL} _hover={{}}>
+              <Button size="sm" fontSize="md">
+                {action}
+              </Button>
+            </Link>
+          )}
+        </>
       )}
     </Card>
   );

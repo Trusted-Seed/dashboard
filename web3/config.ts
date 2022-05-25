@@ -35,8 +35,8 @@ export const config: TrustedSeedConfig = {
     abi: ERC20_ABI,
   },
   TSLOVE: {
-    chainId: '0x4',
-    address: '0x4d64a862e0efb94b1d2a84a67f7a2d669afa8edf',
+    chainId: '0x64',
+    address: '0xd644e622eca66ed531d878cc5a7e2dbf3753975b',
     abi: ERC20_ABI,
   },
 };

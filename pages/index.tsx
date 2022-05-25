@@ -58,7 +58,12 @@ export const LandingPage: React.FC = () => {
         <Flex h="12rem" />
         <VStack spacing={{ base: 16, xl: 32 }}>
           {sections.map((section, k) => (
-            <LandingSection key={k} {...section} reversed={k % 2 === 1} />
+            <LandingSection
+              key={k}
+              {...section}
+              reversed={k % 2 === 1}
+              withButton
+            />
           ))}
         </VStack>
         <Flex

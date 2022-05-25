@@ -1,4 +1,3 @@
-import { BigNumber } from 'ethers';
 import { useEffect, useState } from 'react';
 import { config, useWallet } from 'web3';
 
@@ -6,7 +5,7 @@ import { useReadContract } from './useContract';
 
 export const useTSLOVEBalance = (): {
   fetching: boolean;
-  balance: BigNumber;
+  balance: number;
 } => {
   const { address } = useWallet();
 
@@ -14,7 +13,7 @@ export const useTSLOVEBalance = (): {
 
   const [fetching, setFetching] = useState(false);
 
-  const [balance, setBalance] = useState(BigNumber.from(0));
+  const [balance, setBalance] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -22,12 +21,12 @@ export const useTSLOVEBalance = (): {
         setFetching(true);
         if (address && contract) {
           const b = await contract.balanceOf(address);
-          setBalance(b);
+          setBalance(Number(b.toString().slice(0, -18)));
         }
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error('Error fetching TSLOVE balance', error);
-        setBalance(BigNumber.from(0));
+        setBalance(0);
       } finally {
         setFetching(false);
       }

@@ -1,21 +1,17 @@
-import {
-  Flex,
-  HStack,
-  Stack,
-  StackProps,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
-import { Button } from 'components/Button';
+import { Flex, HStack, StackProps, Text, VStack } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 import { Link } from 'components/Link';
+import { useTokenInfoQuery } from 'graphql/autogen/types';
 import { useEffect, useRef } from 'react';
+import { config } from 'web3';
 
 export type MemberType = {
   name: string;
   image: string;
   description: string;
 };
+
+const NUMBER_MEMBERS_IN_VIEW = 6;
 
 export const MembersListCard: React.FC<
   StackProps & { members: MemberType[] }
@@ -25,31 +21,25 @@ export const MembersListCard: React.FC<
     if (ref.current) {
       const child = ref.current.children[0];
       const height = child.clientHeight;
-      ref.current.style.height = `calc(${(height * 5) / 16}rem + ${
-        4 * 0.75
-      }rem)`;
+      ref.current.style.height = `calc(${
+        (height * NUMBER_MEMBERS_IN_VIEW) / 16
+      }rem + ${(NUMBER_MEMBERS_IN_VIEW - 1) * 0.75}rem)`;
     }
   }, []);
+  const [{ data }] = useTokenInfoQuery({
+    variables: { address: config.TRUST.address },
+  });
+
+  const totalMembers = Number(data?.token?.numMembers ?? 0);
   return (
     <Card p={8} align="flex-start" justify="space-between" {...props}>
-      <Stack
-        justify="space-between"
-        w="100%"
-        direction={{ base: 'row', lg: 'column', xl: 'row' }}
+      <Text
+        fontSize={{ base: 'md', lg: 'lg' }}
+        display="inline-block"
+        whiteSpace="nowrap"
       >
-        <Text
-          fontSize={{ base: 'md', lg: 'lg' }}
-          display="inline-block"
-          whiteSpace="nowrap"
-        >
-          Trusted Seed Members
-        </Text>
-        <Link href="/members" _hover={{}}>
-          <Button variant="outline" size="sm" color="white" bg="cardBG">
-            View All
-          </Button>
-        </Link>
-      </Stack>
+        Trusted Seed Members
+      </Text>
       <VStack
         spacing={3}
         overflowY="auto"
@@ -82,6 +72,61 @@ export const MembersListCard: React.FC<
             </VStack>
           </HStack>
         ))}
+        <Link href="/members" _hover={{}} w="100%" role="group">
+          <HStack w="100%" spacing={2}>
+            <Flex
+              border="1px solid"
+              borderColor="ceruleanBlue"
+              bg="cardBG"
+              p="1px"
+              borderRadius="50%"
+              w="3rem"
+              h="3rem"
+            >
+              <Flex
+                bg="ceruleanBlue"
+                borderRadius="50%"
+                w="100%"
+                h="100%"
+                color="cardBG"
+                justify="center"
+                align="center"
+                fontSize="sm"
+                fontWeight="bold"
+                transition="all 0.25s"
+                overflow="hidden"
+                zIndex="0"
+                pos="relative"
+                _before={{
+                  content: '""',
+                  h: '100%',
+                  w: '100%',
+                  pos: 'absolute',
+                  zIndex: -1,
+                  borderRadius: '50%',
+                  bg: 'linear-gradient(270deg, #1BDD9D 0%, #2CC9CC 100%)',
+                  opacity: 0,
+                  transition: 'all 0.25s',
+                }}
+                _groupHover={{
+                  color: 'white',
+                  _before: {
+                    opacity: 1,
+                  },
+                }}
+              >
+                +{totalMembers - members.length}
+              </Flex>
+            </Flex>
+            <Text
+              color="ceruleanBlue"
+              transition="all 0.25s"
+              _groupHover={{ color: 'white' }}
+            >
+              View full members list
+            </Text>
+          </HStack>
+        </Link>
       </VStack>
     </Card>
   );
