@@ -13,7 +13,11 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
     variables: { address: config.TRUST.address },
   });
 
-  const totalSupply = Number(supplyData?.token?.totalSupply ?? 0);
+  const totalSupply = Number(
+    supplyData?.token?.totalSupply
+      ? supplyData.token.totalSupply.slice(0, -18)
+      : 0,
+  );
   const percentSupply = Number(
     totalSupply ? (balance * 100.0) / totalSupply : 0,
   );

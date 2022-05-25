@@ -27,6 +27,7 @@ import {
   YAxis,
 } from 'react-vis';
 import { DataPoint } from 'utils/chart';
+import { TRUST_TOKEN_TIMESTAMP } from 'utils/constants';
 import {
   formatDateForPlot as formatDate,
   formatNumberForPlot as formatNumber,
@@ -42,30 +43,55 @@ export const TRUSTSupplyGraphCard: React.FC<StackProps> = props => {
 
   const [{ fetching: fetchingTotalSnapshots, data: totalData }] =
     useTokenSnapshotsQuery({
-      variables: { address: config.TRUST.address },
+      variables: {
+        addressTRUST: config.TRUST.address.toLowerCase(),
+        addressCSTK: config.CSTK.address.toLowerCase(),
+        timestampTRUST: TRUST_TOKEN_TIMESTAMP,
+      },
     });
-  const totalSnapshots: DataPoint[] = useMemo(
-    () =>
-      totalData?.tokenSnapshots.map(({ timestamp, totalSupply }) => ({
+
+  const totalSnapshots: DataPoint[] = useMemo(() => {
+    const snapshotsTRUST =
+      totalData?.snapshotsTRUST.map(({ timestamp, totalSupply }) => ({
+        x: timestamp,
+        y: Number(totalSupply.slice(0, -18)),
+      })) ?? [];
+    const snapshotsCSTK =
+      totalData?.snapshotsCSTK.map(({ timestamp, totalSupply }) => ({
         x: timestamp,
         y: Number(totalSupply),
-      })) ?? [],
-    [totalData],
-  );
+      })) ?? [];
+
+    return snapshotsCSTK.reverse().concat(...snapshotsTRUST);
+  }, [totalData]);
 
   const [{ fetching: fetchingMemberSnapshots, data: memberData }] =
     useMemberSnapshotsQuery({
-      variables: { address: address?.toLowerCase() ?? '' },
+      variables: {
+        memberTRUST: (address?.toLowerCase() ?? '').concat(
+          config.TRUST.address.toLowerCase().slice(2),
+        ),
+        memberCSTK: (address?.toLowerCase() ?? '').concat(
+          config.CSTK.address.toLowerCase().slice(2),
+        ),
+        timestampTRUST: TRUST_TOKEN_TIMESTAMP,
+      },
       pause: !isConnected,
     });
-  const memberSnapshots: DataPoint[] = useMemo(
-    () =>
-      memberData?.memberSnapshots.map(({ timestamp, balance }) => ({
+  const memberSnapshots: DataPoint[] = useMemo(() => {
+    const snapshotsTRUST =
+      memberData?.snapshotsTRUST.map(({ timestamp, balance }) => ({
+        x: timestamp,
+        y: Number(balance.slice(0, -18)),
+      })) ?? [];
+    const snapshotsCSTK =
+      memberData?.snapshotsCSTK.map(({ timestamp, balance }) => ({
         x: timestamp,
         y: Number(balance),
-      })) ?? [],
-    [memberData],
-  );
+      })) ?? [];
+
+    return snapshotsCSTK.reverse().concat(...snapshotsTRUST);
+  }, [memberData]);
 
   const fetching = useMemo(
     () => fetchingMemberSnapshots || fetchingTotalSnapshots,

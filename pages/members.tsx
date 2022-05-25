@@ -31,8 +31,9 @@ export const MembersPage: React.FC = () => {
     variables: { address: config.TRUST.address },
   });
 
-  // const totalMembers = data?.token?.numMembers ?? 0;
-  const totalSupply = data?.token?.totalSupply ?? 0;
+  const totalSupply = Number(
+    data?.token?.totalSupply ? data.token.totalSupply.slice(0, -18) : 0,
+  );
   return (
     <>
       <Flex

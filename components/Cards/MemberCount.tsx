@@ -12,7 +12,7 @@ export const MemberCountCard: React.FC<
     variables: { address: config.TRUST.address },
   });
 
-  const totalMembers = data?.token?.numMembers ?? 0;
+  const totalMembers = Number(data?.token?.numMembers ?? 0);
   return (
     <Card
       bg={isMembersPage ? 'membersCardBG' : 'cardBG'}
@@ -36,7 +36,7 @@ export const MemberCountCard: React.FC<
         fontSize={{ base: '7xl', lg: '8xl', xl: '9xl' }}
         lineHeight={{ base: '4rem', lg: '5rem', xl: '6rem' }}
       >
-        {totalMembers}
+        {totalMembers.toLocaleString('en-US')}
       </Text>
     </Card>
   );

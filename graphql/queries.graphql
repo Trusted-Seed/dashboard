@@ -8,21 +8,28 @@ query TokenInfo($address: ID!) {
   }
 }
 
-query TokenSnapshots($address: String!) {
-  tokenSnapshots(
-    where: { token: $address }
+query TokenSnapshots(
+  $addressTRUST: String!
+  $addressCSTK: String!
+  $timestampTRUST: Int!
+) {
+  snapshotsTRUST: tokenSnapshots(
+    first: 1000
+    orderBy: timestamp
+    orderDirection: asc
+    where: { token: $addressTRUST, timestamp_gte: $timestampTRUST }
+  ) {
+    totalSupply
+    timestamp
+  }
+  snapshotsCSTK: tokenSnapshots(
+    first: 1000
     orderBy: timestamp
     orderDirection: desc
-    first: 1000
+    where: { token: $addressCSTK, timestamp_lte: $timestampTRUST }
   ) {
-    token {
-      id
-      name
-      symbol
-    }
-    timestamp
-    numMembers
     totalSupply
+    timestamp
   }
 }
 
@@ -38,14 +45,27 @@ query MemberInfo($id: ID!) {
   }
 }
 
-query MemberSnapshots($address: String!) {
-  memberSnapshots(
-    where: { member: $address }
+query MemberSnapshots(
+  $memberTRUST: String!
+  $memberCSTK: String!
+  $timestampTRUST: Int!
+) {
+  snapshotsTRUST: memberSnapshots(
+    first: 1000
+    orderBy: timestamp
+    orderDirection: asc
+    where: { member: $memberTRUST, timestamp_gte: $timestampTRUST }
+  ) {
+    balance
+    timestamp
+  }
+  snapshotsCSTK: memberSnapshots(
+    first: 1000
     orderBy: timestamp
     orderDirection: desc
-    first: 1000
+    where: { member: $memberCSTK, timestamp_lte: $timestampTRUST }
   ) {
-    timestamp
     balance
+    timestamp
   }
 }
