@@ -257,7 +257,9 @@ export const ApplicatonContextProvider: React.FC = ({
 
   const { maxTrustScore } = useMaxTrustScore();
 
-  const balance = Number(memberData?.member?.balance ?? 0);
+  const balance = Number(
+    memberData?.member?.balance ? memberData?.member?.balance.slice(0, -18) : 0,
+  );
   const startDate = new Date(memberData?.member?.startDate ?? 0);
   const duesPaid = Number(memberData?.member?.duesPaid ?? 0);
 

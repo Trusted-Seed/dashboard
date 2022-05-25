@@ -10,7 +10,7 @@ import MembersBGImage from 'assets/members-bg.svg';
 import { MemberCountCard } from 'components/Cards/MemberCount';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
 import { usePageAttributes } from 'hooks/usePageAttributes';
-import { formatDate } from 'utils/formatHelpers';
+import { formatDate, formatNumber } from 'utils/formatHelpers';
 import { config } from 'web3';
 
 type MembersContentAttributes = {
@@ -97,7 +97,7 @@ export const MembersPage: React.FC = () => {
             fontSize={titleFontSize}
             lineHeight={titleLineHeight}
           >
-            {totalSupply.toLocaleString('en-US')}
+            {formatNumber(totalSupply)}
           </Text>
           <VStack w="100%" spacing={16} py={16}>
             <MembersDisplay members={firstMembers} fontWeight="bold" />

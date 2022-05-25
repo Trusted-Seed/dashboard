@@ -71,3 +71,6 @@ export const formatNumberForPlot = (num: number, digits = 2): string => {
 //   const date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
 //   return `${year}-${month}-${date}`;
 // };
+
+export const formatNumber = (num: number | string): string =>
+  Number(num).toLocaleString();

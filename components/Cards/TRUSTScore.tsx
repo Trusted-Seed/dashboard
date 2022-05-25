@@ -3,6 +3,7 @@ import { Button } from 'components/Button';
 import { Card } from 'components/Card';
 import { useApplication } from 'context/ApplicationContext';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
+import { formatNumber } from 'utils/formatHelpers';
 import { config, useWallet } from 'web3';
 
 export const TRUSTScoreCard: React.FC<StackProps> = props => {
@@ -43,7 +44,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 My $TRUST Score
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
-                {balance.toFixed(0)}
+                {formatNumber(balance.toFixed(0))}
               </Text>
             </VStack>
             <VStack spacing={0} align="flex-start">
@@ -67,7 +68,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 $TRUST - Total Supply
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
-                {totalSupply.toLocaleString('en-US')}
+                {formatNumber(totalSupply)}
               </Text>
             </VStack>
           </>

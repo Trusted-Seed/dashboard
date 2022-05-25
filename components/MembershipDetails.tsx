@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { useApplication } from 'context/ApplicationContext';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
+import { formatNumber } from 'utils/formatHelpers';
 import { config } from 'web3';
 
 import { ApplicationDetails } from './ApplicationDetails';
@@ -54,7 +55,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
           <VStack align="stretch" spacing={8}>
             <ScoreDisplay
               title="My $TRUST Score"
-              value={balance.toFixed(0)}
+              value={formatNumber(balance.toFixed(0))}
               isEmpty={balance <= 0}
             />
             <ScoreDisplay
@@ -67,7 +68,7 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
           <>
             <ScoreDisplay
               title="My $TRUST Score"
-              value={balance.toFixed(0)}
+              value={formatNumber(balance.toFixed(0))}
               isEmpty={balance <= 0}
             />
             <ScoreDisplay
@@ -81,11 +82,11 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
           <VStack align="stretch" spacing={8}>
             <ScoreDisplay
               title="$TRUST - Total Supply"
-              value={totalSupply.toLocaleString('en-US')}
+              value={formatNumber(totalSupply)}
             />
             <ScoreDisplay
               title="Max $TRUST Score"
-              value={maxTrustScore.toLocaleString('en-US')}
+              value={formatNumber(maxTrustScore)}
               isEmpty={maxTrustScore <= 0}
             />
           </VStack>
@@ -93,11 +94,11 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
           <>
             <ScoreDisplay
               title="$TRUST - Total Supply"
-              value={totalSupply.toLocaleString('en-US')}
+              value={formatNumber(totalSupply)}
             />
             <ScoreDisplay
               title="Max $TRUST Score"
-              value={maxTrustScore.toLocaleString('en-US')}
+              value={formatNumber(maxTrustScore)}
               isEmpty={maxTrustScore <= 0}
             />
           </>

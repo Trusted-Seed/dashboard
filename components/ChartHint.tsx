@@ -7,7 +7,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { DataPoint } from 'utils/chart';
-import { formatDateForPlotHint } from 'utils/formatHelpers';
+import { formatDateForPlotHint, formatNumber } from 'utils/formatHelpers';
 
 type HintProps = {
   value: DataPoint;
@@ -49,7 +49,7 @@ export const ChartHint: React.FC<HintProps> = ({ value: { x, y } }) => (
             {formatDateForPlotHint(x * 1000)}
           </Text>
           <Text fontSize="sm" textAlign="center" fontWeight="bold">
-            {y.toLocaleString('en-US')}
+            {formatNumber(y)}
           </Text>
         </VStack>
       </PopoverContent>

@@ -1,6 +1,7 @@
 import { StackProps, Text } from '@chakra-ui/react';
 import { Card } from 'components/Card';
 import { useTokenInfoQuery } from 'graphql/autogen/types';
+import { formatNumber } from 'utils/formatHelpers';
 import { config } from 'web3';
 
 export const MemberCountCard: React.FC<
@@ -36,7 +37,7 @@ export const MemberCountCard: React.FC<
         fontSize={{ base: '7xl', lg: '8xl', xl: '9xl' }}
         lineHeight={{ base: '4rem', lg: '5rem', xl: '6rem' }}
       >
-        {totalMembers.toLocaleString('en-US')}
+        {formatNumber(totalMembers)}
       </Text>
     </Card>
   );
