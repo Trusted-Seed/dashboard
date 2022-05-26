@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   if (isAdmin) {
     return (
       <>
-        <Head title="Trusted Seed CMS" />
+        <Head title="Trusted Seed CMS" disableScripts />
         <Component {...pageProps} />
       </>
     );
