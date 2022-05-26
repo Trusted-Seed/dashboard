@@ -7,7 +7,8 @@ sections:
       curated regens like you.
     title: Start Regen Economies
     image: /images/vision.svg
-  - description: We started in 2021 supporting Commons Stack’s mission, by Hatching
+  - description:
+      We started in 2021 supporting Commons Stack’s mission, by Hatching
       the TEC. We have expanded beyond that to support the initialization of
       Giveth and Ixo, and expect our members to be invited to many other early
       stage Regen Economies.
@@ -21,7 +22,7 @@ sections:
 links:
   - label: Telegram
     iconType: telegram
-    url: https://t.me/joinchat/HGrjjRS2PoowbH1ODuefuA
+    url: https://t.me/CommonsStack
   - label: Twitter
     iconType: twitter
     url: https://twitter.com/commonsstack
@@ -33,5 +34,5 @@ links:
     url: https://medium.com/commonsstack
   - label: Calendar
     iconType: calendar
-    url: "#"
+    url: https://calendar.google.com/calendar/u/0/embed?src=c_vjdckfj4bharuovhd4rmo3dtv4@group.calendar.google.com&ctz=America/eastern
 ---
