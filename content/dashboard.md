@@ -57,9 +57,6 @@ members:
   - name: Jeff Emmett
     description: BlockScience & The Commons Stack
     image: /images/jeff-emmett.png
-  - name: Sebnem Rusitschka
-    image: /images/sebnem-rusitschka-tokengenie.org-freelio.io.jpg
-    description: Tokengenie.org & Freelio.io
   - name: Luke Duncan
     image: /images/luke-duncan-1hive.png
     description: 1Hive
