@@ -83,12 +83,6 @@ membershipFAQ:
       * Read the [Swiss Association T&C’s](https://ipfs.web3.party/ipfs/QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n) & [Statutes](https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5)
     question: Why is the Trusted Seed a Swiss Association?
 scoreFAQ:
-  - question: What is $TRUST?
-    answer: TRUST score ($TRUST), formerly CSTK score. The name has changed but
-      everything works the same. It is still a non-transferrable reputation
-      token that represents the “skin in the game” that value-driven members of
-      the blockchain community have put towards advancing Commons Stack’s
-      mission. Like $CSTK, $TRUST is on Gnosis Chain.
   - answer: >-
       * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
       on [Metamask](https://metamask.io/)
@@ -101,8 +95,6 @@ scoreFAQ:
     question: How should I store my $TRUST?
   - answer: >-
       * Participate in governance decisions and the Hatch of upcoming Commons!
-
-      * Participate in ranking grants for matching funds via the Commons Stack Panvala League (on [cv.commonsstack.org](http://cv.commonsstack.org/)) Over $175,000 in $PAN matching allocated throughout 2020-2021!
 
       * Help steward resources and decision making for mission aligned projects
 
@@ -119,4 +111,10 @@ scoreFAQ:
 
       * Enjoy getting dished praise? Become a Praiser yourself! There is a [Praise Onboarding session](https://calendar.google.com/event?action=TEMPLATE&tmeid=MmJhNWFkMjJnbTNkZG52dXF2bHBjNWNwdDdfMjAyMTA2MjNUMTYwMDAwWiBjX3ZqZGNrZmo0YmhhcnVvdmhkNHJtbzNkdHY0QGc&tmsrc=c_vjdckfj4bharuovhd4rmo3dtv4%40group.calendar.google.com&scp=ALL) every Wed at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
     question: How do I receive Praise (& more $TRUST!)
+  - question: What is $TRUST?
+    answer: TRUST score ($TRUST), formerly CSTK score. The name has changed but
+      everything works the same. It is still a non-transferrable reputation
+      token that represents the “skin in the game” that value-driven members of
+      the blockchain community have put towards advancing Commons Stack’s
+      mission. Like $CSTK, $TRUST is on Gnosis Chain.
 ---
