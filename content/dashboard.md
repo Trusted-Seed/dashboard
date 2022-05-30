@@ -71,7 +71,7 @@ associationBoard:
   countText: Number of board members
   count: 5
   actionText: Read More
-  actionUrl: https://wiki.commonsstack.org/
+  actionUrl: https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5
 social:
   title: Join Us!
   links:
