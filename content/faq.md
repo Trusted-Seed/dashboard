@@ -90,16 +90,6 @@ scoreFAQ:
       the blockchain community have put towards advancing Commons Stack’s
       mission. Like $CSTK, $TRUST is on Gnosis Chain.
   - answer: >-
-      * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
-      on [Metamask](https://metamask.io/)
-
-      * Smart contract wallets like DAO multi-sigs on Gnosis or Aragon are less compatible for cross-chain operations.
-
-      * [Here’s a primer](https://www.xdaichain.com/for-users/wallets/metamask/metamask-setup) on how to set up Metamask to work on the xDAI network
-
-      * Remember, if worse comes to worst and your tokens become locked or unusable somehow: The Trusted Seed can always burn your old score and issue you new ones since we are centralized arbiters of the $TRUST!
-    question: How should I store my $TRUST?
-  - answer: >-
       Anyone holding $TRUST is a member of our Trusted Seed, a highly curated
       list of reputable & experienced community members who are aligned with our
       mission of creating sustainable funding for public goods using token
@@ -125,4 +115,14 @@ scoreFAQ:
 
       * Enjoy getting dished praise? Become a Praiser yourself! There is a [Praise Onboarding session](https://calendar.google.com/event?action=TEMPLATE&tmeid=MmJhNWFkMjJnbTNkZG52dXF2bHBjNWNwdDdfMjAyMTA2MjNUMTYwMDAwWiBjX3ZqZGNrZmo0YmhhcnVvdmhkNHJtbzNkdHY0QGc&tmsrc=c_vjdckfj4bharuovhd4rmo3dtv4%40group.calendar.google.com&scp=ALL) every Wed at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
     question: How do I receive Praise (& more $TRUST!)
+  - answer: >-
+      * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
+      on [Metamask](https://metamask.io/)
+
+      * Smart contract wallets like DAO multi-sigs on Gnosis or Aragon are less compatible for cross-chain operations.
+
+      * [Here’s a primer](https://www.xdaichain.com/for-users/wallets/metamask/metamask-setup) on how to set up Metamask to work on the xDAI network
+
+      * Remember, if worse comes to worst and your tokens become locked or unusable somehow: The Trusted Seed can always burn your old score and issue you new ones since we are centralized arbiters of the $TRUST!
+    question: How should I store my $TRUST?
 ---
