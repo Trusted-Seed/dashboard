@@ -16,7 +16,7 @@ sections:
   - description: "Beyond just being a safe community to include in the launch of
       your Impact DAO, we also support our members in the case they have legal
       issues while acting in good faith within a qualifying DAO. Under the hood,
-      Trusted Seed is a legal mutual aid group. "
+      the Trusted Seed is a legal mutual aid group. "
     title: Legal Shield
     image: /images/mission.svg
 links:
