@@ -1,14 +1,13 @@
 ---
-title: Become One Of Us!!
-subTitle: Create a sustainable funding for public goods,
+title: Join the Trusted Seed
+subTitle: A value-driven community advancing Regen Economies.
 sections:
   - description: The Trusted Seed is a key cultural initialization tool for
       Regenerative Economies, stacking their DAOs with a trusted group of
       curated regens like you.
     title: Start Regen Economies
     image: /images/vision.svg
-  - description:
-      We started in 2021 supporting Commons Stack’s mission, by Hatching
+  - description: We started in 2021 supporting Commons Stack’s mission, by Hatching
       the TEC. We have expanded beyond that to support the initialization of
       Giveth and Ixo, and expect our members to be invited to many other early
       stage Regen Economies.
