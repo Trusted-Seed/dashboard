@@ -1,5 +1,5 @@
 ---
-date: 2022-05-30T20:41:34.236Z
+date: 2022-05-30T20:48:17.671Z
 description: Members of the Trusted Seed put skin in the game by contributing to
   the Commons Stack, entitling them to a TRUST Score which denotes their
   reputation in the Trusted Seed. They will use their expertise to help steward
@@ -59,7 +59,7 @@ secondMembers:
   - Christina Frankopan
   - Christoph Fahle
   - Chuy Garcia
-  - CL Cybernetix GmbH (DBA Curve Labs)
+  - Curve Labs
   - CleanApp
   - Cooper Turley
   - Craig Anderson
