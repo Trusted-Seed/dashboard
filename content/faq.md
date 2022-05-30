@@ -21,7 +21,7 @@ membershipFAQ:
 
       * Activate your membership in the Trusted Seed’s Swiss Association by contributing your membership dues at [member.commonsstack.foundation](https://member.commonsstack.foundation/)
 
-      * Minimum dues are 450 DAI, but contributions above this amount are welcomed. [Scholarships](https://the-commons-stack.typeform.com/TS-Scholarships) are available for those who are unable to afford membership fees upon approval
+      * Minimum dues are 450 DAI, but contributions above this amount are welcomed. [](https://the-commons-stack.typeform.com/TS-Scholarships)Financial aid is available for those who are unable to afford membership fees upon approval. To apply for a scholarship, apply [here](https://the-commons-stack.typeform.com/TS-Scholarships)
 
       * Confirm you can see your TRUST Score in your dashboard & xDai wallet - you’re in!
 
