@@ -1,7 +1,7 @@
 ---
-date: 2022-04-03T04:42:54.491Z
+date: 2022-05-30T20:41:34.236Z
 description: Members of the Trusted Seed put skin in the game by contributing to
-  the Commons Stack, entitling them to a CSTK Score which denotes their
+  the Commons Stack, entitling them to a TRUST Score which denotes their
   reputation in the Trusted Seed. They will use their expertise to help steward
   new forms of sustainably funded Commons ecosystems, especially in the period
   immediately following their launch.
@@ -38,7 +38,7 @@ secondMembers:
   - Andreas Fauler
   - Andreas Fletcher
   - Andrew Chiw
-  - Anna-Marie Swan
+  - Anna-Marie Louise Swan
   - Anthony Paglino
   - Ashley Wagner
   - Ataberk Casur
@@ -53,6 +53,7 @@ secondMembers:
   - Bowen Sanders
   - Bradley Clarke
   - Carlos Mesa (MonoMesa)
+  - Cesar Marquez
   - Chris Cyphert
   - Christian Shearer
   - Christina Frankopan
@@ -99,6 +100,7 @@ secondMembers:
   - Hadar Rottenberg
   - Hammad J
   - Harith Kamarul
+  - Herb Stephens
   - Humberto Besso Oberto Huerta
   - Ivo J. Mensch
   - Jack du Rose
@@ -117,7 +119,7 @@ secondMembers:
   - Jonathan Gabler
   - Jordan Ellis
   - Jorge Enrique Bell (Kike)
-  - Jori Armbruster
+  - jori armbruster
   - Jose Bell
   - Joshua Sam Lapidus
   - Juan Carlos Bell Llinas
@@ -132,7 +134,7 @@ secondMembers:
   - Lauren Marysia Bajin
   - Lefteris Karapetsas
   - Lisa JY Tan
-  - Lorelei
+  - Loie
   - Luuk Weber
   - Magenta Ceiba
   - Manuel Flores
@@ -148,17 +150,19 @@ secondMembers:
   - Mateo Daza
   - Matt Barlin
   - Matthew Monahan
+  - Max
   - Max Song
   - Mercedes Rodríguez
   - Merlin Egalite
-  - Michel Bauwens
   - Michael Lewkowitz
+  - Michel Bauwens
   - Mihai Hrimiuc
   - Miki Elson
   - Mitch Ozmun
   - Mohammad Ranjbar Zaferanie
   - Moritz Bierling
   - Mr. Black
+  - Nathan Ginnever
   - Nathan Suits
   - Nelson Melina
   - Nguyen Van Trang
@@ -173,6 +177,7 @@ secondMembers:
   - Peter 'pet3rpan'
   - Peter Hacker
   - Peter Porobov
+  - Peth
   - Philip Silva
   - Philippe Honigman
   - Pol Lanski
@@ -201,6 +206,7 @@ secondMembers:
   - Shawn Anderson
   - Shawn Westrick
   - Shermin Voshmgir
+  - sidcode
   - Stephen Reid
   - Stephen Young
   - Steve Derezinski
@@ -208,17 +214,21 @@ secondMembers:
   - Ted Hamilton
   - The Blockchain Socialist
   - Theodor Beutel
+  - Thiago Joel Angrizanes Rossi
   - Tommy Cox
   - Troels Plenge
   - Troopy
-  - TrueBlocks LLC
+  - TrueBlocks
+  - LLC
   - Tyler Mace
   - Typto
+  - Usama Ahmad
   - Vesta Gheibi
   - Vitor Marthendal Nunes
   - Vyom Jain
   - Wesley van Heije
   - Will Abramson
+  - Will Ruddick
   - Will Szal
   - William Griffiths
   - Willy Ogorzaly
@@ -229,18 +239,30 @@ secondMembers:
   - Zak Cole
   - Zeptimus
 thirdMembers:
+  - Abhay Prasanna
   - Adrian Pirela
+  - Ahmad Abugosh
+  - Al Gray
   - Alec LaLonde
   - Alex Corren
   - Aloysious
+  - André Caetano Luna
   - Andreas Brunner
+  - Andrew Stebenne
   - Annamaria Elekes
   - Benjamin Douglas Scott
+  - Bianca Gadelha
   - bitsikka
   - Blanca Barón Berdié
+  - BlockEnthusiast
   - Candela Ramos
   - Carl Farterson
   - Carlos Mario Quintero Parra
+  - Christopher Casillas
+  - Christopher Ryan Byrnes
+  - Christopher Wylde
+  - Clare Politano
+  - Claude Eugene Davis III
   - Daithi Coombes
   - Daniel Thomas
   - David Guthu
@@ -250,23 +272,31 @@ thirdMembers:
   - Donna Oftadeh
   - Drew Lazzeri
   - Egor Smith
+  - Eliade
   - FATRUI
   - Freddy Zwanzger
   - Giel Detienne
   - Giulio Quarta
+  - Gjermund Bjaanes
   - Graven Prest
-  - Halit Emir Bostanci
+  - Gustavo Montes de Oca
+  - Gustavo Muñoz
   - Han Hegeman
   - Hannah Hamilton
   - Hap Savage
   - Harry Joseph Turton
+  - Henrik Axelsen
+  - Hongzhou Chen
   - Ian Tairea
+  - Isaac González Durán
   - Isaac Holze
   - Ivan Fartunov
   - Ivan Zhuikov
   - Jaroslav Macej
   - Jason Garland
   - Jennifer Lee Silves
+  - Jeremy Tuttle
+  - Jon Saginaw
   - Jose Borges
   - Joshua Crites
   - Justin Kalland
@@ -279,9 +309,10 @@ thirdMembers:
   - Lin Hou
   - Lucas Hygate
   - Manuel Gamero
+  - Marc Geller
   - Marc Minnee
-  - Mateo
   - Mark Phillips
+  - Mateo
   - Matrixator
   - Matthew Slater
   - Max Gaxiola
@@ -303,24 +334,32 @@ thirdMembers:
   - Paul Goller
   - Pavlo Mandryk
   - Popescu Razvan Matei
+  - Pranav Khanna
   - Ramin
   - Regis Lloyd Chapman
   - Richard Blythman
+  - Rohit Malekar
+  - Ronald Benitez
   - Rosa Orrit
   - Rudolf Nabokov
+  - Ryeder
   - Samir Mehta
   - San
-  - Shawn Wu
+  - Scott Davies
+  - SHAWN WU
   - Sinan Serdar
   - Stefano Glauser
-  - Stephan Francois
+  - stephan francois
   - Steven Ciraolo
   - Todd Youngblood
+  - Torsten Goerke
   - Tyson De Vere
   - Unai Gaztelu
   - Victor Zscharnt
   - Vikram Udyawer
   - Walid Bendenia
+  - William James Holcomb
   - Xavier Damman
+  - Zane Starr
   - Ziad Mazzawi
 ---
