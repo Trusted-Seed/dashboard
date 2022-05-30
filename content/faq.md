@@ -84,17 +84,6 @@ membershipFAQ:
     question: Why is the Trusted Seed a Swiss Association?
 scoreFAQ:
   - answer: >-
-      * Your CSTK Score is a non-transferrable, non-financial reputation token
-      on the Gnosis chain.
-
-      * Score can be thought of as your trust level within the Trusted Seed, representing your “skin in the game” of funds and time contributed.
-
-      * Read these two deep dives to learn more:
-
-        * [The Trusted Seed of the Commons Stack CSTK](https://medium.com/commonsstack/the-trusted-seed-of-the-commons-stack-13d7e37f2de)
-        * [Score: The “Trust Score” of Commons Stack](https://medium.com/commonsstack/cstk-the-token-of-the-commons-stack-trusted-seed-931978625c61)
-    question: Why is the Trusted Seed a Swiss Association?
-  - answer: >-
       * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
       on [Metamask](https://metamask.io/)
 
@@ -124,4 +113,10 @@ scoreFAQ:
 
       * Enjoy getting dished praise? Become a Praiser yourself! There is a [Praise Onboarding session](https://calendar.google.com/event?action=TEMPLATE&tmeid=MmJhNWFkMjJnbTNkZG52dXF2bHBjNWNwdDdfMjAyMTA2MjNUMTYwMDAwWiBjX3ZqZGNrZmo0YmhhcnVvdmhkNHJtbzNkdHY0QGc&tmsrc=c_vjdckfj4bharuovhd4rmo3dtv4%40group.calendar.google.com&scp=ALL) every Wed at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
     question: How do I receive Praise (& more $TRUST!)
+  - question: What is $TRUST?
+    answer: TRUST score ($TRUST), formerly CSTK score. The name has changed but
+      everything works the same. It is still a non-transferrable reputation
+      token that represents the “skin in the game” that value-driven members of
+      the blockchain community have put towards advancing Commons Stack’s
+      mission. Like $CSTK, $TRUST is on Gnosis Chain.
 ---
