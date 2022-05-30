@@ -84,8 +84,9 @@ membershipFAQ:
     question: Why is the Trusted Seed a Swiss Association?
 scoreFAQ:
   - question: What is $TRUST?
-    answer: TRUST score ($TRUST), formerly CSTK score. The name has changed but
-      everything works the same. It is still a non-transferrable reputation
+    answer: TRUST score ($TRUST), formerly CSTK score. [The name has
+      changed](https://medium.com/commonsstack/trust-the-reputation-token-of-trusted-seed-a63f293a12af)
+      but everything works the same. It is still a non-transferrable reputation
       token that represents the “skin in the game” that value-driven members of
       the blockchain community have put towards advancing Commons Stack’s
       mission. Like $CSTK, $TRUST is on Gnosis Chain.
@@ -98,12 +99,10 @@ scoreFAQ:
 
       * Participate in governance decisions and the Hatch of upcoming Commons!
 
-      * Participate in ranking grants for matching funds via the Commons Stack Panvala League (on [cv.commonsstack.org](http://cv.commonsstack.org/)) Over $175,000 in $PAN matching allocated throughout 2020-2021!
-
       * Help steward resources and decision making for mission aligned projects
 
       * Get TSLove tokens, which get you free Commons Stack swag from our store! (<https://swag.trustedseed.org/>[](http://cslove.commonsstack.org/))
-    question: What rights does a $TRUST score give me?
+    question: What rights does $TRUST give me?
   - answer: >-
       * Join the Commons Stack Discord or Telegram, where we dish praise:
 
@@ -111,9 +110,9 @@ scoreFAQ:
         * Telegram: [t.me/commonsstack](http://t.me/commonsstack)
       * Collaborate on Commons Stack initiatives & get praised for your work: Grab an issue “For Contributors” off our [Github](https://github.com/commons-stack/iteration0/labels/%F0%9F%99%8C%F0%9F%8F%BB%20For%20Contributors%20%F0%9F%99%8C%F0%9F%8F%BB)!
 
-      * At the end of each month, praise gets quantified into a $TRUST score, which is added to you ETH address that you provided in your Trusted Seed application
+      * At the end of each month, praise gets quantified into a TRUST score, which is added to you ETH address that you provided in your Trusted Seed application
 
-      * Enjoy getting dished praise? Become a Praiser yourself! Join our Trusted Seed lounge every Tuesday at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
+      * Enjoy getting dished praise? Become a Praiser yourself! Join our Trusted Seed lounge calls every Tuesday at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
     question: How do I receive Praise (& more $TRUST!)
   - answer: >-
       * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
