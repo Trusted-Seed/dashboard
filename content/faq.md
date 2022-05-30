@@ -113,7 +113,7 @@ scoreFAQ:
 
       * At the end of each month, praise gets quantified into a $TRUST score, which is added to you ETH address that you provided in your Trusted Seed application
 
-      * Enjoy getting dished praise? Become a Praiser yourself! There is a [Praise Onboarding session](https://calendar.google.com/event?action=TEMPLATE&tmeid=MmJhNWFkMjJnbTNkZG52dXF2bHBjNWNwdDdfMjAyMTA2MjNUMTYwMDAwWiBjX3ZqZGNrZmo0YmhhcnVvdmhkNHJtbzNkdHY0QGc&tmsrc=c_vjdckfj4bharuovhd4rmo3dtv4%40group.calendar.google.com&scp=ALL) every Wed at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
+      * Enjoy getting dished praise? Become a Praiser yourself! Join our Trusted Seed lounge every Tuesday at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
     question: How do I receive Praise (& more $TRUST!)
   - answer: >-
       * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
