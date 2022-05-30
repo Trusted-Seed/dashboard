@@ -13,9 +13,14 @@ sections:
       stage Regen Economies.
     title: History of Success
     image: /images/about-us.svg
-  - description: The Trusted Seed is a key cultural initialization tool for
-      Regenerative Economies, stacking their DAOs with a trusted group of
-      curated regens as opposed to airdrop hunters.
+  - description: >-
+      Beyond just being a safe community to include in the launch of your Impact
+      DAO, we also support our members in the case they have legal issues while
+      acting in good faith within a qualifying DAO. Under the hood, Trusted Seed
+      is a legal mutual aid group. 
+
+
+      If one of us has a legal issue, we will band together to support this member in their fight for their right to DAO. Our organization strives to ensure that experimentation in building a better world can be done with a safety net. We are that net.  
     title: Legal Shield
     image: /images/mission.svg
 links:
