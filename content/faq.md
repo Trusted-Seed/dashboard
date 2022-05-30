@@ -17,7 +17,7 @@ membershipFAQ:
       * Apply for membership at
       [commonsstack.org/apply](https://member.commonsstack.foundation/commonsstack.org/apply)
 
-      * After a short “Proof of Altruism” background check, our team will send you an acceptance email (within a week) with next steps for membership
+      * After a short “Proof of Altruism” background check, our team will send you an acceptance email (within a week) with the next steps for membership
 
       * Activate your membership in the Trusted Seed’s Swiss Association by contributing your membership dues at [member.commonsstack.foundation](https://member.commonsstack.foundation/)
 
