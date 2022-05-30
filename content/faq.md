@@ -11,7 +11,7 @@ membershipFAQ:
 
       * Support the Commons Stack ecosystem in continuing to research and build towards our mission to Realign Incentives for Public Goods
 
-      * Receive Commons Stack swag and more
+      * Receive Trusted Seed swag and more
     question: Why should I join the Trusted Seed?
   - answer: >-
       * Apply for membership at
@@ -21,9 +21,9 @@ membershipFAQ:
 
       * Activate your membership in the Trusted Seed’s Swiss Association by contributing your membership dues at [member.commonsstack.foundation](https://member.commonsstack.foundation/)
 
-      * Minimum dues are 450 DAI, but contributions above this amount are welcomed. [Scholarships](https://medium.com/commonsstack/trusted-seed-swiss-membership-scholarship-application-f2d07bc2fc90) are available for those who are unable to afford membership fees.
+      * Minimum dues are 450 DAI, but contributions above this amount are welcomed. [Scholarships](https://admin.typeform.com/form/z2hT6AOO/create?block=16693517-d37b-4bcb-84fb-ea89350b234c) are available for those who are unable to afford membership fees upon approval
 
-      * Confirm you can see your CSTK Score in your dashboard & xDai wallet - you’re in!
+      * Confirm you can see your TRUST Score in your dashboard & xDai wallet - you’re in!
 
 
       For more information, read the full article [here](https://medium.com/commonsstack/join-the-commons-stacks-trusted-seed-swiss-association-ed51a356cb6c).
@@ -34,7 +34,7 @@ membershipFAQ:
       provide.
 
 
-      However, a single individual representing their organization may apply as a Trusted Seed Ambassador. This Ambassador will hold a CSTK Score, and be charged to stay relatively up-to-date on the happenings in the Commons Stack ecosystem. Only the Ambassador will be eligible for the legal protection of the Trusted Seed Swiss Membership.
+      However, a single individual representing their organization may apply as a Trusted Seed Ambassador. This Ambassador will hold a TRUST Score, and be charged to stay relatively up-to-date on the happenings in the Commons Stack ecosystem. Only the Ambassador will be eligible for the legal protection of the Trusted Seed Swiss Membership.
     question: Can my organization apply to the Trusted Seed?
   - answer: The legal structure of the Trusted Seed is designed for the most
       litigious legal environments (for example, within the United States). It
@@ -42,16 +42,13 @@ membershipFAQ:
       could arise from normal good faith actions within DAOs and Commons that
       are often considered general partnerships with potential legal liability
       for individuals.
-    question:
-      What are the legal implications of joining the Trusted Seed within my
+    question: What are the legal implications of joining the Trusted Seed within my
       specific country?
-  - answer:
-      No. The legal structure proposed allows the membership to be treated in
+  - answer: No. The legal structure proposed allows the membership to be treated in
       a similar manner as a membership at your local gym. There should be no
       reporting requirements but it is always a good idea to stay informed of
       regulatory changes within your local and national jurisdictions.
-    question:
-      Do I have to report to anyone in my country that I am a member of this
+    question: Do I have to report to anyone in my country that I am a member of this
       association?
   - answer: The rules are located in our [Terms &
       Conditions](https://ipfs.web3.party/ipfs/QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n)
@@ -62,8 +59,7 @@ membershipFAQ:
   - answer: There is not a defined list, but all good faith participation in
       approved DAOs will generally be covered.
     question: Is there a list of what will be covered by the Legal protections?
-  - answer:
-      The Trusted Seed doesn't remove any liabilities. Unfortunately, if you
+  - answer: The Trusted Seed doesn't remove any liabilities. Unfortunately, if you
       hold tokens in a DAO or Commons, in many jurisdictions you can be held
       100% individually liable for any actions made by the DAO. However, if you
       are a Member of our Trusted Seed, and you were acting in good faith as a
@@ -99,15 +95,15 @@ scoreFAQ:
         * [Score: The “Trust Score” of Commons Stack](https://medium.com/commonsstack/cstk-the-token-of-the-commons-stack-trusted-seed-931978625c61)
     question: Why is the Trusted Seed a Swiss Association?
   - answer: >-
-      * CSTK tokens are native to the xDAI EVM chain, and we highly recommend
-      storage on [Metamask](https://metamask.io/)
+      * $TRUST are native to the xDAI EVM chain, and we highly recommend storage
+      on [Metamask](https://metamask.io/)
 
       * Smart contract wallets like DAO multi-sigs on Gnosis or Aragon are less compatible for cross-chain operations.
 
       * [Here’s a primer](https://www.xdaichain.com/for-users/wallets/metamask/metamask-setup) on how to set up Metamask to work on the xDAI network
 
-      * Remember, if worse comes to worst and your tokens become locked or unusable somehow: The Commons Stack can always burn your old tokens and issue you new ones, since we are centralized arbiters of the CSTK token!
-    question: How should I store my CSTK tokens?
+      * Remember, if worse comes to worst and your tokens become locked or unusable somehow: The Trusted Seed can always burn your old score and issue you new ones since we are centralized arbiters of the $TRUST!
+    question: How should I store my $TRUST?
   - answer: >-
       * Participate in governance decisions and the Hatch of upcoming Commons!
 
@@ -115,21 +111,17 @@ scoreFAQ:
 
       * Help steward resources and decision making for mission aligned projects
 
-      * Get CSLove tokens, which get you free Commons Stack swag from our store! ([cslove.commonsstack.org](http://cslove.commonsstack.org/))
-    question: What rights does a CSTK score give me?
+      * Get TSLove tokens, which get you free Commons Stack swag from our store! (<https://swag.trustedseed.org/>[](http://cslove.commonsstack.org/))
+    question: What rights does a $TRUST score give me?
   - answer: >-
       * Join the Commons Stack Discord or Telegram, where we dish praise:
 
         * Discord: [discord.gg/eh2S9FqwDR](https://discord.gg/eh2S9FqwDR)
-
         * Telegram: [t.me/commonsstack](http://t.me/commonsstack)
-
       * Collaborate on Commons Stack initiatives & get praised for your work: Grab an issue “For Contributors” off our [Github](https://github.com/commons-stack/iteration0/labels/%F0%9F%99%8C%F0%9F%8F%BB%20For%20Contributors%20%F0%9F%99%8C%F0%9F%8F%BB)!
 
-      * At the end of each month, praise gets quantified into a CSTK score, which is added to you ETH address that you provided in your Trusted Seed application
+      * At the end of each month, praise gets quantified into a $TRUST score, which is added to you ETH address that you provided in your Trusted Seed application
 
-      * Enjoy getting dished praise?
-
-      * Become a Praiser yourself! There is a [Praise Onboarding session](https://calendar.google.com/event?action=TEMPLATE&tmeid=MmJhNWFkMjJnbTNkZG52dXF2bHBjNWNwdDdfMjAyMTA2MjNUMTYwMDAwWiBjX3ZqZGNrZmo0YmhhcnVvdmhkNHJtbzNkdHY0QGc&tmsrc=c_vjdckfj4bharuovhd4rmo3dtv4%40group.calendar.google.com&scp=ALL) every Wed at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
-    question: How do I receive Praise (& more CSTK!)
+      * Enjoy getting dished praise? Become a Praiser yourself! There is a [Praise Onboarding session](https://calendar.google.com/event?action=TEMPLATE&tmeid=MmJhNWFkMjJnbTNkZG52dXF2bHBjNWNwdDdfMjAyMTA2MjNUMTYwMDAwWiBjX3ZqZGNrZmo0YmhhcnVvdmhkNHJtbzNkdHY0QGc&tmsrc=c_vjdckfj4bharuovhd4rmo3dtv4%40group.calendar.google.com&scp=ALL) every Wed at 12PM EST on the [Commons Stack Discord server](https://discord.com/invite/KXn9Y7jzvz).
+    question: How do I receive Praise (& more $TRUST!)
 ---
