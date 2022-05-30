@@ -66,7 +66,7 @@ members:
 associationBoard:
   title: Trusted Seed Association Board
   description: "The board is the brain in the complex organism of the Trusted
-    Seed, it manages all legal and strategic direction. Current board members:
+    Seed, it manages our legal and strategic direction. Current board members:
     Max Semenchuk, Jeff Emmett, Letty Prados, Kris Jones, Ivy Bagay."
   countText: Number of board members
   count: 5
