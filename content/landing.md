@@ -1,6 +1,6 @@
 ---
 title: Join the Trusted Seed
-subTitle: A value-driven community advancing Regen Economies.
+subTitle: A value-driven community advancing Regen Economies
 sections:
   - description: The Trusted Seed is a key cultural initialization tool for
       Regenerative Economies, stacking their DAOs with a trusted group of
