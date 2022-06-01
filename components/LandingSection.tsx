@@ -1,4 +1,6 @@
 import { Flex, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Link } from 'components/Link';
+import ReactMarkdown from 'react-markdown';
 
 import { JoinUsButton } from './JoinUsButton';
 
@@ -33,8 +35,23 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
         <Text fontWeight="bold" fontSize={titleFontSize}>
           {title}
         </Text>
+
         <Text fontWeight="light" fontSize={descFontSize}>
-          {description}
+          <ReactMarkdown
+            components={{
+              a: ({ href, children }) => (
+                <Link
+                  color="ceruleanBlue"
+                  isExternal
+                  href={href?.toString() ?? '#'}
+                >
+                  {children}
+                </Link>
+              ),
+            }}
+          >
+            {description}
+          </ReactMarkdown>
         </Text>
         {withButton && <JoinUsButton pt={8} />}
       </VStack>
