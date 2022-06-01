@@ -1,6 +1,6 @@
 ---
 title: Sign
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed sit eget lectus. Libero dictum mattis quis tincidunt risus.
+description: To activate your membership you have to sign that you have read and agree to the Terms and Conditions and the Statutes.
 terms:
   title: Terms and Conditions
   description: The Terms & Conditions apply to your membership of the Trusted Seed's Swiss Association. It covers planned activities, membership, rights & duties, membership score, risks, etc.
