@@ -12,13 +12,11 @@ messages:
     url: https://medium.com/commonsstack/trust-the-reputation-token-of-trusted-seed-a63f293a12af
     image: /images/trusted-seed.jpg
     action: Read more
-  - title: Get ready to vote for the Commons Prize award!
-    description: Voting starts on May 11th. All $TRUST (formerly $CSTK) token
-      holders are eligible to cast their vote to choose the next community to
-      deploy a Commons and have an active role in shaping the future landscape
-      of Commons.
-    url: https://medium.com/commonsstack/get-ready-to-vote-for-the-commons-prize-award-46ec7e42e425
-    image: https://miro.medium.com/max/1400/0*BAAFG3QDE4zpEE3O
+  - title: Announcing the Commons Prize winner
+    description: The final results are in! We are pleased to announce that
+      Grassroots Economics has been awarded the Commons Prize. 🏆
+    url: https://medium.com/commonsstack/announcing-the-commons-prize-winner-f7539980d5ec
+    image: https://medium.com/commonsstack/announcing-the-commons-prize-winner-f7539980d5ec
     action: Read more
 spotlight:
   name: Michel Bauwens
