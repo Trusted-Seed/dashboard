@@ -7,7 +7,7 @@ membershipFAQ:
 
       * Get access to Commons Hatches to steward and cultivate shared resources 
 
-      * Legal protection for any approved #Blockchain4good DAO or Commons
+      * Legal mutual aid for any approved #Blockchain4good DAO or Commons
 
       * Support the Commons Stack ecosystem in continuing to research and build towards our mission to Realign Incentives for Public Goods
 
