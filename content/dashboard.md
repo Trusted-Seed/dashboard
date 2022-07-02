@@ -6,9 +6,10 @@ messages:
     url: https://medium.com/commonsstack/renew-your-trusted-seed-membership-ce9b54f16987
     image: https://miro.medium.com/max/1252/0*TenXCK3kudghujZK
     action: Read more
-  - title: "$TRUST: The reputation token of Trusted Seed"
-    description: "We are migrating the CSTK score to the new token $TRUST. Here’s
-      everything you need to know. "
+  - title: '$TRUST: The reputation token of Trusted Seed'
+    description:
+      'We are migrating the CSTK score to the new token $TRUST. Here’s
+      everything you need to know. '
     url: https://medium.com/commonsstack/trust-the-reputation-token-of-trusted-seed-a63f293a12af
     image: /images/trusted-seed.jpg
     action: Read more
@@ -26,7 +27,8 @@ spotlight:
     iconType: youtube
     url: https://www.youtube.com/watch?v=0qZooSmQbQ4&t
   title: P2P Foundation
-  quote: What we discovered is that it's slow going, there's no rapid revolution,
+  quote:
+    What we discovered is that it's slow going, there's no rapid revolution,
     it's just like keep on working, making mistakes and learning. This is the
     infrastructure of the future.
   links:
@@ -60,9 +62,9 @@ members:
     description: 1Hive
 associationBoard:
   title: Trusted Seed Association Board
-  description: "The board is the brain in the complex organism of the Trusted
+  description: 'The board is the brain in the complex organism of the Trusted
     Seed, it manages our legal and strategic direction. Current board members:
-    Max Semenchuk, Jeff Emmett, Letty Prados, Kris Jones, Ivy Bagay."
+    Max Semenchuk, Jeff Emmett, Letty Prados, Kris Jones, Ivy Bagay.'
   countText: Number of board members
   count: 5
   actionText: Read More
@@ -91,7 +93,8 @@ partnerships:
     actionText: Read More
     actionUrl: https://tecommons.org/
   - image: /images/regen-network-logo.svg
-    description: Building foundational fintech infrastructure for ecological claims
+    description:
+      Building foundational fintech infrastructure for ecological claims
       and data.
     actionText: Read More
     actionUrl: https://regen.network/
@@ -100,5 +103,5 @@ partnerships:
     actionText: Read More
     actionUrl: https://giveth.io/
 poaps:
-  - id: 1241
+  - id: 2572
 ---
