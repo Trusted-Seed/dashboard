@@ -8,11 +8,15 @@ import { useWallet } from 'web3';
 import { Card } from './Card';
 
 export const ApplicationDetails: React.FC = () => {
-  const { applicationDate, membershipStatus } = useApplication();
+  const { applicationDate, membershipStatus, signDate } = useApplication();
 
   const { isConnected, connectWallet } = useWallet();
 
-  const appDateDisplay = formatDate(applicationDate ?? new Date());
+  const appDateDisplay = applicationDate
+    ? formatDate(applicationDate)
+    : signDate
+    ? formatDate(signDate)
+    : '–';
 
   const { push } = useRouter();
 
