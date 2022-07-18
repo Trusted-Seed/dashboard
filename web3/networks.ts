@@ -44,7 +44,7 @@ export const NETWORK_INFO: NetworkInfo = {
     symbol: 'xDAI',
     explorer: 'https://blockscout.com/xdai/mainnet',
     explorerLabel: 'Blockscout',
-    rpc: 'https://rpc.xdaichain.com',
+    rpc: 'https://rpc.ankr.com/gnosis',
     image: GnosisImage,
   },
 };
