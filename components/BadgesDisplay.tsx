@@ -1,25 +1,32 @@
-import { Image, Link, SimpleGrid } from '@chakra-ui/react';
-import BadgeImage from 'assets/badge.svg';
-import { DeliveryAddressInfo, usePOAPs } from 'hooks/usePOAPs';
+import { Flex, Image, Link, SimpleGrid, Text } from '@chakra-ui/react';
+import { Poap, usePOAPs } from 'hooks/usePOAPs';
 import { POAP_CLAIM_URL } from 'utils/constants';
+import { formatDate } from 'utils/formatHelpers';
 
 import { Button } from './Button';
 import { Card } from './Card';
 
-const BadgeDisplay: React.FC<DeliveryAddressInfo> = ({ claimed, poapInfo }) => (
+const BadgeDisplay: React.FC<Poap> = ({
+  claimed,
+  created_date,
+  name,
+  image_url,
+  fancy_id,
+}) => (
   <Card p={8} justify="space-between">
-    <Image src={BadgeImage.src} h="9rem" />
-    {/*
-    claimed ? (
+    <Image src={image_url} h="9rem" mb="1rem" />
+    <Flex h="2.5rem" align="center">
+      <Text align="center">{name}</Text>
+    </Flex>
+
+    {claimed ? (
       <Flex h="2.5rem" align="center">
-        <Text>{formatDate(claimDate ?? 0)}</Text>
+        <Text align="center">{formatDate(created_date)}</Text>
       </Flex>
-    ) :
-      */}
-    {!claimed && (
+    ) : (
       <Link
         isExternal
-        href={POAP_CLAIM_URL.replace('{{POAP_SLUG}}', poapInfo.slug)}
+        href={POAP_CLAIM_URL.replace('{{POAP_SLUG}}', fancy_id)}
         _hover={{}}
       >
         <Button h="2.5rem">Claim</Button>
@@ -28,8 +35,11 @@ const BadgeDisplay: React.FC<DeliveryAddressInfo> = ({ claimed, poapInfo }) => (
   </Card>
 );
 
-export const BadgesDisplay: React.FC<{ poaps: string[] }> = ({ poaps }) => {
-  const { deliveryAddressInfo: badges } = usePOAPs(poaps);
+export const BadgesDisplay: React.FC<{
+  poapDeliveries: string[];
+  poapIds: string[];
+}> = ({ poapDeliveries, poapIds }) => {
+  const { poaps } = usePOAPs(poapDeliveries, poapIds);
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2, lg: 3, xl: 5 }}
@@ -37,8 +47,8 @@ export const BadgesDisplay: React.FC<{ poaps: string[] }> = ({ poaps }) => {
       w="100%"
       gap={12}
     >
-      {badges.map((badge, i) => (
-        <BadgeDisplay key={i} {...badge} />
+      {poaps.map((poap, i) => (
+        <BadgeDisplay key={i} {...poap} />
       ))}
     </SimpleGrid>
   );

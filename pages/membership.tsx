@@ -4,11 +4,15 @@ import { MembershipDetails } from 'components/MembershipDetails';
 import { usePageAttributes } from 'hooks/usePageAttributes';
 
 type MembershipContentAttributes = {
-  poaps: { id: string }[];
+  poapDeliveries: { id: string }[];
+  poapIds: { id: string }[];
 };
 
 const MembershipPage: React.FC = () => {
-  const { poaps } = usePageAttributes<MembershipContentAttributes>('dashboard');
+  const { poapDeliveries } =
+    usePageAttributes<MembershipContentAttributes>('dashboard');
+  const { poapIds } =
+    usePageAttributes<MembershipContentAttributes>('dashboard');
 
   return (
     <>
@@ -29,7 +33,10 @@ const MembershipPage: React.FC = () => {
         }}
       />
       <VStack w="100%" flex={1} zIndex={1} p={16}>
-        <MembershipDetails poaps={poaps.map(p => p.id)} />
+        <MembershipDetails
+          poapDeliveries={poapDeliveries.map(p => p.id)}
+          poapIds={poapIds.map(p => p.id)}
+        />
       </VStack>
     </>
   );

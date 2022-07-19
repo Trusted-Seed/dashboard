@@ -31,7 +31,8 @@ type DashboardContentAttributes = {
   associationBoard: AssociationBoardType;
   social: SocialType;
   partnerships: PartnershipType[];
-  poaps: { id: string }[];
+  poapIds: { id: string }[];
+  poapDeliveries: { id: string }[];
 };
 
 export const DashboardPage: React.FC = () => {
@@ -42,7 +43,8 @@ export const DashboardPage: React.FC = () => {
     associationBoard,
     social,
     partnerships,
-    poaps,
+    poapIds,
+    poapDeliveries,
   } = usePageAttributes<DashboardContentAttributes>('dashboard');
 
   return (
@@ -88,7 +90,10 @@ export const DashboardPage: React.FC = () => {
           <SwagShopCard />
         </Grid>
         <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8} w="100%">
-          <POAPCard poaps={poaps.map(p => p.id)} />
+          <POAPCard
+            poapDeliveries={poapDeliveries.map(p => p.id)}
+            poapIds={poapIds.map(p => p.id)}
+          />
           <SocialCard {...social} />
         </SimpleGrid>
         <Text

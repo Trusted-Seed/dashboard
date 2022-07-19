@@ -5,21 +5,17 @@ import { Card } from 'components/Card';
 import { usePOAPs } from 'hooks/usePOAPs';
 import { POAP_CLAIM_URL } from 'utils/constants';
 
-export const POAPCard: React.FC<StackProps & { poaps: string[] }> = ({
-  poaps,
-  ...props
-}) => {
-  const { fetching, deliveryAddressInfo } = usePOAPs(poaps);
+export const POAPCard: React.FC<
+  StackProps & { poapDeliveries: string[]; poapIds: string[] }
+> = ({ poapDeliveries, poapIds, ...props }) => {
+  const { fetching, poaps } = usePOAPs(poapDeliveries, poapIds);
 
-  const poapToClaimIndex = deliveryAddressInfo.findIndex(a => !a.claimed);
-  const poapInfo =
-    poapToClaimIndex >= 0
-      ? deliveryAddressInfo[poapToClaimIndex].poapInfo
-      : null;
+  const poapToClaimIndex = poaps.findIndex(p => !p.claimed);
+  const poapInfo = poapToClaimIndex >= 0 ? poaps[poapToClaimIndex] : null;
 
   return (
     <Card p={8} spacing={6} isLoading={fetching} hasDot={!!poapInfo} {...props}>
-      <Image src={poapInfo?.image ?? POAPImage.src} h="5rem" />
+      <Image src={poapInfo?.image_url ?? POAPImage.src} h="5rem" />
       <Text fontWeight="bold" textAlign="center" fontSize="xl">
         {poapInfo ? (
           <>
@@ -42,7 +38,7 @@ export const POAPCard: React.FC<StackProps & { poaps: string[] }> = ({
       {poapInfo && (
         <Link
           isExternal
-          href={POAP_CLAIM_URL.replace('{{POAP_SLUG}}', poapInfo.slug)}
+          href={POAP_CLAIM_URL.replace('{{POAP_SLUG}}', poapInfo.fancy_id)}
           _hover={{}}
         >
           <Button size="sm" fontSize="md" px={10}>

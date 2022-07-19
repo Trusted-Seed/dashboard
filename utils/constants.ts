@@ -19,10 +19,11 @@ export const STATUTES_URL = `https://ipfs.web3.party/ipfs/${STATUTES_HASH}`;
 
 export const PAY_DUES_URL = 'https://giveth.io/project/trusted-seed';
 
-export const POAP_DELIVERY_URL = 'https://api.poap.xyz/delivery/{{POAP_ID}}';
-
 export const POAP_DELIVERY_ADDRESSES_URL =
-  'https://api.poap.xyz/delivery-addresses/{{POAP_ID}}/address/{{ADDRESS}}';
+  'https://api.poap.tech/delivery-addresses/{{POAP_ID}}/address/{{ADDRESS}}';
+
+export const POAP_SCAN_ADDRESS =
+  'https://api.poap.tech/actions/scan/{{ADDRESS}}';
 
 export const POAP_CLAIM_URL = `https://poap.delivery/{{POAP_SLUG}}`;
 

@@ -1,6 +1,7 @@
 import {
   Divider,
   SimpleGrid,
+  Text,
   useBreakpointValue,
   VStack,
 } from '@chakra-ui/react';
@@ -15,7 +16,10 @@ import { PaymentDetails } from './PaymentDetails';
 import { ScoreDisplay } from './ScoreDisplay';
 import { SignatureDetails } from './SignatureDetails';
 
-export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
+export const MembershipDetails: React.FC<{
+  poapDeliveries: string[];
+  poapIds: string[];
+}> = ({ poapDeliveries, poapIds }) => {
   const { balance, maxTrustScore } = useApplication();
 
   const [{ data: supplyData }] = useTokenInfoQuery({
@@ -105,7 +109,10 @@ export const MembershipDetails: React.FC<{ poaps: string[] }> = ({ poaps }) => {
         )}
       </SimpleGrid>
       <Divider borderColor="ceruleanBlue" borderBottomWidth="2px" />
-      <BadgesDisplay poaps={poaps} />
+      <Text w="100%" align="left" pl="1.5rem">
+        Bagdes
+      </Text>
+      <BadgesDisplay poapDeliveries={poapDeliveries} poapIds={poapIds} />
     </VStack>
   );
 };
