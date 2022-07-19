@@ -6,360 +6,104 @@ description: Members of the Trusted Seed put skin in the game by contributing to
   new forms of sustainably funded Commons ecosystems, especially in the period
   immediately following their launch.
 firstMembers:
-  - Benjamin Scholtz
-  - Bernd Lapp
-  - Griff Green
-  - Ivy Bagay
-  - Jeff Emmett
-  - Jessica Zartler
-  - Jordi Baylina
-  - Kevin Owocki
-  - Kris Jones
-  - Lívia Deschermayer
-  - Luke Duncan
-  - Marko Prijic
-  - Michael Zargham
-  - Niran Babalola
-  - SemSimon de la Rouviere
-  - Stefaan Ponnet
-  - Tamara Helenius
-  - TE Academy
-  - Thibauld Favre
   - Trent McConaghy
+  - Griff Green
+  - Michael Zargham
+  - Jeff Emmett
+  - Simon de la Rouviere
+  - Kevin Owocki
+  - Niran Babalola
+  - Stefaan Ponnet
+  - Sem
+  - TE Academy
+  - Tamara Helenius
+  - Lívia Deschermayer
+  - Kris Jones
+  - Ivy Bagay
+  - Marko Prijic
+  - Jordi Baylina
 secondMembers:
-  - Abhilash J.
-  - Abigael Titcomb
-  - Adam Reese
-  - Adam Stallard
-  - Aidan O'Connell
-  - Aleeza Howitt
-  - Alex Viñas Salles
-  - Amin Latifi
-  - Andreas Fauler
-  - Andreas Fletcher
-  - Andrew Chiw
-  - Anna-Marie Louise Swan
-  - Anthony Paglino
-  - Ashley Wagner
-  - Ataberk Casur
-  - Aude Launay
-  - Auryn Macmillan
-  - Austin Griffith
-  - Barnabé Monnot
-  - Beth McCarthy
-  - Bill Warren
-  - BK
-  - Blair Vanderlugt
-  - Bowen Sanders
-  - Bradley Clarke
-  - Carlos Mesa (MonoMesa)
-  - Cesar Marquez
-  - Chris Cyphert
-  - Christian Shearer
-  - Christina Frankopan
-  - Christoph Fahle
-  - Chuy Garcia
-  - Curve Labs
-  - CleanApp
-  - Cooper Turley
-  - Craig Anderson
-  - Cyprien Grau
-  - Dani Bellavita
-  - Daniel Alejandro Knobelsdorf
-  - Daniel Ari Friedman
-  - Daniel Ospina
-  - Danilo Lessa Bernardineli
-  - Darren Zal
-  - David Danforth
-  - David Krmpotić
-  - Dawid Golebiewski
-  - Deam
-  - Eden Dhaliwal
-  - Eduardo Antuña
-  - Eduardo Vega-Patiño
-  - Ekene Odigwe
-  - Eli Hanover
-  - Eric Zhang
-  - Fabian Molina
-  - Fábio Mendes
-  - Fabrizio Vigevani
-  - Felipe de Carvalho Duarte Guimaraes
-  - Felix Fritsch
-  - Ferran Reyes
-  - Fiorella Botta
-  - Frederic Johnson
-  - Freshelle May Tilanduca
-  - Gary Lachance
-  - Gastón Needleman
-  - Gideon Rosenblatt
-  - Gregory Landua
-  - Guilherme Maueler
-  - Guillaume Augais
-  - Gustav Friis
-  - Gustavo Segovia
-  - Hadar Rottenberg
-  - Hammad J
-  - Harith Kamarul
-  - Herb Stephens
-  - Humberto Besso Oberto Huerta
-  - Ivo J. Mensch
-  - Jack du Rose
-  - Jahed Momand
-  - Jake Cassani
-  - Jakub Lanc
-  - James Duncan
-  - James Farrell
-  - James Waugh
-  - James Waugh
-  - Joel Thorstensson
-  - Johann Suarez
-  - John Paller
-  - Jonah Weinstein
-  - Jonas Seiferth
-  - Jonathan Gabler
-  - Jordan Ellis
-  - Jorge Enrique Bell (Kike)
-  - jori armbruster
-  - Jose Bell
-  - Joshua Sam Lapidus
-  - Juan Carlos Bell Llinas
-  - Julie Krengel
-  - Kaliya "Identity Woman" Young
-  - Katy Masuga
-  - Kay
-  - Kei Kreutler
-  - Kevin Seagraves
-  - Kris Decoodt
-  - Kristofer Lund
-  - Lauren Marysia Bajin
-  - Lefteris Karapetsas
-  - Lisa JY Tan
-  - Loie
-  - Luuk Weber
-  - Magenta Ceiba
-  - Manuel Flores
-  - Manuel Gonzalez Alzuru
-  - Marc Liberati
-  - Marcel Jackisch
-  - Maria Cordova
-  - Mark Pascall
-  - Mark Siebert
-  - Mark Smargon
-  - Mark Tyneway
-  - Markus Buhatem Koch
-  - Mateo Daza
-  - Matt Barlin
-  - Matthew Monahan
-  - Max
-  - Max Song
-  - Mercedes Rodríguez
-  - Merlin Egalite
-  - Michael Lewkowitz
-  - Michel Bauwens
-  - Mihai Hrimiuc
-  - Miki Elson
-  - Mitch Ozmun
-  - Mohammad Ranjbar Zaferanie
-  - Moritz Bierling
-  - Mr. Black
-  - Nathan Ginnever
-  - Nathan Suits
-  - Nelson Melina
-  - Nguyen Van Trang
-  - Nick Johnson
-  - Nikoline Arns
-  - Ori Shimony
-  - Pablo Carra
   - Paul Kohlhaas
-  - Paula Kühn
-  - Paulo Jose Colombo Dos Santos
-  - Pavle Batuta
-  - Peter 'pet3rpan'
-  - Peter Hacker
-  - Peter Porobov
-  - Peth
-  - Philip Silva
-  - Philippe Honigman
-  - Pol Lanski
-  - Rafa
-  - Raphael Baumann
-  - Raphaël Haupt
-  - Raúl Martínez
-  - Ravi Patel
-  - Renzo D'Andrea
-  - Rex Hygate
-  - Roberto Henriquez Perozo
-  - Robin Lehmann
-  - Rodolfo Ergueta
-  - Rodrigo Perez
-  - Ronald Steyer
-  - Ruben Russel
-  - Ryan Christoffersen
-  - Sacha Yves Saint-Leger
-  - Sam Hart
-  - Santi Garcia
-  - Santi Siri
-  - Santiago Gonzalez
-  - Scott Moore
-  - Sebastian Bilbao
-  - Shaun Conway
+  - Dani Bellavita
+  - Juan Carlos Bell Llinas
   - Shawn Anderson
-  - Shawn Westrick
-  - Shermin Voshmgir
-  - sidcode
-  - Stephen Reid
-  - Stephen Young
-  - Steve Derezinski
-  - Tannr Allard
-  - Ted Hamilton
-  - The Blockchain Socialist
-  - Theodor Beutel
-  - Thiago Joel Angrizanes Rossi
-  - Tommy Cox
-  - Troels Plenge
-  - Troopy
   - TrueBlocks
-  - LLC
-  - Tyler Mace
-  - Typto
-  - Usama Ahmad
-  - Vesta Gheibi
-  - Vitor Marthendal Nunes
-  - Vyom Jain
-  - Wesley van Heije
-  - Will Abramson
-  - Will Ruddick
-  - Will Szal
-  - William Griffiths
+  - Joel Thorstensson
+  - Danilo Lessa Bernardineli
+  - Mateo Daza
+  - Kay
   - Willy Ogorzaly
-  - Xavier Iturralde
-  - xGabi
-  - Yalor
-  - Yineisy Mota
-  - Zak Cole
+  - Raphael Baumann
+  - Nathan Suits
   - Zeptimus
+  - Santi Garcia
+  - Craig Anderson
+  - Pavle Batuta
+  - Philippe Honigman
+  - Lauren Marysia Bajin
+  - Andreas Fletcher
+  - Pol Lanski
+  - Renzo D'Andrea
+  - Moritz Bierling
+  - Daniel Alejandro Knobelsdorf
+  - Blair Vanderlugt
+  - Frederic Johnson
+  - Ronald Steyer
+  - Mitch Ozmun
+  - Amin Latifi
+  - Humberto Besso Oberto Huerta
+  - Eduardo Vega-Patiño
+  - Pablo Carra
+  - Fábio Mendes
+  - Paulo Jose Colombo Dos Santos
+  - Kristofer Lund
+  - David Krmpotić
+  - Shawn Westrick
+  - Will Szal
+  - Vyom Jain
+  - Will Abramson
+  - Stephen Reid
+  - Chris Cyphert
+  - Chuy Garcia
+  - Guillaume Augais
+  - Rodrigo Perez
+  - Katy Masuga
+  - Wesley van Heije
+  - Andreas Fauler
+  - Matt Barlin
+  - xGabi
+  - Santiago Gonzalez
+  - Peter Hacker
+  - Freshelle
+  - Daniel Ari Friedman
+  - Guilherme Maueler
+  - John Paller
+  - Steve Derezinski
+  - Anna-Marie Louise Swan
+  - Gideon Rosenblatt
+  - Mafer Cordova
+  - Bill Warren
+  - Darren Zal
+  - Marcel Jackisch
 thirdMembers:
-  - Abhay Prasanna
-  - Adrian Pirela
   - Ahmad Abugosh
-  - Al Gray
-  - Alec LaLonde
-  - Alex Corren
-  - Aloysious
-  - André Caetano Luna
-  - Andreas Brunner
-  - Andrew Stebenne
-  - Annamaria Elekes
-  - Benjamin Douglas Scott
-  - Bianca Gadelha
-  - bitsikka
-  - Blanca Barón Berdié
-  - BlockEnthusiast
-  - Candela Ramos
-  - Carl Farterson
-  - Carlos Mario Quintero Parra
-  - Christopher Casillas
-  - Christopher Ryan Byrnes
-  - Christopher Wylde
-  - Clare Politano
-  - Claude Eugene Davis III
-  - Daithi Coombes
-  - Daniel Thomas
-  - David Guthu
-  - David Kendall Pardu Moss
-  - David Relan
-  - Doga Oztuzun
-  - Donna Oftadeh
-  - Drew Lazzeri
-  - Egor Smith
-  - Eliade
-  - FATRUI
-  - Freddy Zwanzger
-  - Giel Detienne
-  - Giulio Quarta
-  - Gjermund Bjaanes
-  - Graven Prest
-  - Gustavo Montes de Oca
-  - Gustavo Muñoz
-  - Han Hegeman
-  - Hannah Hamilton
-  - Hap Savage
-  - Harry Joseph Turton
-  - Henrik Axelsen
-  - Hongzhou Chen
-  - Ian Tairea
-  - Isaac González Durán
-  - Isaac Holze
-  - Ivan Fartunov
-  - Ivan Zhuikov
-  - Jaroslav Macej
-  - Jason Garland
-  - Jennifer Lee Silves
-  - Jeremy Tuttle
-  - Jon Saginaw
-  - Jose Borges
-  - Joshua Crites
-  - Justin Kalland
-  - Kelsie Nabben
-  - Kent Phillips
-  - Kevin Zuber
-  - Korbinian Nida-Rümelin
-  - Kyle Kirchner
   - Letty Prados
-  - Lin Hou
-  - Lucas Hygate
-  - Manuel Gamero
-  - Marc Geller
-  - Marc Minnee
-  - Mark Phillips
-  - Mateo
-  - Matrixator
+  - Freddy Zwanzger
   - Matthew Slater
-  - Max Gaxiola
-  - Maxim Levashov
-  - Maximilian Kuck
-  - Mehrun Parchebafieh
-  - Michael Heuer
-  - Michael Smith
-  - Miles Thompson
-  - MoeNick
-  - Mohammad Aghaali
-  - Nestor Javier Bonilla Somarriba
-  - Nicholai Sauco
-  - Nico Rodriguez
+  - bitsikka
+  - Kyle Kirchner
   - Pablo Prohaska García
-  - Pacien Boisson
-  - Patrick Gibbs
-  - Paul Glavin
-  - Paul Goller
-  - Pavlo Mandryk
-  - Popescu Razvan Matei
-  - Pranav Khanna
-  - Ramin
-  - Regis Lloyd Chapman
-  - Richard Blythman
-  - Rohit Malekar
-  - Ronald Benitez
-  - Rosa Orrit
-  - Rudolf Nabokov
-  - Ryeder
-  - Samir Mehta
-  - San
-  - Scott Davies
-  - SHAWN WU
-  - Sinan Serdar
-  - Stefano Glauser
-  - stephan francois
-  - Steven Ciraolo
-  - Todd Youngblood
-  - Torsten Goerke
   - Tyson De Vere
-  - Unai Gaztelu
-  - Victor Zscharnt
-  - Vikram Udyawer
-  - Walid Bendenia
-  - William James Holcomb
-  - Xavier Damman
+  - David Kendall Pardu Moss
+  - Todd Youngblood
+  - Justin Kalland
+  - Han Hegeman
+  - Alec LaLonde
+  - Andreas Brunner
+  - Shawn Wu
   - Zane Starr
-  - Ziad Mazzawi
+  - Harry Joseph Turton
+  - Samir Mehta
+  - Benjamin Douglas Scott
+  - Ivan Fartunov
 ---
