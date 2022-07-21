@@ -68,7 +68,7 @@ collections:
           - {
               label: 'Description',
               name: 'description',
-              widget: 'text',
+              widget: 'markdown',
               required: true,
             }
       - label: 'FAQ'
@@ -405,12 +405,28 @@ collections:
                   widget: 'string',
                   required: true,
                 }
-          - label: 'POAP Badges'
-            name: 'poaps'
+          - label: 'POAP Deliveries'
+            name: 'poapDeliveries'
             widget: list
             required: true
             fields:
-              - { label: 'ID', name: 'id', widget: 'string', required: true }
+              - {
+                  label: 'poapDeliveries',
+                  name: 'poapDeliveries',
+                  widget: 'string',
+                  required: true,
+                }
+          - label: 'POAP Ids'
+            name: 'poapIds'
+            widget: list
+            required: true
+            fields:
+              - {
+                  label: 'poapIds',
+                  name: 'poapIds',
+                  widget: 'string',
+                  required: true,
+                }
       - label: 'Sign'
         name: 'sign'
         file: 'content/sign.md'
