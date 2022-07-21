@@ -58,7 +58,7 @@ export const MembershipDetails: React.FC<{
         {isSmallScreen ? (
           <VStack align="stretch" spacing={8}>
             <ScoreDisplay
-              title="My $TRUST Score"
+              title="My TRUST Score"
               value={formatNumber(balance.toFixed(0))}
               isEmpty={balance <= 0}
             />
@@ -71,7 +71,7 @@ export const MembershipDetails: React.FC<{
         ) : (
           <>
             <ScoreDisplay
-              title="My $TRUST Score"
+              title="My TRUST Score"
               value={formatNumber(balance.toFixed(0))}
               isEmpty={balance <= 0}
             />
@@ -89,7 +89,7 @@ export const MembershipDetails: React.FC<{
               value={formatNumber(totalSupply)}
             />
             <ScoreDisplay
-              title="Max $TRUST Score"
+              title="Max TRUST Score"
               value={formatNumber(maxTrustScore)}
               isEmpty={maxTrustScore <= 0}
             />
@@ -101,7 +101,7 @@ export const MembershipDetails: React.FC<{
               value={formatNumber(totalSupply)}
             />
             <ScoreDisplay
-              title="Max $TRUST Score"
+              title="Max TRUST Score"
               value={formatNumber(maxTrustScore)}
               isEmpty={maxTrustScore <= 0}
             />

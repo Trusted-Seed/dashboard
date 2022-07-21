@@ -30,7 +30,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
         display="inline-block"
         whiteSpace="nowrap"
       >
-        $TRUST Score
+        TRUST Score ($TRUST)
       </Text>
       <VStack spacing={4} align="flex-start" justify="flex-end" flex={1}>
         {isConnected ? (
@@ -41,7 +41,7 @@ export const TRUSTScoreCard: React.FC<StackProps> = props => {
                 letterSpacing="0.25rem"
                 fontSize="sm"
               >
-                My $TRUST Score
+                My TRUST Score
               </Text>
               <Text color="ceruleanBlue" fontWeight="bold" fontSize="2.5rem">
                 {formatNumber(balance.toFixed(0))}

@@ -186,7 +186,7 @@ export const FAQPage: React.FC = () => {
         </Text>
         <FAQSection faqs={membershipFAQ} label="membership" />
         <Text fontWeight="800" fontSize="2xl">
-          $TRUST Score
+          TRUST Score
         </Text>
         <FAQSection faqs={scoreFAQ} label="score" />
       </VStack>
