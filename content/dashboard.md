@@ -107,6 +107,7 @@ poapDeliveries:
 poapIds:
   - id: 21884
   - id: 19880
+  - id: 15952
   - id: 6156
   - id: 5723
 ---
