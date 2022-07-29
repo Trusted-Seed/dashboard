@@ -16,7 +16,7 @@ export const SignatureDetails: React.FC = () => {
 
   const { push } = useRouter();
 
-  const signDateDisplay = formatDate(signDate ?? new Date());
+  const signDateDisplay = formatDate(signDate);
 
   return (
     <Card

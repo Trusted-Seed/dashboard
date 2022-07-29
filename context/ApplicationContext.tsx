@@ -279,27 +279,37 @@ export const ApplicatonContextProvider: React.FC = ({
       return {
         member: true,
         duesPaid: oldMember.duesPaid,
-        paymentDate: new Date(oldMember.paymentDate),
-        expiryDate: new Date(oldMember.expireDate),
+        paymentDate: !Number.isNaN(Date.parse(oldMember.paymentDate))
+          ? new Date(oldMember.paymentDate)
+          : null,
+        expiryDate: !Number.isNaN(Date.parse(oldMember.expireDate))
+          ? new Date(oldMember.expireDate)
+          : null,
       };
     }
     if (!memberData?.member) {
       return {
         member: false,
         duesPaid: 0,
-        paymentDate: new Date(0),
-        expiryDate: new Date(0),
+        paymentDate: null,
+        expiryDate: null,
       };
     }
     return {
       member: true,
       duesPaid: Number(memberData?.member?.duesPaid ?? 0),
-      paymentDate: new Date(memberData?.member?.startDate ?? 0),
-      expiryDate: new Date(memberData.member?.expireDate ?? 0),
+      paymentDate: memberData?.member?.startDate
+        ? new Date(memberData?.member?.startDate)
+        : null,
+      expiryDate: memberData.member?.expireDate
+        ? new Date(memberData.member?.expireDate)
+        : null,
     };
   }, [address, memberData]);
 
   const membershipStatus = useMemo(() => {
+    if (!expiryDate) return MembershipStatus.NOT_MEMBER;
+
     if (expiryDate.getTime() > new Date().getTime()) {
       return MembershipStatus.ACTIVE_MEMBER;
     }
