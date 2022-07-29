@@ -13,9 +13,10 @@ const months = [
   'December',
 ] as const;
 
-export const formatDate = (d: Date | string | number): string => {
+export const formatDate = (d: Date | string | number | null): string => {
   // eslint-disable-next-line no-param-reassign
-  d = new Date(d);
+  d = new Date(d ?? 0);
+  if (d.getTime() <= 0) return '-';
   const year = d.getFullYear();
   const date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
   const monthIndex = d.getMonth();
@@ -23,18 +24,22 @@ export const formatDate = (d: Date | string | number): string => {
   return `${date} ${month.slice(0, 3)} ${year}`;
 };
 
-export const formatDateForPlot = (d: Date | string | number): string => {
+export const formatDateForPlot = (d: Date | string | number | null): string => {
   // eslint-disable-next-line no-param-reassign
-  d = new Date(d);
+  d = new Date(d ?? 0);
+  if (d.getTime() <= 0) return '-';
   const year = d.getFullYear();
   const monthIndex = d.getMonth();
   const month = months[monthIndex].slice(0, 3);
   return `${month} ${year}`.toUpperCase();
 };
 
-export const formatDateForPlotHint = (d: Date | string | number): string => {
+export const formatDateForPlotHint = (
+  d: Date | string | number | null,
+): string => {
   // eslint-disable-next-line no-param-reassign
-  d = new Date(d);
+  d = new Date(d ?? 0);
+  if (d.getTime() <= 0) return '-';
   const date = d.getDate();
   const monthIndex = d.getMonth();
   const month = months[monthIndex].slice(0, 3);

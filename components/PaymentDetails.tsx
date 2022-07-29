@@ -10,8 +10,8 @@ export const PaymentDetails: React.FC<StackProps> = props => {
   const { duesPaid, paymentDate, expiryDate, membershipStatus } =
     useApplication();
 
-  const paymentDateDisplay = formatDate(paymentDate ?? new Date());
-  const expiryDateDisplay = formatDate(expiryDate ?? new Date());
+  const paymentDateDisplay = formatDate(paymentDate);
+  const expiryDateDisplay = formatDate(expiryDate);
 
   return (
     <Card
@@ -91,7 +91,8 @@ export const PaymentDetails: React.FC<StackProps> = props => {
             </Text>
             <Text>
               <Text as="span" fontWeight="bold">
-                Membership Expires at
+                Membership Expire{MembershipStatus.INACTIVE_MEMBER ? 'd' : 's'}{' '}
+                at
               </Text>
               :{' '}
               <Text as="span" color="ceruleanBlue">

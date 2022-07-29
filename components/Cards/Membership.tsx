@@ -84,12 +84,12 @@ export const MembershipCard: React.FC<StackProps> = props => {
           <>
             Membership renewed at:{' '}
             <Text as="span" fontWeight="bold">
-              {formatDate(paymentDate ?? 0)}
+              {formatDate(paymentDate)}
             </Text>
             <br />
             Membership expires at:{' '}
             <Text as="span" fontWeight="bold">
-              {formatDate(expiryDate ?? 0)}
+              {formatDate(expiryDate)}
             </Text>
           </>
         ),
@@ -107,7 +107,7 @@ export const MembershipCard: React.FC<StackProps> = props => {
             !<br />
             Membership expired:{' '}
             <Text as="span" fontWeight="bold">
-              {formatDate(expiryDate ?? 0)}
+              {formatDate(expiryDate)}
             </Text>
           </>
         ),
