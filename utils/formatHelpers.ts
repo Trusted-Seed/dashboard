@@ -16,7 +16,7 @@ const months = [
 export const formatDate = (d: Date | string | number | null): string => {
   // eslint-disable-next-line no-param-reassign
   d = new Date(d ?? 0);
-  if (d.getTime() <= 0) return '-';
+  if (Number.isNaN(d.getTime()) || d.getTime() <= 0) return '-';
   const year = d.getFullYear();
   const date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
   const monthIndex = d.getMonth();
@@ -27,7 +27,7 @@ export const formatDate = (d: Date | string | number | null): string => {
 export const formatDateForPlot = (d: Date | string | number | null): string => {
   // eslint-disable-next-line no-param-reassign
   d = new Date(d ?? 0);
-  if (d.getTime() <= 0) return '-';
+  if (Number.isNaN(d.getTime()) || d.getTime() <= 0) return '-';
   const year = d.getFullYear();
   const monthIndex = d.getMonth();
   const month = months[monthIndex].slice(0, 3);
@@ -39,7 +39,7 @@ export const formatDateForPlotHint = (
 ): string => {
   // eslint-disable-next-line no-param-reassign
   d = new Date(d ?? 0);
-  if (d.getTime() <= 0) return '-';
+  if (Number.isNaN(d.getTime()) || d.getTime() <= 0) return '-';
   const date = d.getDate();
   const monthIndex = d.getMonth();
   const month = months[monthIndex].slice(0, 3);
