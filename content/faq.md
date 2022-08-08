@@ -15,7 +15,7 @@ membershipFAQ:
     question: Why should I join the Trusted Seed?
   - answer: >-
       * Apply for membership at
-      [commonsstack.org/apply](https://member.commonsstack.foundation/commonsstack.org/apply)
+      [commonsstack.org/apply](https://commonsstack.org/apply)
 
       * After a short “Proof of Altruism” background check, our team will send you an acceptance email (within a week) with the next steps for membership
 
