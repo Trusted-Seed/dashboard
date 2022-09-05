@@ -80,7 +80,7 @@ membershipFAQ:
 
       * Satisfies [minimum viable centralisation](https://hackernoon.com/introducing-minimum-viable-centralization-a55e3685f7a2)
 
-      * Read the [Swiss Association T&C’s](https://ipfs.web3.party/ipfs/QmYDmtmDYUPR6wjukzaNytibeNnYs41s2co4tNzkUYdd5n) & [Statutes](https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5)
+      * Read the [Swiss Association T&C’s](https://ipfs.io/ipfs/QmYbM9gacPZnuYTvjzeLnzG2uDAACKKY6gzfomMgCepnKB) & [Statutes](https://ipfs.web3.party/ipfs/QmcGNi9dcVgLJGtxJzjU2CyrrmVKkLnNPEK8JJC2a98zC5)
     question: Why is the Trusted Seed a Swiss Association?
 scoreFAQ:
   - question: What is $TRUST?
