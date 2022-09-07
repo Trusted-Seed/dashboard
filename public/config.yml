@@ -410,23 +410,13 @@ collections:
             widget: list
             required: true
             fields:
-              - {
-                  label: 'poapDeliveries',
-                  name: 'poapDeliveries',
-                  widget: 'string',
-                  required: true,
-                }
+              - { label: 'id', name: 'id', widget: 'number', required: true }
           - label: 'POAP Ids'
             name: 'poapIds'
             widget: list
             required: true
             fields:
-              - {
-                  label: 'poapIds',
-                  name: 'poapIds',
-                  widget: 'string',
-                  required: true,
-                }
+              - { label: 'id', name: 'id', widget: 'number', required: true }
       - label: 'Sign'
         name: 'sign'
         file: 'content/sign.md'
