@@ -104,10 +104,10 @@ scoreFAQ:
       * Get TSLove tokens, which get you free Commons Stack swag from our store! (<https://swag.trustedseed.org/>[](http://cslove.commonsstack.org/))
     question: What rights does $TRUST give me?
   - answer: >-
-      * Join the Commons Stack Discord or Telegram, where we dish praise:
+      * Join the [Commons Stack Discord](<* *
+      [discord.gg/eh2S9FqwDR](https://discord.gg/eh2S9FqwDR)>) where we dish
+      praise.
 
-        * Discord: [discord.gg/eh2S9FqwDR](https://discord.gg/eh2S9FqwDR)
-        * Telegram: [t.me/commonsstack](http://t.me/commonsstack)
       * Collaborate on Commons Stack initiatives & get praised for your work: Grab an issue “For Contributors” off our [Github](https://github.com/commons-stack/iteration0/labels/%F0%9F%99%8C%F0%9F%8F%BB%20For%20Contributors%20%F0%9F%99%8C%F0%9F%8F%BB)!
 
       * At the end of each month, praise gets quantified into a TRUST score, which is added to you ETH address that you provided in your Trusted Seed application
